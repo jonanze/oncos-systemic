@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>OncOS — Systemic Therapy</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1f6f8b">
+<link rel="apple-touch-icon" href="apple-touch-icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Systemic Therapy">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+  :root{
+    --bg:#f7f8fa; --panel:#ffffff; --ink:#1a2230; --muted:#5c6878; --line:#e4e8ee;
+    --accent:#1f6f8b; --accent-soft:#e8f1f4; --chip:#eef1f5;
+    --warn-bg:#fff6e6; --warn-line:#f0c674; --warn-ink:#6b4e00;
+    --shadow:0 1px 3px rgba(20,30,50,.06),0 1px 2px rgba(20,30,50,.04);
+    --mono:"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --sidebar-w:236px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font:14px/1.5 var(--sans); -webkit-text-size-adjust:100%;
+  }
+
+  /* ---------- wordmark ---------- */
+  .wm{
+    margin:0; font-family:var(--mono); font-weight:700; letter-spacing:1px;
+    color:var(--ink); display:inline-block; border-left:3px solid var(--accent);
+    padding-left:11px; line-height:1; text-decoration:none;
+  }
+  .wm .os{color:var(--accent);}
+  .tag{
+    margin:9px 0 0; color:var(--muted); font-size:10px; font-weight:600;
+    font-family:var(--mono); letter-spacing:.18em; text-transform:uppercase;
+  }
+
+  /* ---------- mobile header ---------- */
+  .mhead{
+    display:none; position:sticky; top:0; z-index:40; background:var(--panel);
+    border-bottom:1px solid var(--line); box-shadow:var(--shadow);
+    align-items:center; gap:12px;
+    padding:calc(10px + env(safe-area-inset-top)) calc(14px + env(safe-area-inset-right)) 10px calc(14px + env(safe-area-inset-left));
+  }
+  .burger{
+    flex:0 0 auto; width:38px; height:38px; border:1px solid var(--line); border-radius:9px;
+    background:var(--bg); color:var(--ink); display:flex; align-items:center; justify-content:center;
+    cursor:pointer; padding:0;
+  }
+  .burger svg{width:20px;height:20px;}
+  .mhead .wm{font-size:20px;}
+  .mhead .tag{margin-top:5px;}
+
+  /* ---------- layout ---------- */
+  .layout{display:flex; min-height:100vh; min-height:100dvh;}
+
+  .sidebar{
+    flex:0 0 var(--sidebar-w); width:var(--sidebar-w); background:var(--panel);
+    border-right:1px solid var(--line); position:sticky; top:0; align-self:flex-start;
+    height:100vh; height:100dvh; overflow-y:auto;
+    padding:22px 16px calc(22px + env(safe-area-inset-bottom));
+    display:flex; flex-direction:column;
+  }
+  .sidebar .wm{font-size:26px;}
+  .sidebar .tag{margin-bottom:20px;}
+  .nav{display:flex; flex-direction:column; gap:1px;}
+  .navitem{
+    display:flex; align-items:center; justify-content:space-between; gap:8px;
+    padding:8px 10px; border-radius:8px; cursor:pointer; color:var(--ink);
+    font-size:13px; user-select:none; border:1px solid transparent;
+  }
+  .navitem:hover{background:var(--accent-soft);}
+  .navitem.active{background:var(--accent-soft); color:var(--accent); font-weight:600; border-color:var(--accent);}
+  .navitem .n{
+    font-family:var(--mono); font-size:11px; color:var(--muted);
+    background:var(--chip); border-radius:999px; padding:1px 8px; min-width:24px; text-align:center;
+  }
+  .navitem.active .n{color:var(--accent); background:#fff;}
+  .sidebar .all{margin-bottom:6px; padding-bottom:12px; border-bottom:1px solid var(--line);}
+  .sidebar .syslabel{
+    font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; margin:14px 0 6px 10px;
+  }
+
+  .backdrop{display:none;}
+
+  /* ---------- main ---------- */
+  main{flex:1 1 auto; min-width:0; padding:22px clamp(16px,3vw,30px) 40px;}
+  .topbar{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:12px;}
+  .h-sys{font-size:17px; font-weight:650; margin:0; letter-spacing:-.01em;}
+  .count{color:var(--muted); font-size:12px;}
+  .search{
+    width:100%; max-width:520px; margin:0 0 14px; padding:10px 13px; font-size:15px;
+    border:1px solid var(--line); border-radius:10px; background:var(--panel); color:var(--ink);
+    font-family:var(--sans);
+  }
+  .search:focus{outline:2px solid var(--accent); outline-offset:-1px; border-color:var(--accent);}
+
+  .disclaimer{
+    background:var(--warn-bg); border:1px solid var(--warn-line); color:var(--warn-ink);
+    border-radius:10px; padding:9px 13px; font-size:12px; margin-bottom:16px;
+  }
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:14px; align-items:start;}
+
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:13px;
+    box-shadow:var(--shadow); overflow:hidden;
+    transition:border-color .14s, box-shadow .14s;
+  }
+  .card:hover{border-color:var(--accent);}
+  .card.open{border-color:var(--accent); box-shadow:0 6px 20px rgba(20,30,50,.09);}
+  .card-head{padding:14px 16px; cursor:pointer; display:flex; justify-content:space-between; gap:10px; align-items:flex-start;}
+  .rname{font-weight:650; font-size:15px; line-height:1.35;}
+  .rmeta{margin-top:6px; display:flex; flex-wrap:wrap; gap:5px;}
+  .tagpill{font-size:10.5px; padding:2px 8px; border-radius:6px; background:var(--chip); color:var(--muted);}
+  .tagpill.tumour{background:var(--accent-soft); color:var(--accent);}
+  .caret{color:var(--accent); font-size:13px; transition:transform .15s; flex-shrink:0; margin-top:3px;}
+  .card.open .caret{transform:rotate(90deg);}
+
+  .body{display:none; padding:2px 16px 16px; border-top:1px solid var(--line);}
+  .card.open .body{display:block;}
+  .sec{margin-top:14px;}
+  .sec h3{
+    font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--muted); font-weight:600; margin:0 0 6px;
+  }
+  .kv{font-size:13px;}
+
+  table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  th,td{text-align:left; padding:5px 7px; border-bottom:1px solid var(--line); vertical-align:top;}
+  th{font-family:var(--mono); color:var(--muted); font-weight:600; font-size:9.5px; text-transform:uppercase; letter-spacing:.05em;}
+  tbody tr:last-child td{border-bottom:none;}
+  td .dose{font-weight:600;}
+  td .note{color:var(--muted); font-size:11.5px; display:block; margin-top:2px;}
+
+  .mod{font-size:12.5px; padding:6px 0; border-bottom:1px solid var(--line);}
+  .mod:last-child{border-bottom:none;}
+  .mod b{color:var(--accent);}
+  ul.support{margin:0; padding-left:18px; font-size:12.5px;}
+  ul.support li{margin:2px 0;}
+  .support-line{font-size:13px; margin:2px 0;}
+  .support-line b{color:var(--muted); font-weight:600;}
+
+  .refs a{color:var(--accent); text-decoration:none;}
+  .refs a:hover{text-decoration:underline;}
+  .ref{font-size:12px; margin:3px 0;}
+  .ref .detail{color:var(--muted);}
+  .notes{font-size:12.5px; color:var(--muted); font-style:italic;}
+  .verified{font-size:11px; color:var(--muted); margin-top:13px; padding-top:8px; border-top:1px dashed var(--line);}
+  .verified b{color:var(--accent);}
+
+  .empty{text-align:center; color:var(--muted); padding:60px 0;}
+  .foot{margin-top:26px; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:11.5px;}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:880px){
+    .mhead{display:flex;}
+    .layout{display:block;}
+    .sidebar{
+      position:fixed; top:0; left:0; z-index:50; height:100vh; height:100dvh;
+      width:min(82vw,300px); flex-basis:auto; transform:translateX(-100%);
+      transition:transform .22s ease; box-shadow:0 0 28px rgba(20,30,50,.16);
+      padding-top:calc(22px + env(safe-area-inset-top));
+    }
+    body.nav-open .sidebar{transform:translateX(0);}
+    .sidebar .wm-wrap{display:none;}   /* brand lives in the mobile header */
+    body.nav-open .backdrop{display:block; position:fixed; inset:0; z-index:45; background:transparent;}
+    main{padding:16px;}
+  }
+  @media (min-width:881px){ .mhead{display:none;} }
+
+  @media print{
+    .mhead,.sidebar,.search,.disclaimer,.backdrop{display:none !important;}
+    .layout{display:block;}
+    main{padding:0;}
+    .body{display:block !important;}
+    .card{break-inside:avoid; box-shadow:none; border-color:var(--line);}
+  }
+</style>
+</head>
+<body>
+
+<header class="mhead">
+  <button class="burger" id="burger" aria-label="Open navigation">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+  </button>
+  <div>
+    <a class="wm homelink" href="https://jonanze.github.io/oncos/" aria-label="OncOS home">Onc<span class="os">OS</span></a>
+    <p class="tag">Systemic Therapy</p>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="wm-wrap">
+      <a class="wm homelink" href="https://jonanze.github.io/oncos/" aria-label="OncOS home">Onc<span class="os">OS</span></a>
+      <p class="tag">Systemic Therapy</p>
+    </div>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+  <div class="backdrop" id="backdrop"></div>
+
+  <main>
+    <div class="topbar">
+      <h1 class="h-sys" id="hsys">All regimens</h1>
+      <span class="count" id="count"></span>
+    </div>
+    <input id="search" class="search" type="search" placeholder="Search regimen, drug, alias, or tumour type…" autocomplete="off">
+    <div class="disclaimer">
+      Reference only — doses reflect standard-of-care references and the cited pivotal trials.
+      <b>Always verify against your institutional protocol and current prescribing information before use.</b>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" style="display:none">No regimens match your search.</div>
+    <div class="foot" id="foot"></div>
+  </main>
+</div>
+
+<script src="regimens.js"></script>
+<script>
+  const data = (window.REGIMENS || []).filter(r => r.id && r.name)
+    .slice().sort((a,b) => a.name.localeCompare(b.name));
+
+  // Map granular tumour values -> system headers (sidebar grouping).
+  const SYSTEMS = [
+    { name:'Thoracic',         test:t => /^Lung/.test(t) || t === 'Mesothelioma' },
+    { name:'Breast',           test:t => /^Breast/.test(t) },
+    { name:'Gastrointestinal', test:t => ['Gastroesophageal','Colorectal','Hepatocellular','Biliary tract','Pancreatic','GIST'].includes(t) },
+    { name:'Genitourinary',    test:t => ['Bladder / Urothelial','Prostate','Renal cell carcinoma'].includes(t) },
+    { name:'Gynaecological',   test:t => ['Cervical','Endometrial','Ovarian'].includes(t) },
+    { name:'Head & Neck',      test:t => t === 'Head & Neck' },
+    { name:'Skin / Melanoma',  test:t => t === 'Melanoma' },
+    { name:'Endocrine',        test:t => /^Thyroid/.test(t) },
+  ];
+  function systemsOf(r){
+    const s = new Set();
+    (r.tumour||[]).forEach(t => { const m = SYSTEMS.find(x => x.test(t)); if (m) s.add(m.name); });
+    return [...s];
+  }
+
+  const grid = document.getElementById('grid');
+  const searchEl = document.getElementById('search');
+  const navEl = document.getElementById('nav');
+  const countEl = document.getElementById('count');
+  const emptyEl = document.getElementById('empty');
+  const hsysEl = document.getElementById('hsys');
+  const footEl = document.getElementById('foot');
+
+  let activeSystem = null;   // null = All
+  let query = '';
+
+  function esc(s){ return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+  function renderNav(){
+    const counts = {};
+    SYSTEMS.forEach(s => counts[s.name] = 0);
+    data.forEach(r => systemsOf(r).forEach(n => counts[n]++));
+
+    let html = `<div class="navitem all${activeSystem===null?' active':''}" data-sys="">
+        <span>All regimens</span><span class="n">${data.length}</span></div>`;
+    html += `<div class="syslabel">By tumour system</div>`;
+    SYSTEMS.filter(s => counts[s.name] > 0).forEach(s => {
+      html += `<div class="navitem${activeSystem===s.name?' active':''}" data-sys="${esc(s.name)}">
+        <span>${esc(s.name)}</span><span class="n">${counts[s.name]}</span></div>`;
+    });
+    navEl.innerHTML = html;
+    navEl.querySelectorAll('.navitem').forEach(el => el.onclick = () => {
+      activeSystem = el.dataset.sys || null;
+      document.body.classList.remove('nav-open');
+      render();
+    });
+  }
+
+  function matches(r){
+    if (activeSystem && !systemsOf(r).includes(activeSystem)) return false;
+    if (!query) return true;
+    const hay = [r.name, ...(r.aliases||[]), ...(r.tumour||[]), ...(r.setting||[]),
+      ...(r.drugs||[]).map(d => d.drug)].join(' ').toLowerCase();
+    return query.split(/\s+/).every(term => hay.includes(term));
+  }
+
+  function drugRows(drugs){
+    return drugs.map(d => `<tr>
+      <td>${esc(d.drug)}</td>
+      <td class="dose">${esc(d.dose)}${d.note?`<span class="note">${esc(d.note)}</span>`:''}</td>
+      <td>${esc(d.route||'')}</td>
+      <td>${esc(d.days||'')}${d.notes?`<span class="note">${esc(d.notes)}</span>`:''}</td>
+    </tr>`).join('');
+  }
+
+  function cardHTML(r){
+    const tags = [
+      ...(r.tumour||[]).map(t => `<span class="tagpill tumour">${esc(t)}</span>`),
+      ...(r.setting||[]).map(s => `<span class="tagpill">${esc(s)}</span>`)
+    ].join('');
+
+    const support = r.support ? `<div class="sec"><h3>Premedications &amp; supportive care</h3>
+      <div class="support-line"><b>Emetogenicity:</b> ${esc(r.support.emetogenicity||'—')}</div>
+      <div class="support-line"><b>Growth factor:</b> ${esc(r.support.gcsf||'—')}</div>
+      ${(r.support.premeds&&r.support.premeds.length)?`<ul class="support">${r.support.premeds.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>`:''}
+      </div>` : '';
+
+    const mods = (r.modifications&&r.modifications.length) ? `<div class="sec"><h3>Dose modifications</h3>
+      ${r.modifications.map(m=>`<div class="mod"><b>${esc(m.trigger)}:</b> ${esc(m.action)}</div>`).join('')}</div>` : '';
+
+    const levels = (r.doseLevels&&r.doseLevels.length) ? `<div class="sec"><h3>Dose levels</h3>
+      ${r.doseLevels.map(l=>`<div class="mod"><b>${esc(l.level)}:</b> ${esc(l.detail)}</div>`).join('')}</div>` : '';
+
+    const refs = (r.refs&&r.refs.length) ? `<div class="sec refs"><h3>Source</h3>
+      ${r.refs.map(ref=>`<div class="ref">${ref.url?`<a href="${esc(ref.url)}" target="_blank" rel="noopener">${esc(ref.label)}</a>`:`<b>${esc(ref.label)}</b>`}${ref.detail?` — <span class="detail">${esc(ref.detail)}</span>`:''}</div>`).join('')}</div>` : '';
+
+    const notes = r.notes ? `<div class="sec"><div class="notes">${esc(Array.isArray(r.notes)?r.notes.join(' '):r.notes)}</div></div>` : '';
+
+    const verified = r.verified ? `<div class="verified"><b>✓ Reviewed ${esc(r.verified)}</b> — confirm against institutional protocol &amp; current prescribing info before use.</div>` : '';
+
+    return `<div class="card" data-id="${esc(r.id)}">
+      <div class="card-head">
+        <div>
+          <div class="rname">${esc(r.name)}</div>
+          <div class="rmeta">${tags}</div>
+        </div>
+        <span class="caret">▶</span>
+      </div>
+      <div class="body">
+        <div class="sec"><h3>Schedule</h3>
+          <div class="kv"><b>${esc(r.cycle||'')}</b>${r.cycles?` · ${esc(r.cycles)}`:''}</div>
+        </div>
+        <div class="sec"><h3>Drugs</h3>
+          <table><thead><tr><th>Drug</th><th>Dose</th><th>Route</th><th>Days</th></tr></thead>
+          <tbody>${drugRows(r.drugs||[])}</tbody></table>
+        </div>
+        ${mods}${levels}${support}${refs}${notes}${verified}
+      </div>
+    </div>`;
+  }
+
+  function render(){
+    renderNav();
+    const list = data.filter(matches);
+    grid.innerHTML = list.map(cardHTML).join('');
+    hsysEl.textContent = activeSystem || 'All regimens';
+    countEl.textContent = query || activeSystem
+      ? `${list.length} of ${data.length} regimens`
+      : `${data.length} regimens`;
+    emptyEl.style.display = list.length ? 'none' : 'block';
+    grid.querySelectorAll('.card-head').forEach(h => {
+      h.onclick = () => h.parentElement.classList.toggle('open');
+    });
+  }
+
+  searchEl.addEventListener('input', e => { query = e.target.value.trim().toLowerCase(); render(); });
+
+  // mobile drawer
+  document.getElementById('burger').onclick = () => document.body.classList.toggle('nav-open');
+  document.getElementById('backdrop').onclick = () => document.body.classList.remove('nav-open');
+
+  footEl.textContent = `${data.length} verified regimens · core solid-tumour sites · OncOS — Systemic Therapy`;
+  render();
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  }
+</script>
+</body>
+</html>
