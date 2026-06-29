@@ -50,10 +50,10 @@ window.DRUGS = [
   mechanism: "Oral 5-FU prodrug — activated by thymidine phosphorylase, inhibits thymidylate synthase.",
   boxedWarning: "Coumarin anticoagulant interaction (warfarin, phenprocoumon): monitor INR/PT frequently. Altered coagulation and bleeding, including death, reported — onset days to months after starting, up to 1 month after stopping. Higher risk if age >60 or cancer.",
   indications: [
-    { indication: "Colon, adjuvant",            hsa: "y", fda: "y", ema: "y", dose: "1250 mg/m² BID, D1–14 q3w × 8 (6 mo)" },
-    { indication: "Colorectal, metastatic",      hsa: "y", fda: "y", ema: "y", dose: "1250 mg/m² BID, D1–14 q3w" },
-    { indication: "Gastric, advanced",           hsa: "y", fda: "n", ema: "y", dose: "1000 mg/m² BID, D1–14 q3w (+ platinum)" },
-    { indication: "Breast, advanced/metastatic", hsa: "y", fda: "y", ema: "y", dose: "1250 mg/m² BID, D1–14 q3w — monotherapy, or + docetaxel 75 mg/m² q3w" }
+    { indication: "Colon, adjuvant",            hsa: "y", fda: "y", dose: "1250 mg/m² BID, D1–14 q3w × 8 (6 mo)" },
+    { indication: "Colorectal, metastatic",      hsa: "y", fda: "y", dose: "1250 mg/m² BID, D1–14 q3w" },
+    { indication: "Gastric, advanced",           hsa: "y", fda: "n", dose: "1000 mg/m² BID, D1–14 q3w (+ platinum)" },
+    { indication: "Breast, advanced/metastatic", hsa: "y", fda: "y", dose: "1250 mg/m² BID, D1–14 q3w — monotherapy, or + docetaxel 75 mg/m² q3w" }
   ],
   cdl: { class: "SDL", wording: "For cancer treatment" },
   toxicities: {
@@ -90,12 +90,13 @@ window.DRUGS = [
   route: ["IV"],
   atc: "L01XA02",
   brands: ["Paraplatin", "DBL Carboplatin", "Kemocarb", "Carbotinol"],
-  tumours: ["Ovarian"],
+  tumours: ["Ovarian", "Lung — SCLC", "Head & Neck"],
   mechanism: "Platinum agent — forms DNA crosslinks; less nephro-, oto- and neurotoxic but more myelosuppressive than cisplatin.",
   boxedWarning: "Bone-marrow suppression — dose-related, may be severe (infection and/or bleeding). Anaphylactic-like reactions within minutes of administration. Administer under the supervision of a physician experienced with cancer chemotherapy.",
   indications: [
-    { indication: "Ovarian, advanced — initial",        hsa: "y", fda: "y", ema: "y", dose: "300 mg/m² q4w × 6 (+ cyclophosphamide); or Calvert AUC 5–6" },
-    { indication: "Ovarian, recurrent — single agent",   hsa: "y", fda: "y", ema: "y", dose: "360 mg/m² q4w; or Calvert AUC 4–6" }
+    { indication: "Ovarian, advanced (epithelial)", hsa: "y", fda: "y", dose: "Calvert AUC 5–6 q3–4w (AUC 4–6 if recurrent / single agent)" },
+    { indication: "Lung — small cell",              hsa: "y", fda: "n", dose: "Calvert AUC 5–6 q3w" },
+    { indication: "Head & neck",                    hsa: "y", fda: "n", dose: "Calvert AUC 5–6 q3w (regimen-dependent)" }
   ],
   cdl: { class: "SDL", wording: "For cancer treatment" },
   toxicities: {
@@ -114,7 +115,7 @@ window.DRUGS = [
       { label: "Myelosuppression", text: "adjust % of prior dose by nadir counts — plt >100k & ANC >2000 → up to 125%; plt 50–100k / ANC 500–2000 → 100%; plt <50k / ANC <500 → 75%." }
     ]
   },
-  sources: "FDA label (DailyMed) · EU SmPC (national authorisation) · Calvert et al. (AUC dosing) · HSA register / NDF (SDL) · MOH Cancer Drug List",
+  sources: "HSA SG package insert (DBL Carboplatin, SIN02301P, §4.1) · FDA label (DailyMed) · Calvert et al. (AUC dosing) · MOH SDL / Cancer Drug List",
   verified: "2026-06-29"
 },
 
@@ -127,13 +128,14 @@ window.DRUGS = [
   route: ["IV"],
   atc: "L01XA01",
   brands: ["Platinol", "DBL Cisplatin"],
-  tumours: ["Testicular", "Ovarian", "Bladder"],
+  tumours: ["Testicular", "Ovarian", "Bladder", "Head & Neck"],
   mechanism: "Platinum agent — forms intrastrand DNA crosslinks, blocking replication and transcription.",
   boxedWarning: "Nephrotoxicity — severe, including acute renal failure; ensure adequate hydration. Dose-related peripheral neuropathy. Severe nausea and vomiting — premedicate with antiemetics. Myelosuppression — severe, with fatal infections. Cumulative ototoxicity.",
   indications: [
-    { indication: "Testicular, advanced", hsa: "y", fda: "y", ema: "y", dose: "20 mg/m² daily × 5, per cycle" },
-    { indication: "Ovarian, advanced",     hsa: "y", fda: "y", ema: "y", dose: "75–100 mg/m² q3–4w" },
-    { indication: "Bladder, advanced",     hsa: "y", fda: "y", ema: "y", dose: "50–70 mg/m² q3–4w" }
+    { indication: "Testicular (germ cell), metastatic", hsa: "y", fda: "y", dose: "20 mg/m² daily × 5, per cycle" },
+    { indication: "Ovarian, advanced",                  hsa: "y", fda: "y", dose: "75–100 mg/m² q3–4w" },
+    { indication: "Bladder, advanced",                  hsa: "y", fda: "y", dose: "50–70 mg/m² q3–4w" },
+    { indication: "Head & neck, squamous cell",         hsa: "y", fda: "n", dose: "100 mg/m² q3w (e.g. concurrent chemoRT)" }
   ],
   cdl: { class: "SDL", wording: "For cancer treatment" },
   toxicities: {
@@ -152,7 +154,7 @@ window.DRUGS = [
       { label: "Oto/neurotoxicity", text: "hold or switch (e.g. to carboplatin) for significant hearing loss or neuropathy." }
     ]
   },
-  sources: "FDA label (DailyMed) · EU SmPC (national authorisation) · HSA register / NDF (SDL) · MOH Cancer Drug List",
+  sources: "HSA SG package insert (DBL Cisplatin, Prescription Only) · FDA label (DailyMed) · MOH SDL / Cancer Drug List",
   verified: "2026-06-29"
 },
 
@@ -169,8 +171,8 @@ window.DRUGS = [
   mechanism: "Platinum agent — forms DNA crosslinks; partners with infusional 5-FU / leucovorin (FOLFOX).",
   boxedWarning: "Anaphylaxis and serious hypersensitivity reactions — can occur within minutes of administration, during any cycle, and may be fatal. Administer under supervision with emergency treatment available.",
   indications: [
-    { indication: "Colon, adjuvant",        hsa: "y", fda: "y", ema: "y", dose: "85 mg/m² D1 q2w × 12 (+ infusional 5-FU/LV)" },
-    { indication: "Colorectal, advanced",   hsa: "y", fda: "y", ema: "y", dose: "85 mg/m² D1 q2w (+ infusional 5-FU/LV)" }
+    { indication: "Colon, adjuvant",      hsa: "y", fda: "y", dose: "85 mg/m² D1 q2w × 12 (+ infusional 5-FU/LV)" },
+    { indication: "Colorectal, advanced", hsa: "y", fda: "y", dose: "85 mg/m² D1 q2w (+ infusional 5-FU/LV)" }
   ],
   cdl: { class: "SDL", wording: "For cancer treatment" },
   toxicities: {
@@ -188,7 +190,7 @@ window.DRUGS = [
       { label: "Neuropathy", text: "persistent grade 2 → consider dose reduction; grade 3 → reduce or discontinue. Acute cold-induced — prolong infusion to 6 h and avoid cold exposure." }
     ]
   },
-  sources: "FDA label (Eloxatin, DailyMed) · EU SmPC (national authorisation) · HSA register / NDF (SDL) · MOH Cancer Drug List",
+  sources: "HSA SG package insert (Eloxatin, SIN13237P) · FDA label (Eloxatin, DailyMed) · MOH SDL / Cancer Drug List",
   verified: "2026-06-29"
 }
 
