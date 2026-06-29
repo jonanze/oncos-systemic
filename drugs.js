@@ -28,6 +28,8 @@
  *                   hsa/fda: "y" = on label, "n" = not on label
  *                   (EMA column removed 2026-06-29; any legacy `ema` key is ignored)
  *   cdl           { class: "SDL"|"MAF"|"Not listed", wording: "<verbatim CDL text>" }
+ *                   for indication-specific CDL (e.g. MAF drugs) use instead:
+ *                   { class, limit?: "<MSHL limit>", items: [{ cancer, text }] }
  *   toxicities    { common:[..], serious:[..] }
  *   doseReductions{ toxicityTable:[{grade, levels:[1st,2nd,3rd]}], renal, hepatic?, other:[{label,text}] }
  *   sources       string — source list shown in the footer
@@ -350,6 +352,135 @@ window.DRUGS = [
     ]
   },
   sources: "HSA SG package insert (Alimta) · FDA label (DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL)",
+  verified: "2026-06-30"
+},
+
+{
+  id: "paclitaxel",
+  name: "Paclitaxel",
+  aliases: ["Taxol", "Anzatax", "DBL Paclitaxel"],
+  class: "Taxane",
+  subclass: "Antimicrotubule",
+  route: ["IV"],
+  atc: "L01CD01",
+  brands: ["Taxol", "Anzatax"],
+  tumours: ["Ovarian", "Breast", "Lung — NSCLC", "Kaposi sarcoma"],
+  mechanism: "Taxane — stabilises microtubules, arresting mitosis. Cremophor EL solvent drives hypersensitivity → premedication required.",
+  boxedWarning: "Severe hypersensitivity / anaphylaxis (2–4%, fatal despite premedication) — premedicate with corticosteroid + antihistamine + H2 antagonist. Severe bone-marrow suppression — do not start if baseline neutrophils <1500 cells/mm³.",
+  indications: [
+    { indication: "Ovarian",                       hsa: "y", fda: "y", dose: "175 mg/m² over 3 h q3w (± carboplatin)" },
+    { indication: "Breast",                        hsa: "y", fda: "y", dose: "175 mg/m² q3w or weekly 80 mg/m²; adjuvant after AC; + trastuzumab if HER2+" },
+    { indication: "Lung — non-small cell",         hsa: "y", fda: "y", dose: "175–200 mg/m² q3w (+ platinum) or weekly" },
+    { indication: "Kaposi sarcoma (AIDS-related)", hsa: "n", fda: "y", dose: "135 mg/m² q3w or 100 mg/m² q2w" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Neutropenia — dose-limiting",
+      "Peripheral sensory neuropathy",
+      "Hypersensitivity / infusion reactions",
+      "Myalgia / arthralgia",
+      "Alopecia, mucositis",
+      "Bradycardia / hypotension"
+    ],
+    serious: ["Anaphylaxis", "Severe / febrile neutropenia", "Cardiac conduction abnormalities"]
+  },
+  doseReductions: {
+    hepatic: "Reduce dose in hepatic impairment (extensively hepatically metabolised).",
+    other: [
+      { label: "Premedication (mandatory)", text: "dexamethasone + diphenhydramine + H2 antagonist before each dose." },
+      { label: "Neutropenia", text: "do not re-treat until neutrophils ≥1500; reduce ~20% for febrile or severe neutropenia." },
+      { label: "Neuropathy", text: "reduce ~20% for grade ≥2 persistent peripheral neuropathy." }
+    ]
+  },
+  sources: "HSA SG package insert (Anzatax, SIN09539P) · FDA label (DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL)",
+  verified: "2026-06-30"
+},
+
+{
+  id: "docetaxel",
+  name: "Docetaxel",
+  aliases: ["Taxotere", "Docetaxel Sandoz"],
+  class: "Taxane",
+  subclass: "Antimicrotubule",
+  route: ["IV"],
+  atc: "L01CD02",
+  brands: ["Taxotere", "Docetaxel Sandoz"],
+  tumours: ["Breast", "Lung — NSCLC", "Prostate", "Gastric", "Head & Neck"],
+  mechanism: "Taxane — stabilises microtubules, arresting mitosis. Dexamethasone premedication reduces fluid retention.",
+  boxedWarning: "Toxic deaths — increased with hepatic impairment, higher doses, and in NSCLC after prior platinum. Do NOT give if bilirubin > ULN, or AST/ALT >1.5× ULN with ALP >2.5× ULN. Severe neutropenia — do not start if neutrophils <1500. Severe hypersensitivity (do not rechallenge). Severe fluid retention despite dexamethasone premedication.",
+  indications: [
+    { indication: "Breast",                hsa: "y", fda: "y", dose: "60–100 mg/m² q3w; adjuvant (TAC); + trastuzumab if HER2+" },
+    { indication: "Lung — non-small cell", hsa: "y", fda: "y", dose: "75 mg/m² q3w (post-platinum, or + cisplatin 1L)" },
+    { indication: "Prostate (mCRPC)",      hsa: "y", fda: "y", dose: "75 mg/m² q3w + prednisone" },
+    { indication: "Gastric (incl. GEJ)",   hsa: "y", fda: "y", dose: "75 mg/m² q3w + cisplatin + 5-FU (DCF)" },
+    { indication: "Head & neck",           hsa: "y", fda: "y", dose: "75 mg/m² + cisplatin + 5-FU (TPF induction)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Neutropenia — frequent, often febrile",
+      "Fluid retention / oedema",
+      "Peripheral neuropathy",
+      "Alopecia, nail changes",
+      "Fatigue, stomatitis, diarrhoea",
+      "Hypersensitivity / infusion reactions"
+    ],
+    serious: ["Febrile neutropenia / sepsis", "Toxic death in hepatic impairment", "Severe fluid retention", "Severe skin reactions"]
+  },
+  doseReductions: {
+    hepatic: "Contraindicated if bilirubin > ULN, or transaminases >1.5× ULN with ALP >2.5× ULN (toxic-death risk).",
+    other: [
+      { label: "Premedication (mandatory)", text: "dexamethasone 8 mg BID × 3 d from the day before (reduces fluid retention + hypersensitivity)." },
+      { label: "Neutropenia", text: "febrile neutropenia or neutrophils <500 for >1 wk → reduce 100 → 75 (→ 60) mg/m²." },
+      { label: "Neuropathy / skin", text: "reduce for grade ≥3." }
+    ]
+  },
+  sources: "HSA SG package insert (Taxotere / Docetaxel Sandoz, SIN14564P) · FDA label (DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL)",
+  verified: "2026-06-30"
+},
+
+{
+  id: "nab-paclitaxel",
+  name: "Nab-paclitaxel",
+  aliases: ["Abraxane", "albumin-bound paclitaxel", "paclitaxel protein-bound"],
+  class: "Taxane",
+  subclass: "Albumin-bound (solvent-free)",
+  route: ["IV"],
+  atc: "L01CD01",
+  brands: ["Abraxane"],
+  tumours: ["Breast", "Lung — NSCLC", "Pancreatic"],
+  mechanism: "Albumin-bound paclitaxel — solvent-free, so no Cremophor hypersensitivity and no routine steroid premedication.",
+  boxedWarning: "Severe bone-marrow suppression — do not start if baseline neutrophils <1500 cells/mm³; monitor counts. Solvent-free — do not substitute for solvent-based paclitaxel on an mg-for-mg basis.",
+  indications: [
+    { indication: "Breast, metastatic",    hsa: "y", fda: "y", dose: "260 mg/m² q3w (after combination chemo failure)" },
+    { indication: "Lung — non-small cell", hsa: "y", fda: "y", dose: "100 mg/m² D1,8,15 q3w + carboplatin (1L, non-surgical)" },
+    { indication: "Pancreatic",            hsa: "y", fda: "y", dose: "125 mg/m² D1,8,15 q4w + gemcitabine (metastatic)" }
+  ],
+  cdl: { class: "MAF", limit: "MediShield Life $1,200/mth", items: [
+    { cancer: "Breast (metastatic)", text: "monotherapy after 1L failure, when anthracycline-containing therapy not indicated" },
+    { cancer: "Lung", text: "+ carboplatin, previously untreated locally advanced / metastatic NSCLC, not for curative surgery/RT" },
+    { cancer: "Pancreatic", text: "+ gemcitabine, locally advanced / metastatic adenocarcinoma" },
+    { cancer: "Taxane-intolerant", text: "for cancer treatment in patients intolerant to taxane chemotherapy" }
+  ] },
+  toxicities: {
+    common: [
+      "Neutropenia",
+      "Peripheral sensory neuropathy",
+      "Anaemia, thrombocytopenia",
+      "Fatigue, alopecia",
+      "Nausea, diarrhoea"
+    ],
+    serious: ["Severe neutropenia / sepsis", "Severe sensory neuropathy", "Rare pneumonitis"]
+  },
+  doseReductions: {
+    hepatic: "Reduce / avoid in moderate–severe hepatic impairment.",
+    other: [
+      { label: "Neutropenia", text: "hold until neutrophils ≥1500; reduce for severe or febrile neutropenia." },
+      { label: "Neuropathy", text: "grade 3 → hold until ≤grade 1, resume reduced. No routine steroid premedication (solvent-free)." }
+    ]
+  },
+  sources: "HSA SG package insert (Abraxane, SIN14532P) · FDA label (DailyMed) · MOH Cancer Drug List (1 Jun 2026, MAF — indication-specific)",
   verified: "2026-06-30"
 }
 
