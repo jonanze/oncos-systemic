@@ -11,7 +11,7 @@ import pathlib
 HERE = pathlib.Path(__file__).parent
 # Files whose content determines the cache version. Order matters for the hash.
 ASSETS = [
-    "index.html", "regimens.js", "manifest.webmanifest",
+    "index.html", "drugs.js", "manifest.webmanifest",
     "icon-192.png", "icon-512.png", "icon-maskable-512.png", "apple-touch-icon-180.png",
 ]
 

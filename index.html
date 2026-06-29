@@ -16,170 +16,140 @@
   :root{
     --bg:#f7f8fa; --panel:#ffffff; --ink:#1a2230; --muted:#5c6878; --line:#e4e8ee;
     --accent:#1f6f8b; --accent-soft:#e8f1f4; --chip:#eef1f5;
-    --warn-bg:#fff6e6; --warn-line:#f0c674; --warn-ink:#6b4e00;
+    --ok:#1d9e75; --na:#9aa6b4; --danger:#a3322b; --danger-bg:#fdecea; --danger-line:#d98b86;
     --shadow:0 1px 3px rgba(20,30,50,.06),0 1px 2px rgba(20,30,50,.04);
     --mono:"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --sidebar-w:236px;
+    --sidebar-w:248px;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;}
-  body{
-    background:var(--bg); color:var(--ink);
-    font:14px/1.5 var(--sans); -webkit-text-size-adjust:100%;
-  }
+  body{background:var(--bg); color:var(--ink); font:14px/1.5 var(--sans); -webkit-text-size-adjust:100%;}
 
-  /* ---------- wordmark ---------- */
-  .wm{
-    margin:0; font-family:var(--mono); font-weight:700; letter-spacing:1px;
-    color:var(--ink); display:inline-block; border-left:3px solid var(--accent);
-    padding-left:11px; line-height:1; text-decoration:none;
-  }
+  .wm{margin:0; font-family:var(--mono); font-weight:700; letter-spacing:1px; color:var(--ink);
+    display:inline-block; border-left:3px solid var(--accent); padding-left:11px; line-height:1; text-decoration:none;}
   .wm .os{color:var(--accent);}
-  .tag{
-    margin:9px 0 0; color:var(--muted); font-size:10px; font-weight:600;
-    font-family:var(--mono); letter-spacing:.18em; text-transform:uppercase;
-  }
+  .tag{margin:9px 0 0; color:var(--muted); font-size:10px; font-weight:600;
+    font-family:var(--mono); letter-spacing:.18em; text-transform:uppercase;}
 
-  /* ---------- mobile header ---------- */
-  .mhead{
-    display:none; position:sticky; top:0; z-index:40; background:var(--panel);
-    border-bottom:1px solid var(--line); box-shadow:var(--shadow);
-    align-items:center; gap:12px;
-    padding:calc(10px + env(safe-area-inset-top)) calc(14px + env(safe-area-inset-right)) 10px calc(14px + env(safe-area-inset-left));
-  }
-  .burger{
-    flex:0 0 auto; width:38px; height:38px; border:1px solid var(--line); border-radius:9px;
-    background:var(--bg); color:var(--ink); display:flex; align-items:center; justify-content:center;
-    cursor:pointer; padding:0;
-  }
+  .mhead{display:none; position:sticky; top:0; z-index:40; background:var(--panel);
+    border-bottom:1px solid var(--line); box-shadow:var(--shadow); align-items:center; gap:12px;
+    padding:calc(10px + env(safe-area-inset-top)) calc(14px + env(safe-area-inset-right)) 10px calc(14px + env(safe-area-inset-left));}
+  .burger{flex:0 0 auto; width:38px; height:38px; border:1px solid var(--line); border-radius:9px;
+    background:var(--bg); color:var(--ink); display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0;}
   .burger svg{width:20px;height:20px;}
   .mhead .wm{font-size:20px;}
   .mhead .tag{margin-top:5px;}
 
-  /* ---------- layout ---------- */
   .layout{display:flex; min-height:100vh; min-height:100dvh;}
-
-  .sidebar{
-    flex:0 0 var(--sidebar-w); width:var(--sidebar-w); background:var(--panel);
+  .sidebar{flex:0 0 var(--sidebar-w); width:var(--sidebar-w); background:var(--panel);
     border-right:1px solid var(--line); position:sticky; top:0; align-self:flex-start;
     height:100vh; height:100dvh; overflow-y:auto;
-    padding:22px 16px calc(22px + env(safe-area-inset-bottom));
-    display:flex; flex-direction:column;
-  }
+    padding:22px 16px calc(22px + env(safe-area-inset-bottom)); display:flex; flex-direction:column; gap:18px;}
   .sidebar .wm{font-size:26px;}
-  .sidebar .tag{margin-bottom:20px;}
-  .nav{display:flex; flex-direction:column; gap:1px;}
-  .navitem{
-    display:flex; align-items:center; justify-content:space-between; gap:8px;
-    padding:8px 10px; border-radius:8px; cursor:pointer; color:var(--ink);
-    font-size:13px; user-select:none; border:1px solid transparent;
-  }
-  .navitem:hover{background:var(--accent-soft);}
-  .navitem.active{background:var(--accent-soft); color:var(--accent); font-weight:600; border-color:var(--accent);}
-  .navitem .n{
-    font-family:var(--mono); font-size:11px; color:var(--muted);
-    background:var(--chip); border-radius:999px; padding:1px 8px; min-width:24px; text-align:center;
-  }
-  .navitem.active .n{color:var(--accent); background:#fff;}
-  .sidebar .all{margin-bottom:6px; padding-bottom:12px; border-bottom:1px solid var(--line);}
-  .sidebar .syslabel{
-    font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--muted); font-weight:600; margin:14px 0 6px 10px;
-  }
+  .sidebar .tag{margin-bottom:2px;}
+  .facet .flabel{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; margin:0 0 8px 2px;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px;}
+  .chip{font-size:12px; padding:5px 11px; border-radius:999px; cursor:pointer; background:var(--chip);
+    color:var(--muted); border:1px solid transparent; user-select:none; white-space:nowrap;}
+  .chip.active{background:var(--accent-soft); color:var(--accent); border-color:var(--accent); font-weight:600;}
+  .az{display:flex; flex-wrap:wrap; gap:3px;}
+  .az a{font-family:var(--mono); font-size:11px; width:21px; height:21px; display:flex; align-items:center;
+    justify-content:center; border-radius:5px; color:var(--muted); text-decoration:none; cursor:pointer;}
+  .az a.has{color:var(--accent); font-weight:600;}
+  .az a.off{color:var(--line); pointer-events:none;}
+  .az a.active{background:var(--accent); color:#fff;}
 
   .backdrop{display:none;}
 
-  /* ---------- main ---------- */
   main{flex:1 1 auto; min-width:0; padding:22px clamp(16px,3vw,30px) 40px;}
   .topbar{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:12px;}
-  .h-sys{font-size:17px; font-weight:650; margin:0; letter-spacing:-.01em;}
+  .h-title{font-size:17px; font-weight:650; margin:0; letter-spacing:-.01em;}
   .count{color:var(--muted); font-size:12px;}
-  .search{
-    width:100%; max-width:520px; margin:0 0 14px; padding:10px 13px; font-size:15px;
-    border:1px solid var(--line); border-radius:10px; background:var(--panel); color:var(--ink);
-    font-family:var(--sans);
-  }
+  .search{width:100%; max-width:540px; margin:0 0 16px; padding:10px 13px; font-size:15px;
+    border:1px solid var(--line); border-radius:10px; background:var(--panel); color:var(--ink); font-family:var(--sans);}
   .search:focus{outline:2px solid var(--accent); outline-offset:-1px; border-color:var(--accent);}
 
-  .disclaimer{
-    background:var(--warn-bg); border:1px solid var(--warn-line); color:var(--warn-ink);
-    border-radius:10px; padding:9px 13px; font-size:12px; margin-bottom:16px;
-  }
+  .azdiv{font-family:var(--mono); font-weight:700; font-size:13px; color:var(--accent);
+    letter-spacing:.05em; margin:18px 0 8px 2px;}
+  .azdiv:first-of-type{margin-top:0;}
 
-  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:14px; align-items:start;}
-
-  .card{
-    background:var(--panel); border:1px solid var(--line); border-radius:13px;
-    box-shadow:var(--shadow); overflow:hidden;
-    transition:border-color .14s, box-shadow .14s;
-  }
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:13px; box-shadow:var(--shadow);
+    overflow:hidden; transition:border-color .14s, box-shadow .14s; margin-bottom:12px;}
   .card:hover{border-color:var(--accent);}
   .card.open{border-color:var(--accent); box-shadow:0 6px 20px rgba(20,30,50,.09);}
-  .card-head{padding:14px 16px; cursor:pointer; display:flex; justify-content:space-between; gap:10px; align-items:flex-start;}
-  .rname{font-weight:650; font-size:15px; line-height:1.35;}
-  .rmeta{margin-top:6px; display:flex; flex-wrap:wrap; gap:5px;}
+  .card-head{padding:14px 16px; cursor:pointer; display:flex; justify-content:space-between; gap:12px; align-items:flex-start;}
+  .dname{font-weight:650; font-size:16px; line-height:1.3;}
+  .dmeta{margin-top:7px; display:flex; flex-wrap:wrap; gap:5px;}
   .tagpill{font-size:10.5px; padding:2px 8px; border-radius:6px; background:var(--chip); color:var(--muted);}
-  .tagpill.tumour{background:var(--accent-soft); color:var(--accent);}
+  .tagpill.cls{background:var(--accent-soft); color:var(--accent);}
+  .dmech{margin-top:8px; font-size:12px; color:var(--muted);}
+  .dbrands{margin-top:3px; font-size:11px; color:var(--muted);}
   .caret{color:var(--accent); font-size:13px; transition:transform .15s; flex-shrink:0; margin-top:3px;}
   .card.open .caret{transform:rotate(90deg);}
 
   .body{display:none; padding:2px 16px 16px; border-top:1px solid var(--line);}
   .card.open .body{display:block;}
-  .sec{margin-top:14px;}
-  .sec h3{
-    font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em;
-    color:var(--muted); font-weight:600; margin:0 0 6px;
-  }
-  .kv{font-size:13px;}
+  .sec{margin-top:16px;}
+  .sec h3{font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--muted); font-weight:600; margin:0 0 7px;}
 
-  table{width:100%; border-collapse:collapse; font-size:12.5px;}
-  th,td{text-align:left; padding:5px 7px; border-bottom:1px solid var(--line); vertical-align:top;}
-  th{font-family:var(--mono); color:var(--muted); font-weight:600; font-size:9.5px; text-transform:uppercase; letter-spacing:.05em;}
-  tbody tr:last-child td{border-bottom:none;}
-  td .dose{font-weight:600;}
-  td .note{color:var(--muted); font-size:11.5px; display:block; margin-top:2px;}
+  .boxwarn{margin-top:14px; border:1px solid var(--danger-line); background:var(--danger-bg); border-radius:9px; padding:10px 12px;}
+  .boxwarn .bwl{font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--danger); font-weight:600; margin-bottom:5px;}
+  .boxwarn .bwt{font-size:12px; color:#7a241e;}
 
-  .mod{font-size:12.5px; padding:6px 0; border-bottom:1px solid var(--line);}
-  .mod:last-child{border-bottom:none;}
-  .mod b{color:var(--accent);}
-  ul.support{margin:0; padding-left:18px; font-size:12.5px;}
-  ul.support li{margin:2px 0;}
-  .support-line{font-size:13px; margin:2px 0;}
-  .support-line b{color:var(--muted); font-weight:600;}
+  table.ind{width:100%; border-collapse:collapse; font-size:11px; table-layout:fixed;}
+  table.ind th{font-family:var(--mono); font-size:9px; text-transform:uppercase; letter-spacing:.03em;
+    color:var(--muted); font-weight:600; text-align:left; padding:4px 5px; border-bottom:1px solid var(--line);}
+  table.ind th.c{text-align:center;}
+  table.ind th.hsa{color:var(--accent);}
+  table.ind td{padding:6px 5px; border-bottom:1px solid #eef1f5; vertical-align:top;}
+  table.ind tr:last-child td{border-bottom:none;}
+  table.ind td.c{text-align:center; font-weight:600;}
+  .yes{color:var(--ok);} .no{color:var(--na);}
+  .indleg{font-size:10px; color:var(--na); margin-top:6px;}
 
-  .refs a{color:var(--accent); text-decoration:none;}
-  .refs a:hover{text-decoration:underline;}
-  .ref{font-size:12px; margin:3px 0;}
-  .ref .detail{color:var(--muted);}
-  .notes{font-size:12.5px; color:var(--muted); font-style:italic;}
-  .verified{font-size:11px; color:var(--muted); margin-top:13px; padding-top:8px; border-top:1px dashed var(--line);}
-  .verified b{color:var(--accent);}
+  .cdl{display:flex; align-items:baseline; gap:9px;}
+  .cdl .cls{font-size:11px; padding:3px 10px; border-radius:6px; background:var(--accent-soft);
+    color:var(--accent); font-weight:600; flex:0 0 auto;}
+  .cdl .word{font-size:12.5px;}
+  .cdl .br{color:var(--na);}
 
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px;}
+  ul.tox{margin:0; padding-left:16px; font-size:12px; line-height:1.55;}
+  ul.tox li.ser{color:var(--danger);}
+  table.dr{width:100%; border-collapse:collapse; font-size:10.5px;}
+  table.dr th{font-family:var(--mono); font-size:9px; text-transform:uppercase; color:var(--muted);
+    text-align:left; font-weight:600; padding:2px 4px; border-bottom:1px solid var(--line);}
+  table.dr td{padding:3px 4px; border-bottom:1px solid #eef1f5;}
+  table.dr tr:last-child td{border-bottom:none;}
+  .drnote{font-size:11px; margin-top:6px; line-height:1.5;}
+  .drnote b{color:var(--accent);}
+
+  .foot-src{font-size:10px; color:var(--muted); margin-top:16px; padding-top:9px; border-top:1px dashed var(--line); line-height:1.6;}
+  .foot-src b{color:var(--accent);}
   .empty{text-align:center; color:var(--muted); padding:60px 0;}
   .foot{margin-top:26px; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:11.5px;}
 
-  /* ---------- responsive ---------- */
   @media (max-width:880px){
     .mhead{display:flex;}
     .layout{display:block;}
-    .sidebar{
-      position:fixed; top:0; left:0; z-index:50; height:100vh; height:100dvh;
-      width:min(82vw,300px); flex-basis:auto; transform:translateX(-100%);
-      transition:transform .22s ease; box-shadow:0 0 28px rgba(20,30,50,.16);
-      padding-top:calc(22px + env(safe-area-inset-top));
-    }
+    .sidebar{position:fixed; top:0; left:0; z-index:50; height:100vh; height:100dvh;
+      width:min(82vw,300px); flex-basis:auto; transform:translateX(-100%); transition:transform .22s ease;
+      box-shadow:0 0 28px rgba(20,30,50,.16); padding-top:calc(22px + env(safe-area-inset-top));}
     body.nav-open .sidebar{transform:translateX(0);}
-    .sidebar .wm-wrap{display:none;}   /* brand lives in the mobile header */
+    .sidebar .wm-wrap{display:none;}
     body.nav-open .backdrop{display:block; position:fixed; inset:0; z-index:45; background:transparent;}
     main{padding:16px;}
+    .twocol{grid-template-columns:1fr;}
   }
   @media (min-width:881px){ .mhead{display:none;} }
 
   @media print{
-    .mhead,.sidebar,.search,.disclaimer,.backdrop{display:none !important;}
-    .layout{display:block;}
-    main{padding:0;}
+    .mhead,.sidebar,.search,.backdrop{display:none !important;}
+    .layout{display:block;} main{padding:0;}
     .body{display:block !important;}
     .card{break-inside:avoid; box-shadow:none; border-color:var(--line);}
   }
@@ -203,165 +173,192 @@
       <a class="wm homelink" href="https://jonanze.github.io/oncos/" aria-label="OncOS home">Onc<span class="os">OS</span></a>
       <p class="tag">Systemic Therapy</p>
     </div>
-    <nav class="nav" id="nav"></nav>
+    <div class="facet"><div class="flabel">Class</div><div class="chips" id="f-class"></div></div>
+    <div class="facet"><div class="flabel">Route</div><div class="chips" id="f-route"></div></div>
+    <div class="facet"><div class="flabel">Tumour</div><div class="chips" id="f-tumour"></div></div>
+    <div class="facet"><div class="flabel">A–Z</div><div class="az" id="az"></div></div>
   </aside>
   <div class="backdrop" id="backdrop"></div>
 
   <main>
     <div class="topbar">
-      <h1 class="h-sys" id="hsys">All regimens</h1>
+      <h1 class="h-title">Drugs</h1>
       <span class="count" id="count"></span>
     </div>
-    <input id="search" class="search" type="search" placeholder="Search regimen, drug, alias, or tumour type…" autocomplete="off">
-    <div class="disclaimer">
-      Reference only — doses reflect standard-of-care references and the cited pivotal trials.
-      <b>Always verify against your institutional protocol and current prescribing information before use.</b>
-    </div>
-    <div class="grid" id="grid"></div>
-    <div class="empty" id="empty" style="display:none">No regimens match your search.</div>
+    <input id="search" class="search" type="search" placeholder="Search drug, brand, class, or tumour…" autocomplete="off">
+    <div id="list"></div>
+    <div class="empty" id="empty" style="display:none">No drugs match.</div>
     <div class="foot" id="foot"></div>
   </main>
 </div>
 
-<script src="regimens.js"></script>
+<script src="drugs.js"></script>
 <script>
-  const data = (window.REGIMENS || []).filter(r => r.id && r.name)
+  const data = (window.DRUGS || []).filter(d => d.id && d.name)
     .slice().sort((a,b) => a.name.localeCompare(b.name));
 
-  // Map granular tumour values -> system headers (sidebar grouping).
-  const SYSTEMS = [
-    { name:'Thoracic',         test:t => /^Lung/.test(t) || t === 'Mesothelioma' },
-    { name:'Breast',           test:t => /^Breast/.test(t) },
-    { name:'Gastrointestinal', test:t => ['Gastroesophageal','Colorectal','Hepatocellular','Biliary tract','Pancreatic','GIST'].includes(t) },
-    { name:'Genitourinary',    test:t => ['Bladder / Urothelial','Prostate','Renal cell carcinoma'].includes(t) },
-    { name:'Gynaecological',   test:t => ['Cervical','Endometrial','Ovarian'].includes(t) },
-    { name:'Head & Neck',      test:t => t === 'Head & Neck' },
-    { name:'Skin / Melanoma',  test:t => t === 'Melanoma' },
-    { name:'Endocrine',        test:t => /^Thyroid/.test(t) },
-  ];
-  function systemsOf(r){
-    const s = new Set();
-    (r.tumour||[]).forEach(t => { const m = SYSTEMS.find(x => x.test(t)); if (m) s.add(m.name); });
-    return [...s];
-  }
-
-  const grid = document.getElementById('grid');
+  const listEl = document.getElementById('list');
   const searchEl = document.getElementById('search');
-  const navEl = document.getElementById('nav');
   const countEl = document.getElementById('count');
   const emptyEl = document.getElementById('empty');
-  const hsysEl = document.getElementById('hsys');
   const footEl = document.getElementById('foot');
 
-  let activeSystem = null;   // null = All
-  let query = '';
+  let activeClass = null, activeRoute = null, activeTumour = null, activeLetter = null, query = '';
 
   function esc(s){ return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+  const uniq = arr => [...new Set(arr)].sort();
+  const classes = uniq(data.map(d => d.class).filter(Boolean));
+  const routes  = uniq(data.flatMap(d => d.route || []));
+  const tumours = uniq(data.flatMap(d => d.tumours || []));
 
-  function renderNav(){
-    const counts = {};
-    SYSTEMS.forEach(s => counts[s.name] = 0);
-    data.forEach(r => systemsOf(r).forEach(n => counts[n]++));
-
-    let html = `<div class="navitem all${activeSystem===null?' active':''}" data-sys="">
-        <span>All regimens</span><span class="n">${data.length}</span></div>`;
-    html += `<div class="syslabel">By tumour system</div>`;
-    SYSTEMS.filter(s => counts[s.name] > 0).forEach(s => {
-      html += `<div class="navitem${activeSystem===s.name?' active':''}" data-sys="${esc(s.name)}">
-        <span>${esc(s.name)}</span><span class="n">${counts[s.name]}</span></div>`;
-    });
-    navEl.innerHTML = html;
-    navEl.querySelectorAll('.navitem').forEach(el => el.onclick = () => {
-      activeSystem = el.dataset.sys || null;
-      document.body.classList.remove('nav-open');
-      render();
-    });
+  function chip(label, active, onClick){
+    const el = document.createElement('span');
+    el.className = 'chip' + (active ? ' active' : '');
+    el.textContent = label; el.onclick = onClick; return el;
+  }
+  function renderFacet(elId, values, getActive, setActive){
+    const box = document.getElementById(elId);
+    box.innerHTML = '';
+    box.appendChild(chip('All', !getActive(), () => { setActive(null); render(); }));
+    values.forEach(v => box.appendChild(chip(v, getActive() === v, () => {
+      setActive(getActive() === v ? null : v); render();
+    })));
   }
 
-  function matches(r){
-    if (activeSystem && !systemsOf(r).includes(activeSystem)) return false;
-    if (!query) return true;
-    const hay = [r.name, ...(r.aliases||[]), ...(r.tumour||[]), ...(r.setting||[]),
-      ...(r.drugs||[]).map(d => d.drug)].join(' ').toLowerCase();
-    return query.split(/\s+/).every(term => hay.includes(term));
+  function renderAZ(present){
+    const az = document.getElementById('az'); az.innerHTML = '';
+    for (let i = 65; i <= 90; i++){
+      const L = String.fromCharCode(i);
+      const a = document.createElement('a');
+      const has = present.has(L);
+      a.textContent = L;
+      a.className = 'az-l' + (has ? ' has' : ' off') + (activeLetter === L ? ' active' : '');
+      if (has) a.onclick = () => {
+        activeLetter = activeLetter === L ? null : L;
+        document.body.classList.remove('nav-open'); render();
+      };
+      az.appendChild(a);
+    }
   }
 
-  function drugRows(drugs){
-    return drugs.map(d => `<tr>
-      <td>${esc(d.drug)}</td>
-      <td class="dose">${esc(d.dose)}${d.note?`<span class="note">${esc(d.note)}</span>`:''}</td>
-      <td>${esc(d.route||'')}</td>
-      <td>${esc(d.days||'')}${d.notes?`<span class="note">${esc(d.notes)}</span>`:''}</td>
-    </tr>`).join('');
+  function matches(d){
+    if (activeClass && d.class !== activeClass) return false;
+    if (activeRoute && !(d.route || []).includes(activeRoute)) return false;
+    if (activeTumour && !(d.tumours || []).includes(activeTumour)) return false;
+    if (activeLetter && d.name[0].toUpperCase() !== activeLetter) return false;
+    if (query){
+      const hay = [d.name, ...(d.aliases||[]), ...(d.brands||[]), d.class, d.subclass,
+        ...(d.tumours||[]), ...(d.indications||[]).map(i => i.indication), d.atc].join(' ').toLowerCase();
+      if (!query.split(/\s+/).every(t => hay.includes(t))) return false;
+    }
+    return true;
   }
 
-  function cardHTML(r){
-    const tags = [
-      ...(r.tumour||[]).map(t => `<span class="tagpill tumour">${esc(t)}</span>`),
-      ...(r.setting||[]).map(s => `<span class="tagpill">${esc(s)}</span>`)
+  const mark = v => v === 'y'
+    ? '<span class="yes">✓</span>'
+    : '<span class="no">–</span>';
+
+  function indTable(inds){
+    const rows = inds.map(i => `<tr>
+      <td>${esc(i.indication)}</td>
+      <td class="c">${mark(i.hsa)}</td>
+      <td class="c">${mark(i.fda)}</td>
+      <td>${esc(i.dose)}</td></tr>`).join('');
+    return `<table class="ind">
+      <colgroup><col style="width:36%"><col style="width:11%"><col style="width:11%"><col style="width:42%"></colgroup>
+      <tr><th>Indication</th><th class="c hsa">HSA</th><th class="c">FDA</th><th>Dose</th></tr>
+      ${rows}</table>
+      <div class="indleg">✓ on label · – not on that regulator's label. Approval status only — not a statement on clinical use.</div>`;
+  }
+
+  function drTable(dr){
+    if (!dr) return '';
+    let html = '';
+    if (dr.toxicityTable && dr.toxicityTable.length){
+      html += `<table class="dr"><tr><th>Grade</th><th>1st</th><th>2nd</th><th>3rd</th></tr>
+        ${dr.toxicityTable.map(r => `<tr><td>${esc(r.grade)}</td>${r.levels.map(l=>`<td>${esc(l)}</td>`).join('')}</tr>`).join('')}</table>`;
+    }
+    const notes = [];
+    if (dr.renal)   notes.push(`<b>Renal:</b> ${esc(dr.renal)}`);
+    if (dr.hepatic) notes.push(`<b>Hepatic:</b> ${esc(dr.hepatic)}`);
+    (dr.other||[]).forEach(o => notes.push(`<b>${esc(o.label)}:</b> ${esc(o.text)}`));
+    if (notes.length) html += `<div class="drnote">${notes.join('<br>')}</div>`;
+    return html;
+  }
+
+  function cardHTML(d){
+    const chips = [
+      d.class ? `<span class="tagpill cls">${esc(d.class)}</span>` : '',
+      d.subclass ? `<span class="tagpill">${esc(d.subclass)}</span>` : '',
+      ...(d.route||[]).map(r => `<span class="tagpill">${esc(r)}</span>`),
+      d.atc ? `<span class="tagpill">ATC ${esc(d.atc)}</span>` : ''
     ].join('');
 
-    const support = r.support ? `<div class="sec"><h3>Premedications &amp; supportive care</h3>
-      <div class="support-line"><b>Emetogenicity:</b> ${esc(r.support.emetogenicity||'—')}</div>
-      <div class="support-line"><b>Growth factor:</b> ${esc(r.support.gcsf||'—')}</div>
-      ${(r.support.premeds&&r.support.premeds.length)?`<ul class="support">${r.support.premeds.map(p=>`<li>${esc(p)}</li>`).join('')}</ul>`:''}
-      </div>` : '';
+    const boxed = d.boxedWarning ? `<div class="boxwarn">
+      <div class="bwl">⚠ FDA boxed warning</div>
+      <div class="bwt">${esc(d.boxedWarning)}</div></div>` : '';
 
-    const mods = (r.modifications&&r.modifications.length) ? `<div class="sec"><h3>Dose modifications</h3>
-      ${r.modifications.map(m=>`<div class="mod"><b>${esc(m.trigger)}:</b> ${esc(m.action)}</div>`).join('')}</div>` : '';
+    const inds = (d.indications && d.indications.length) ? `<div class="sec">
+      <h3>Indications · approval · dose</h3>${indTable(d.indications)}</div>` : '';
 
-    const levels = (r.doseLevels&&r.doseLevels.length) ? `<div class="sec"><h3>Dose levels</h3>
-      ${r.doseLevels.map(l=>`<div class="mod"><b>${esc(l.level)}:</b> ${esc(l.detail)}</div>`).join('')}</div>` : '';
+    const cdl = d.cdl ? `<div class="sec"><h3>CDL status</h3>
+      <div class="cdl"><span class="cls">${esc(d.cdl.class)}</span>${d.cdl.wording
+        ? `<span class="word"><span class="br">[</span> ${esc(d.cdl.wording)} <span class="br">]</span></span>` : ''}</div></div>` : '';
 
-    const refs = (r.refs&&r.refs.length) ? `<div class="sec refs"><h3>Source</h3>
-      ${r.refs.map(ref=>`<div class="ref">${ref.url?`<a href="${esc(ref.url)}" target="_blank" rel="noopener">${esc(ref.label)}</a>`:`<b>${esc(ref.label)}</b>`}${ref.detail?` — <span class="detail">${esc(ref.detail)}</span>`:''}</div>`).join('')}</div>` : '';
+    const tox = d.toxicities ? `<div>
+      <h3 style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin:0 0 7px;">Common toxicities</h3>
+      <ul class="tox">${(d.toxicities.common||[]).map(t=>`<li>${esc(t)}</li>`).join('')}
+        ${(d.toxicities.serious&&d.toxicities.serious.length)?`<li class="ser">Serious: ${d.toxicities.serious.map(esc).join(', ')}</li>`:''}</ul></div>` : '';
 
-    const notes = r.notes ? `<div class="sec"><div class="notes">${esc(Array.isArray(r.notes)?r.notes.join(' '):r.notes)}</div></div>` : '';
+    const dr = d.doseReductions ? `<div>
+      <h3 style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin:0 0 7px;">Dose reductions</h3>
+      ${drTable(d.doseReductions)}</div>` : '';
 
-    const verified = r.verified ? `<div class="verified"><b>✓ Reviewed ${esc(r.verified)}</b> — confirm against institutional protocol &amp; current prescribing info before use.</div>` : '';
+    const twocol = (tox || dr) ? `<div class="twocol">${tox}${dr}</div>` : '';
 
-    return `<div class="card" data-id="${esc(r.id)}">
+    const foot = (d.sources || d.verified) ? `<div class="foot-src">
+      ${d.verified ? `<b>✓ Verified ${esc(d.verified)}</b> — ` : ''}${d.sources ? 'Sources: ' + esc(d.sources) + '. ' : ''}Confirm against current prescribing info, the live CDL, and institutional protocol.</div>` : '';
+
+    return `<div class="card" data-id="${esc(d.id)}">
       <div class="card-head">
         <div>
-          <div class="rname">${esc(r.name)}</div>
-          <div class="rmeta">${tags}</div>
+          <div class="dname">${esc(d.name)}</div>
+          <div class="dmeta">${chips}</div>
+          ${d.mechanism ? `<div class="dmech">${esc(d.mechanism)}</div>` : ''}
+          ${(d.brands&&d.brands.length) ? `<div class="dbrands">Brands: ${d.brands.map(esc).join(' · ')}</div>` : ''}
         </div>
         <span class="caret">▶</span>
       </div>
-      <div class="body">
-        <div class="sec"><h3>Schedule</h3>
-          <div class="kv"><b>${esc(r.cycle||'')}</b>${r.cycles?` · ${esc(r.cycles)}`:''}</div>
-        </div>
-        <div class="sec"><h3>Drugs</h3>
-          <table><thead><tr><th>Drug</th><th>Dose</th><th>Route</th><th>Days</th></tr></thead>
-          <tbody>${drugRows(r.drugs||[])}</tbody></table>
-        </div>
-        ${mods}${levels}${support}${refs}${notes}${verified}
-      </div>
+      <div class="body">${boxed}${inds}${cdl}${twocol}${foot}</div>
     </div>`;
   }
 
   function render(){
-    renderNav();
+    renderFacet('f-class', classes, () => activeClass, v => activeClass = v);
+    renderFacet('f-route', routes, () => activeRoute, v => activeRoute = v);
+    renderFacet('f-tumour', tumours, () => activeTumour, v => activeTumour = v);
+    renderAZ(new Set(data.map(d => d.name[0].toUpperCase())));
+
     const list = data.filter(matches);
-    grid.innerHTML = list.map(cardHTML).join('');
-    hsysEl.textContent = activeSystem || 'All regimens';
-    countEl.textContent = query || activeSystem
-      ? `${list.length} of ${data.length} regimens`
-      : `${data.length} regimens`;
-    emptyEl.style.display = list.length ? 'none' : 'block';
-    grid.querySelectorAll('.card-head').forEach(h => {
-      h.onclick = () => h.parentElement.classList.toggle('open');
+    let html = '', letter = '';
+    list.forEach(d => {
+      const L = d.name[0].toUpperCase();
+      if (L !== letter){ letter = L; html += `<div class="azdiv">${L}</div>`; }
+      html += cardHTML(d);
     });
+    listEl.innerHTML = html;
+
+    const filtered = activeClass || activeRoute || activeTumour || activeLetter || query;
+    countEl.textContent = filtered ? `${list.length} of ${data.length} drugs` : `${data.length} drug${data.length===1?'':'s'}`;
+    emptyEl.style.display = list.length ? 'none' : 'block';
+    listEl.querySelectorAll('.card-head').forEach(h => h.onclick = () => h.parentElement.classList.toggle('open'));
   }
 
   searchEl.addEventListener('input', e => { query = e.target.value.trim().toLowerCase(); render(); });
-
-  // mobile drawer
   document.getElementById('burger').onclick = () => document.body.classList.toggle('nav-open');
   document.getElementById('backdrop').onclick = () => document.body.classList.remove('nav-open');
 
-  footEl.textContent = `${data.length} verified regimens · core solid-tumour sites · OncOS — Systemic Therapy`;
+  footEl.textContent = `${data.length} verified drug${data.length===1?'':'s'} · OncOS — Systemic Therapy`;
   render();
 </script>
 <script>
