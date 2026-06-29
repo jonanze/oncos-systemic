@@ -192,6 +192,165 @@ window.DRUGS = [
   },
   sources: "HSA SG package insert (Eloxatin, SIN13237P) · FDA label (Eloxatin, DailyMed) · MOH SDL / Cancer Drug List",
   verified: "2026-06-29"
+},
+
+{
+  id: "fluorouracil",
+  name: "Fluorouracil (5-FU)",
+  aliases: ["5-FU", "5-fluorouracil", "DBL Fluorouracil"],
+  class: "Antimetabolite",
+  subclass: "Fluoropyrimidine",
+  route: ["IV"],
+  atc: "L01BC02",
+  brands: ["DBL Fluorouracil"],
+  tumours: ["Colorectal", "Breast", "Gastric", "Pancreatic"],
+  mechanism: "Fluoropyrimidine — metabolites inhibit thymidylate synthase and incorporate into RNA/DNA.",
+  boxedWarning: "DPD deficiency — patients with complete dihydropyrimidine dehydrogenase deficiency are at high risk of serious or fatal toxicity (mucositis, diarrhoea, neutropenia, neurotoxicity). Test for DPYD variants before starting; avoid in complete DPD deficiency. (FDA, 2024.)",
+  indications: [
+    { indication: "Colorectal", hsa: "y", fda: "y", dose: "Regimen-based — e.g. 400 mg/m² bolus + 2400 mg/m² over 46 h q2w (FOLFOX/FOLFIRI)" },
+    { indication: "Breast",     hsa: "y", fda: "y", dose: "Regimen-based (e.g. CMF/FEC)" },
+    { indication: "Gastric",    hsa: "y", fda: "y", dose: "Regimen-based (e.g. FLOT, ECF/EOX)" },
+    { indication: "Pancreatic", hsa: "y", fda: "y", dose: "400 mg/m² bolus + 2400 mg/m² over 46 h (FOLFIRINOX)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Mucositis / stomatitis",
+      "Diarrhoea",
+      "Myelosuppression — neutropenia",
+      "Hand–foot syndrome (with infusional/protracted)",
+      "Coronary vasospasm / cardiotoxicity (chest pain during infusion)"
+    ],
+    serious: ["Severe toxicity in DPD deficiency", "Cardiac ischaemia", "Hyperammonaemic encephalopathy (rare)"]
+  },
+  doseReductions: {
+    other: [
+      { label: "DPD", text: "complete deficiency contraindicated; partial — reduce and titrate. Test DPYD/uracil pre-Rx." },
+      { label: "Cardiac", text: "stop for chest pain / coronary vasospasm; rechallenge hazardous." },
+      { label: "Mucositis / diarrhoea / myelosuppression", text: "hold for grade ≥3; resume reduced on recovery." }
+    ]
+  },
+  sources: "HSA SG package insert · FDA label (DailyMed, 2024 DPD boxed warning) · MOH SDL / Cancer Drug List",
+  verified: "2026-06-30"
+},
+
+{
+  id: "gemcitabine",
+  name: "Gemcitabine",
+  aliases: ["Gemzar", "dFdC", "DBL Gemcitabine"],
+  class: "Antimetabolite",
+  subclass: "Nucleoside analogue",
+  route: ["IV"],
+  atc: "L01BC05",
+  brands: ["Gemzar", "DBL Gemcitabine"],
+  tumours: ["Lung — NSCLC", "Pancreatic", "Bladder", "Breast", "Ovarian"],
+  mechanism: "Pyrimidine nucleoside analogue — incorporates into DNA (masked chain termination); inhibits ribonucleotide reductase.",
+  indications: [
+    { indication: "Lung — non-small cell", hsa: "y", fda: "y", dose: "1000–1250 mg/m² D1,8 (±15) — + cisplatin 1L, or monotherapy" },
+    { indication: "Pancreatic",            hsa: "y", fda: "y", dose: "1000 mg/m² weekly × 7, then D1,8,15 q4w" },
+    { indication: "Bladder, advanced",     hsa: "y", fda: "n", dose: "1000 mg/m² D1,8,15 q4w (+ cisplatin)" },
+    { indication: "Breast",                hsa: "y", fda: "y", dose: "1250 mg/m² D1,8 q3w (+ paclitaxel)" },
+    { indication: "Ovarian, relapsed",     hsa: "n", fda: "y", dose: "1000 mg/m² D1,8 q3w (+ carboplatin)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Myelosuppression — thrombocytopenia prominent, neutropenia, anaemia",
+      "Flu-like symptoms, fever",
+      "Transaminitis",
+      "Peripheral oedema",
+      "Rash, nausea"
+    ],
+    serious: ["Haemolytic-uraemic syndrome / TMA", "Interstitial pneumonitis / ARDS", "Capillary leak syndrome", "PRES"]
+  },
+  doseReductions: {
+    renal: "Caution in renal/hepatic impairment; for HUS/TMA — discontinue, do not rechallenge.",
+    other: [
+      { label: "Myelosuppression (day 8/15)", text: "ANC ≥1000 & plt ≥100k → 100%; ANC 500–999 or plt 50–99k → 75%; ANC <500 or plt <50k → hold." }
+    ]
+  },
+  sources: "HSA SG package insert (Gemzar, SIN13229P) · FDA label (DailyMed) · MOH SDL / Cancer Drug List",
+  verified: "2026-06-30"
+},
+
+{
+  id: "methotrexate",
+  name: "Methotrexate",
+  aliases: ["MTX", "amethopterin", "Abitrexate", "DBL Methotrexate"],
+  class: "Antimetabolite",
+  subclass: "Antifolate (DHFR inhibitor)",
+  route: ["IV", "IM", "PO", "IT"],
+  atc: "L01BA01",
+  brands: ["Abitrexate", "DBL Methotrexate"],
+  tumours: ["Gestational trophoblastic", "Lymphoma", "Breast", "Head & Neck", "Osteosarcoma"],
+  mechanism: "Antifolate — inhibits dihydrofolate reductase, blocking tetrahydrofolate and purine/thymidylate synthesis.",
+  boxedWarning: "Multiple — embryo-fetal toxicity / death (avoid in pregnancy); hepatotoxicity (fibrosis/cirrhosis with chronic use); renal impairment increases toxicity (renally cleared); severe myelosuppression (↑ with NSAIDs); interstitial pneumonitis (any dose, may be fatal); severe diarrhoea / mucositis (can be fatal); serious skin reactions (SJS/TEN); opportunistic infections; tumour lysis. Use preservative-free formulation for intrathecal / high-dose.",
+  indications: [
+    { indication: "Gestational trophoblastic neoplasia", hsa: "y", fda: "y", dose: "15–30 mg/day PO/IM × 5, repeat after ≥1 wk" },
+    { indication: "Lymphoma (CNS / Burkitt)",            hsa: "y", fda: "y", dose: "High-dose IV + leucovorin rescue (protocol-dependent)" },
+    { indication: "Breast",                              hsa: "y", fda: "y", dose: "Regimen-based (e.g. CMF)" },
+    { indication: "Head & neck",                         hsa: "y", fda: "y", dose: "Regimen-based / palliative" },
+    { indication: "Osteosarcoma",                        hsa: "y", fda: "y", dose: "High-dose 12 g/m² IV + leucovorin rescue" },
+    { indication: "Mycosis fungoides (CTCL)",            hsa: "y", fda: "y", dose: "5–50 mg weekly" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Mucositis / stomatitis",
+      "Myelosuppression",
+      "Nausea, diarrhoea",
+      "Transaminitis",
+      "Renal impairment (high-dose)"
+    ],
+    serious: ["Interstitial pneumonitis", "Hepatic fibrosis / cirrhosis", "Acute renal failure (HDMTX crystal nephropathy)", "CNS toxicity / leukoencephalopathy (IT / high-dose)", "SJS/TEN"]
+  },
+  doseReductions: {
+    renal: "Renally cleared — reduce/hold in renal impairment; high-dose needs CrCl >60, hydration + urinary alkalinisation (pH >7).",
+    other: [
+      { label: "Leucovorin rescue", text: "mandatory after high-dose MTX — 15 mg q6h × 10 from 24 h post-infusion, adjusted to serum MTX levels until <0.05 µM." },
+      { label: "NSAIDs", text: "avoid with high-dose MTX — can cause fatal toxicity." },
+      { label: "Mucositis / myelosuppression", text: "hold and reduce for grade ≥3." }
+    ]
+  },
+  sources: "FDA label (DailyMed, multiple boxed warnings) · HSA SG package insert · MOH SDL / Cancer Drug List",
+  verified: "2026-06-30"
+},
+
+{
+  id: "pemetrexed",
+  name: "Pemetrexed",
+  aliases: ["Alimta", "Pemfexy"],
+  class: "Antimetabolite",
+  subclass: "Antifolate (multitargeted)",
+  route: ["IV"],
+  atc: "L01BA04",
+  brands: ["Alimta"],
+  tumours: ["Lung — NSCLC", "Mesothelioma"],
+  mechanism: "Multitargeted antifolate — inhibits thymidylate synthase, DHFR and GARFT. Needs folate/B12 supplementation.",
+  indications: [
+    { indication: "Lung — non-small cell (non-squamous)", hsa: "y", fda: "y", dose: "500 mg/m² q3w — 1L + cisplatin, maintenance, or 2L mono" },
+    { indication: "Pleural mesothelioma",                 hsa: "y", fda: "y", dose: "500 mg/m² q3w + cisplatin" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Myelosuppression — neutropenia, thrombocytopenia, anaemia",
+      "Fatigue",
+      "Mucositis / stomatitis",
+      "Rash (dexamethasone prophylaxis)",
+      "Nausea, anorexia"
+    ],
+    serious: ["Severe myelosuppression", "Renal failure", "Rare pneumonitis, severe skin reactions"]
+  },
+  doseReductions: {
+    renal: "Do NOT administer if CrCl < 45 mL/min.",
+    other: [
+      { label: "Mandatory supplementation", text: "folic acid 400–1000 mcg PO daily (≥7 d before → +21 d after); B12 1000 mcg IM q9wk; dexamethasone 4 mg BID × 3 d (rash)." },
+      { label: "Myelosuppression", text: "nadir ANC <500 or plt <50k → reduce to 75% of prior dose." }
+    ]
+  },
+  sources: "HSA SG package insert (Alimta) · FDA label (DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL)",
+  verified: "2026-06-30"
 }
 
 ];
