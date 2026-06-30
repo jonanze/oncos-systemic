@@ -570,6 +570,88 @@ window.DRUGS = [
   },
   sources: "HSA SG package insert (Pharmorubicin) · FDA label (Ellence, DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL). NB: only adjuvant breast is FDA-approved; gastric/ovarian/lymphoma are SG/EU — exact SG PI list to confirm.",
   verified: "2026-06-30"
+},
+
+{
+  id: "cyclophosphamide",
+  name: "Cyclophosphamide",
+  aliases: ["Cytoxan", "Endoxan", "Cycloblastin", "CTX"],
+  class: "Alkylating agent",
+  subclass: "Oxazaphosphorine (nitrogen mustard)",
+  route: ["IV", "PO"],
+  atc: "L01AA01",
+  brands: ["Endoxan", "Cycloblastin"],
+  tumours: ["Breast", "Ovarian", "Lymphoma"],
+  mechanism: "Prodrug alkylating agent — hepatic activation to phosphoramide mustard (crosslinks DNA); the acrolein metabolite causes haemorrhagic cystitis.",
+  indications: [
+    { indication: "Breast",                   hsa: "y", fda: "y", dose: "600 mg/m² (AC/TAC); 100 mg/m² PO ×14 (CMF)" },
+    { indication: "Ovarian",                  hsa: "y", fda: "y", dose: "Regimen-dependent (+ platinum)" },
+    { indication: "Hodgkin lymphoma",         hsa: "y", fda: "y", dose: "Regimen-dependent (e.g. BEACOPP)" },
+    { indication: "Non-Hodgkin lymphoma",     hsa: "y", fda: "y", dose: "750 mg/m² q3w (CHOP / R-CHOP)" },
+    { indication: "Mycosis fungoides (CTCL)", hsa: "y", fda: "y", dose: "Regimen-dependent" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Myelosuppression — neutropenia",
+      "Nausea / vomiting",
+      "Alopecia",
+      "Haemorrhagic cystitis (acrolein) — hydrate ± mesna at high dose",
+      "Hyponatraemia / SIADH-like"
+    ],
+    serious: ["Haemorrhagic cystitis", "Cardiotoxicity (high-dose)", "SIADH / water intoxication", "Secondary malignancy / infertility", "Pulmonary fibrosis (rare)"]
+  },
+  doseReductions: {
+    renal: "Reduce in significant renal impairment; ensure adequate hydration.",
+    hepatic: "Reduce in significant hepatic impairment.",
+    other: [
+      { label: "Haemorrhagic cystitis", text: "hydration ± mesna (esp. high-dose); contraindicated with urinary outflow obstruction; hold for gross haematuria." },
+      { label: "Myelosuppression", text: "reduce / delay for grade ≥3 neutropenia or febrile neutropenia." }
+    ]
+  },
+  sources: "HSA SG package insert (Endoxan) · FDA label (DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL)",
+  verified: "2026-06-30"
+},
+
+{
+  id: "ifosfamide",
+  name: "Ifosfamide",
+  aliases: ["Ifex", "Holoxan", "Mitoxana"],
+  class: "Alkylating agent",
+  subclass: "Oxazaphosphorine",
+  route: ["IV"],
+  atc: "L01AA06",
+  brands: ["Holoxan", "Ifex"],
+  tumours: ["Testicular", "Sarcoma", "Cervical", "Lung — NSCLC"],
+  mechanism: "Prodrug alkylating agent — hepatic activation; acrolein causes haemorrhagic cystitis, chloroacetaldehyde drives CNS + renal toxicity. Always co-administer mesna.",
+  boxedWarning: "Urotoxicity — severe haemorrhagic cystitis; reduce with prophylactic mesna + hydration. CNS toxicity — encephalopathy can be severe and may be fatal. Severe myelosuppression (fatal infections). Nephrotoxicity — can cause renal failure.",
+  indications: [
+    { indication: "Testicular (germ cell)",       hsa: "y", fda: "y", dose: "1.2 g/m²/day × 5 (+ mesna), 3rd-line combination" },
+    { indication: "Sarcoma (soft tissue & bone)", hsa: "y", fda: "n", dose: "2–3 g/m²/day × 2–4 (+ mesna); ± doxorubicin" },
+    { indication: "Cervical",                      hsa: "y", fda: "n", dose: "Regimen-dependent (+ mesna)" },
+    { indication: "Lung — non-small cell",         hsa: "y", fda: "n", dose: "Regimen-dependent (+ mesna)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Haemorrhagic cystitis (acrolein) — mesna mandatory",
+      "Encephalopathy — confusion, somnolence, hallucinations",
+      "Myelosuppression — leukopenia",
+      "Nephrotoxicity — tubular (Fanconi syndrome)",
+      "Nausea / vomiting, alopecia"
+    ],
+    serious: ["Severe / fatal encephalopathy", "Severe haemorrhagic cystitis", "Acute renal failure / Fanconi", "Severe myelosuppression"]
+  },
+  doseReductions: {
+    renal: "Reduce / avoid in renal impairment (↑ encephalopathy + nephrotoxicity); low albumin, prior cisplatin and bulky pelvic disease raise CNS-toxicity risk.",
+    other: [
+      { label: "Mesna (mandatory)", text: "always co-administer mesna + vigorous hydration to prevent haemorrhagic cystitis." },
+      { label: "Encephalopathy", text: "hold for CNS toxicity; methylene blue used for treatment/prophylaxis; avoid re-exposure if severe." },
+      { label: "Myelosuppression", text: "reduce / delay for grade ≥3 neutropenia or febrile neutropenia." }
+    ]
+  },
+  sources: "HSA SG package insert (Holoxan) · FDA label (Ifex, DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL). NB: only germ-cell testicular is FDA-approved; sarcoma/cervical/lung are SG/EU — exact SG PI list to confirm.",
+  verified: "2026-06-30"
 }
 
 ];
