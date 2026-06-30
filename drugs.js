@@ -1164,6 +1164,222 @@ window.DRUGS = [
   },
   sources: "HSA register / NDF (Opdualag) · FDA label (DailyMed) · RELATIVITY-047. NOT on the MOH Cancer Drug List → not subsidised (Not listed). irAE management per CTCAE / ASCO-ESMO guidance",
   verified: "2026-06-30"
+},
+
+{
+  id: "trastuzumab-emtansine",
+  name: "Trastuzumab emtansine (T-DM1)",
+  aliases: ["Kadcyla", "T-DM1", "ado-trastuzumab emtansine"],
+  class: "Antibody-drug conjugate",
+  subclass: "HER2 · DM1 (maytansinoid)",
+  route: ["IV"],
+  atc: "L01FD03",
+  brands: ["Kadcyla"],
+  tumours: ["Breast"],
+  mechanism: "HER2-directed ADC — trastuzumab linked to DM1 (microtubule inhibitor); delivers payload into HER2+ cells. Do not substitute for/with trastuzumab.",
+  boxedWarning: "Hepatotoxicity (including fatal liver failure / nodular regenerative hyperplasia). Cardiotoxicity — LVEF decline. Embryo-fetal toxicity.",
+  indications: [
+    { indication: "Breast — HER2+ adjuvant (residual disease)", hsa: "y", fda: "y", dose: "3.6 mg/kg q3w ×14 (post-neoadjuvant residual, KATHERINE)" },
+    { indication: "Breast — HER2+ advanced (2L)", hsa: "y", fda: "y", dose: "3.6 mg/kg q3w (post-trastuzumab + chemo, EMILIA)" }
+  ],
+  cdl: { items: [
+    { cancer: "Breast — HER2+ adjuvant", status: "MSV/MSHL", text: "residual invasive disease after neoadjuvant trastuzumab + taxane; max 14 cycles" },
+    { cancer: "Breast — HER2+ advanced", status: "MSV/MSHL", text: "LA/unresectable/metastatic, after prior trastuzumab + chemotherapy" }
+  ] },
+  toxicities: {
+    common: ["Thrombocytopenia (prominent)", "Transaminitis / hepatotoxicity", "Fatigue, nausea", "Peripheral neuropathy", "Epistaxis, headache", "LVEF decline"],
+    serious: ["Fatal hepatotoxicity / nodular regenerative hyperplasia", "Severe thrombocytopenia / haemorrhage", "Cardiac failure", "Pneumonitis (rare)"]
+  },
+  doseReductions: {
+    other: [
+      { label: "Thrombocytopenia", text: "hold for platelets <100k; reduce one dose level on recovery; discontinue for grade 4." },
+      { label: "Hepatotoxicity", text: "hold for AST/ALT >3× or bilirubin >1.5× ULN; discontinue for transaminases >3× with bilirubin >2× ULN." },
+      { label: "LVEF", text: "hold for symptomatic CHF or LVEF <40%; reassess before resuming." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Kadcyla) · FDA label (DailyMed). KATHERINE, EMILIA",
+  verified: "2026-06-30"
+},
+
+{
+  id: "trastuzumab-deruxtecan",
+  name: "Trastuzumab deruxtecan (T-DXd)",
+  aliases: ["Enhertu", "T-DXd", "fam-trastuzumab deruxtecan"],
+  class: "Antibody-drug conjugate",
+  subclass: "HER2 · deruxtecan (topo-I)",
+  route: ["IV"],
+  atc: "L01FD04",
+  brands: ["Enhertu"],
+  tumours: ["Breast", "Gastric"],
+  mechanism: "HER2-directed ADC — trastuzumab linked to a topoisomerase-I inhibitor (deruxtecan); high drug-to-antibody ratio + bystander effect (active in HER2-low).",
+  boxedWarning: "Interstitial lung disease / pneumonitis — can be severe, life-threatening or fatal; monitor and interrupt/treat promptly. Embryo-fetal toxicity.",
+  indications: [
+    { indication: "Breast — HER2+ advanced (2L+)", hsa: "y", fda: "y", dose: "5.4 mg/kg q3w (post anti-HER2, DESTINY-Breast03)" },
+    { indication: "Breast — HER2-low advanced", hsa: "y", fda: "y", dose: "5.4 mg/kg q3w (≥1 prior chemo; HR+ endocrine-refractory, DESTINY-Breast04)" },
+    { indication: "Gastric / GEJ — HER2+ (≥3L)", hsa: "y", fda: "y", dose: "6.4 mg/kg q3w (≥2 prior incl. trastuzumab, DESTINY-Gastric01)" }
+  ],
+  cdl: { items: [
+    { cancer: "Breast — HER2+ advanced", status: "MSV/MSHL", text: "unresectable/metastatic, after a prior anti-HER2 regimen" },
+    { cancer: "Breast — HER2-low advanced", status: "MSV/MSHL", text: "≥1 prior chemo in metastatic (or recurrence ≤6 mo of adjuvant); HR+ must be endocrine-refractory" },
+    { cancer: "Gastric / GEJ — HER2+", status: "MSV/MSHL", text: "LA/metastatic, ≥2 prior regimens incl. trastuzumab" }
+  ] },
+  toxicities: {
+    common: ["Nausea / vomiting (highly emetogenic)", "Fatigue, alopecia", "Neutropenia, anaemia", "Decreased appetite", "LVEF decline"],
+    serious: ["Interstitial lung disease / pneumonitis (may be fatal)", "Severe neutropenia", "Cardiac failure"]
+  },
+  doseReductions: {
+    other: [
+      { label: "ILD / pneumonitis", text: "any grade — interrupt + investigate. Grade 1 → resume after resolution; grade ≥2 → corticosteroids + PERMANENTLY discontinue." },
+      { label: "Neutropenia", text: "grade 3-4 → interrupt until ≤grade 2, then reduce one dose level." },
+      { label: "LVEF", text: "hold for LVEF 40-45% with >10% drop; discontinue if <40% or symptomatic CHF." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Enhertu) · FDA label (DailyMed). DESTINY-Breast03/04, DESTINY-Gastric01",
+  verified: "2026-06-30"
+},
+
+{
+  id: "sacituzumab-govitecan",
+  name: "Sacituzumab govitecan",
+  aliases: ["Trodelvy"],
+  class: "Antibody-drug conjugate",
+  subclass: "Trop-2 · SN-38 (topo-I)",
+  route: ["IV"],
+  atc: "L01FX17",
+  brands: ["Trodelvy"],
+  tumours: ["Breast"],
+  mechanism: "Trop-2-directed ADC — delivers SN-38 (the active metabolite of irinotecan, a topoisomerase-I inhibitor).",
+  boxedWarning: "Severe or life-threatening neutropenia. Severe diarrhoea.",
+  indications: [
+    { indication: "Breast — TNBC (2L+)", hsa: "y", fda: "y", dose: "10 mg/kg D1,8 q3w (≥2 prior, ≥1 for metastatic; ASCENT)" },
+    { indication: "Breast — HR+/HER2- (post-endocrine)", hsa: "y", fda: "y", dose: "10 mg/kg D1,8 q3w (post-endocrine + ≥2 systemic for mets; TROPiCS-02)" }
+  ],
+  cdl: { items: [
+    { cancer: "Breast — TNBC", status: "MSV/MSHL", text: "unresectable LA/metastatic, ≥2 prior systemic (≥1 for metastatic)" },
+    { cancer: "Breast — HR+/HER2-", status: "MSV/MSHL", text: "unresectable LA/metastatic, post endocrine-based + ≥2 additional systemic for metastatic" }
+  ] },
+  toxicities: {
+    common: ["Neutropenia (dose-limiting)", "Diarrhoea", "Nausea / vomiting", "Anaemia", "Fatigue, alopecia"],
+    serious: ["Febrile / severe neutropenia", "Severe diarrhoea / dehydration", "Hypersensitivity / infusion reaction"]
+  },
+  doseReductions: {
+    other: [
+      { label: "Neutropenia", text: "G-CSF support; hold for ANC <1500 (day 1) or <1000 (day 8); reduce 25% for severe/febrile or recurrent." },
+      { label: "Diarrhoea", text: "loperamide; assess for infection; hold + reduce for grade 3-4." },
+      { label: "UGT1A1", text: "poor metabolisers (*28/*28) at higher risk of severe neutropenia — monitor closely." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Trodelvy) · FDA label (DailyMed). ASCENT, TROPiCS-02",
+  verified: "2026-06-30"
+},
+
+{
+  id: "enfortumab-vedotin",
+  name: "Enfortumab vedotin",
+  aliases: ["Padcev"],
+  class: "Antibody-drug conjugate",
+  subclass: "Nectin-4 · MMAE (antimicrotubule)",
+  route: ["IV"],
+  atc: "L01FX13",
+  brands: ["Padcev"],
+  tumours: ["Bladder"],
+  mechanism: "Nectin-4-directed ADC — delivers MMAE (microtubule disruptor) to urothelial carcinoma cells.",
+  boxedWarning: "Serious and fatal skin reactions — including Stevens-Johnson syndrome and toxic epidermal necrolysis; monitor closely, withhold/discontinue for severe reactions.",
+  indications: [
+    { indication: "Urothelial — advanced (post-IO + platinum)", hsa: "y", fda: "y", dose: "1.25 mg/kg D1,8,15 q4w (EV-301)" }
+  ],
+  cdl: { items: [
+    { cancer: "Urothelial — advanced", status: "MSV/MSHL", text: "LA/metastatic, after a PD-1/PD-L1 inhibitor and platinum chemotherapy" }
+  ] },
+  toxicities: {
+    common: ["Skin reactions / rash", "Peripheral sensory neuropathy", "Hyperglycaemia (monitor — can be severe)", "Fatigue, alopecia, decreased appetite", "Diarrhoea, nausea"],
+    serious: ["SJS / TEN (may be fatal)", "Severe hyperglycaemia / DKA", "Pneumonitis", "Severe peripheral neuropathy"]
+  },
+  doseReductions: {
+    other: [
+      { label: "Skin reactions", text: "withhold for grade 2-3 until ≤grade 1; PERMANENTLY discontinue for SJS/TEN or grade 4." },
+      { label: "Hyperglycaemia", text: "withhold if blood glucose >250 mg/dL until ≤250; monitor even in non-diabetics." },
+      { label: "Peripheral neuropathy", text: "withhold for grade 2-3 until ≤grade 1, resume reduced; discontinue grade 4." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Padcev) · FDA label (DailyMed). EV-301",
+  verified: "2026-06-30"
+},
+
+{
+  id: "brentuximab-vedotin",
+  name: "Brentuximab vedotin",
+  aliases: ["Adcetris"],
+  class: "Antibody-drug conjugate",
+  subclass: "CD30 · MMAE (antimicrotubule)",
+  route: ["IV"],
+  atc: "L01FX05",
+  brands: ["Adcetris"],
+  tumours: ["Lymphoma"],
+  mechanism: "CD30-directed ADC — delivers MMAE to CD30+ lymphoma cells. Concomitant bleomycin is contraindicated (pulmonary toxicity).",
+  boxedWarning: "Progressive multifocal leukoencephalopathy (PML) — JC-virus reactivation; can be fatal.",
+  indications: [
+    { indication: "Hodgkin lymphoma — advanced 1L (+ AVD)", hsa: "y", fda: "y", dose: "1.2 mg/kg q2w + AVD (ECHELON-1)" },
+    { indication: "Hodgkin lymphoma — R/R", hsa: "y", fda: "y", dose: "1.8 mg/kg q3w (post-ASCT or ≥2 prior)" },
+    { indication: "Hodgkin lymphoma — post-ASCT consolidation", hsa: "y", fda: "y", dose: "1.8 mg/kg q3w (high-risk, AETHERA)" },
+    { indication: "Peripheral T-cell lymphoma — 1L (+ CHP)", hsa: "y", fda: "y", dose: "1.8 mg/kg q3w + CHP (CD30+, ECHELON-2)" },
+    { indication: "Systemic ALCL — R/R", hsa: "y", fda: "y", dose: "1.8 mg/kg q3w" },
+    { indication: "Cutaneous T-cell lymphoma — CD30+", hsa: "y", fda: "y", dose: "1.8 mg/kg q3w, ≥1 prior, max 16 cyc (ALCANZA)" }
+  ],
+  cdl: { items: [
+    { cancer: "Hodgkin — 1L advanced (+ AVD, bleomycin-intolerant)", status: "MAF", text: "CD30+ advanced cHL (ECHELON-1)" },
+    { cancer: "Hodgkin — 1L advanced (+ AVD, all-comers)", status: "MSV/MSHL", text: "CD30+ advanced cHL" },
+    { cancer: "Hodgkin — R/R", status: "MAF", text: "post-ASCT, or ≥2 prior when ASCT/multi-agent not an option; max 16 cyc" },
+    { cancer: "Hodgkin — post-ASCT consolidation", status: "MAF", text: "CD30+, increased relapse risk; max 16 cyc" },
+    { cancer: "Peripheral T-cell lymphoma — 1L (+ CHP)", status: "MAF", text: "untreated CD30+ PTCL" },
+    { cancer: "Systemic ALCL — R/R", status: "MAF", text: "max 16 cyc" },
+    { cancer: "Cutaneous T-cell lymphoma — CD30+", status: "MAF", text: "≥1 prior systemic; max 16 cyc" }
+  ] },
+  toxicities: {
+    common: ["Peripheral sensory neuropathy (prominent, cumulative)", "Neutropenia", "Nausea, fatigue, diarrhoea", "Infusion reactions", "Anaemia"],
+    serious: ["PML (rare)", "Febrile neutropenia", "Pulmonary toxicity (with bleomycin — contraindicated)", "Pancreatitis", "Tumour lysis", "SJS/TEN (rare)"]
+  },
+  doseReductions: {
+    other: [
+      { label: "Peripheral neuropathy", text: "hold for grade 2-3 until ≤grade 1, resume at 1.2 mg/kg; discontinue for grade 4." },
+      { label: "Neutropenia", text: "hold for grade 3-4 until recovery; consider G-CSF; reduce on recurrence." },
+      { label: "Avoid bleomycin", text: "concomitant bleomycin is contraindicated (pulmonary toxicity)." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Adcetris) · FDA label (DailyMed). ECHELON-1/-2, ALCANZA, AETHERA",
+  verified: "2026-06-30"
+},
+
+{
+  id: "polatuzumab-vedotin",
+  name: "Polatuzumab vedotin",
+  aliases: ["Polivy"],
+  class: "Antibody-drug conjugate",
+  subclass: "CD79b · MMAE (antimicrotubule)",
+  route: ["IV"],
+  atc: "L01FX18",
+  brands: ["Polivy"],
+  tumours: ["Lymphoma"],
+  mechanism: "CD79b-directed ADC — delivers MMAE to B-cell lymphoma cells.",
+  indications: [
+    { indication: "DLBCL — 1L (+ R-CHP)", hsa: "y", fda: "y", dose: "1.8 mg/kg q3w ×6 + R-CHP (IPI 3-5, POLARIX)" }
+  ],
+  cdl: { items: [
+    { cancer: "DLBCL — 1L (+ R-CHP, subsidised rituximab biosimilar)", status: "MAF", text: "previously untreated, IPI 3-5 (POLARIX)" },
+    { cancer: "DLBCL — 1L (+ R-CHP, non-subsidised rituximab brand)", status: "MSV/MSHL", text: "previously untreated (IPI 3-5, or all-comers)" }
+  ] },
+  toxicities: {
+    common: ["Peripheral neuropathy", "Neutropenia", "Anaemia, thrombocytopenia", "Infections", "Fatigue, diarrhoea, nausea"],
+    serious: ["Febrile neutropenia / serious infection", "PML (rare)", "Tumour lysis syndrome", "Hepatotoxicity"]
+  },
+  doseReductions: {
+    other: [
+      { label: "Peripheral neuropathy", text: "hold for grade 2-3 until ≤grade 1, resume reduced; discontinue for grade 4." },
+      { label: "Neutropenia", text: "hold for grade 3-4; G-CSF prophylaxis recommended with R-CHP." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Polivy) · FDA label (DailyMed). POLARIX",
+  verified: "2026-06-30"
 }
 
 ];
