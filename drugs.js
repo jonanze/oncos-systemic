@@ -652,6 +652,120 @@ window.DRUGS = [
   },
   sources: "HSA SG package insert (Holoxan) · FDA label (Ifex, DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL). NB: only germ-cell testicular is FDA-approved; sarcoma/cervical/lung are SG/EU — exact SG PI list to confirm.",
   verified: "2026-06-30"
+},
+
+{
+  id: "irinotecan",
+  name: "Irinotecan",
+  aliases: ["Campto", "Camptosar", "CPT-11"],
+  class: "Topoisomerase I inhibitor",
+  subclass: "Camptothecin",
+  route: ["IV"],
+  atc: "L01CE02",
+  brands: ["Campto", "Camptosar"],
+  tumours: ["Colorectal"],
+  mechanism: "Camptothecin — active metabolite SN-38 inhibits topoisomerase I, causing DNA strand breaks. SN-38 is cleared by UGT1A1.",
+  boxedWarning: "Diarrhoea — early (cholinergic, during/shortly after infusion; treat with atropine) and late (>24 h, can be life-threatening → dehydration, electrolyte imbalance, sepsis; treat promptly with loperamide). Severe myelosuppression — neutropenia, including febrile/fatal.",
+  indications: [
+    { indication: "Colorectal, metastatic", hsa: "y", fda: "y", dose: "180 mg/m² q2w (FOLFIRI); or 350 mg/m² q3w / 125 mg/m² weekly (single agent)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Diarrhoea — early cholinergic + late (dose-limiting)",
+      "Neutropenia",
+      "Nausea / vomiting",
+      "Alopecia",
+      "Cholinergic syndrome (sweating, cramps, lacrimation)",
+      "Fatigue"
+    ],
+    serious: ["Life-threatening late diarrhoea", "Febrile neutropenia / sepsis", "Colitis / ileus"]
+  },
+  doseReductions: {
+    other: [
+      { label: "UGT1A1", text: "*28/*28 (or *6) poor metabolisers → ↑ severe neutropenia; reduce starting dose by ≥1 level, then titrate to tolerance." },
+      { label: "Diarrhoea", text: "early — atropine; late — loperamide promptly + fluids; hold/reduce for grade ≥3." },
+      { label: "Neutropenia", text: "hold until recovery; reduce for febrile neutropenia or grade ≥3." }
+    ]
+  },
+  sources: "HSA SG package insert (Campto) · FDA label (Camptosar, DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL). NB: conventional irinotecan = SDL; liposomal irinotecan (Onivyde) is a separate, non-subsidised product.",
+  verified: "2026-06-30"
+},
+
+{
+  id: "etoposide",
+  name: "Etoposide",
+  aliases: ["VePesid", "Etopophos", "Lastet", "VP-16"],
+  class: "Topoisomerase II inhibitor",
+  subclass: "Podophyllotoxin",
+  route: ["IV", "PO"],
+  atc: "L01CB01",
+  brands: ["VePesid", "Lastet"],
+  tumours: ["Lung — SCLC", "Testicular", "Lymphoma"],
+  mechanism: "Podophyllotoxin — inhibits topoisomerase II, causing DNA strand breaks. Associated with balanced 11q23 translocations (secondary AML).",
+  indications: [
+    { indication: "Lung — small cell",        hsa: "y", fda: "y", dose: "100 mg/m² D1–3 q3w (+ platinum)" },
+    { indication: "Testicular (refractory)",  hsa: "y", fda: "y", dose: "50–100 mg/m² D1–5 (+ combination)" },
+    { indication: "Lymphoma",                 hsa: "y", fda: "n", dose: "Regimen-dependent (e.g. BEACOPP, EPOCH, ICE)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Myelosuppression — dose-limiting (neutropenia)",
+      "Alopecia",
+      "Nausea / vomiting",
+      "Hypotension (with rapid infusion)",
+      "Mucositis"
+    ],
+    serious: ["Severe myelosuppression — fatal infection/bleeding", "Hypersensitivity / anaphylaxis", "Secondary AML (11q23 / MLL)"]
+  },
+  doseReductions: {
+    renal: "Reduce for CrCl <50 (partly renally cleared).",
+    other: [
+      { label: "Infusion", text: "give over ≥30–60 min to avoid hypotension; stop for hypersensitivity." },
+      { label: "Myelosuppression", text: "hold/reduce for grade ≥3 neutropenia or thrombocytopenia." }
+    ]
+  },
+  sources: "HSA SG package insert · FDA label (DailyMed; no boxed warning — myelosuppression is dose-limiting) · MOH Cancer Drug List (1 Jun 2026, SDL). NB: FDA-approved for SCLC + testicular; lymphoma is SG/EU + standard use — exact SG PI to confirm.",
+  verified: "2026-06-30"
+},
+
+{
+  id: "vinorelbine",
+  name: "Vinorelbine",
+  aliases: ["Navelbine", "vinorelbine tartrate"],
+  class: "Vinca alkaloid",
+  subclass: "Antimicrotubule",
+  route: ["IV"],
+  atc: "L01CA04",
+  brands: ["Navelbine"],
+  tumours: ["Lung — NSCLC", "Breast"],
+  mechanism: "Semi-synthetic vinca alkaloid — binds tubulin, inhibiting microtubule assembly and arresting mitosis.",
+  boxedWarning: "Fatal if given intrathecally — for INTRAVENOUS use only (intrathecal vinca alkaloids cause death). Severe myelosuppression — granulocytopenia (dose-limiting), with serious/fatal infection.",
+  indications: [
+    { indication: "Lung — non-small cell", hsa: "y", fda: "y", dose: "25–30 mg/m² weekly (single agent or + cisplatin)" },
+    { indication: "Breast, advanced",      hsa: "y", fda: "n", dose: "25–30 mg/m² weekly" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: [
+      "Granulocytopenia — dose-limiting (nadir 7–10 d)",
+      "Constipation",
+      "Peripheral neuropathy (milder than other vincas)",
+      "Injection-site reaction (vesicant)",
+      "Fatigue, nausea"
+    ],
+    serious: ["Severe granulocytopenia / sepsis", "Extravasation tissue injury (vesicant)", "Paralytic ileus", "Death if given intrathecally"]
+  },
+  doseReductions: {
+    hepatic: "Reduce for hepatic impairment (bilirubin 2.1–3 mg/dL → 50%; >3 → 25%).",
+    other: [
+      { label: "Granulocytopenia", text: "ANC <1000 on treatment day → hold; reduce for repeated or febrile neutropenia." },
+      { label: "Route", text: "IV ONLY — never intrathecal (fatal). Manage extravasation as a vesicant." }
+    ]
+  },
+  sources: "HSA SG package insert (Navelbine) · FDA label (DailyMed) · MOH Cancer Drug List (1 Jun 2026, SDL — IV form; some oral forms non-subsidised). NB: FDA-approved for NSCLC; advanced breast is SG/EU.",
+  verified: "2026-06-30"
 }
 
 ];
