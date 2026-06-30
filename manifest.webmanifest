@@ -1,6 +1,6 @@
 {
-  "name": "OncOS — Systemic Therapy",
-  "short_name": "Systemic Therapy",
+  "name": "OncOS — Drugs",
+  "short_name": "Drugs",
   "description": "Reference for systemic anticancer therapy regimens: dosing, schedules, dose modifications, supportive care, and cited sources.",
   "start_url": "./",
   "scope": "./",
