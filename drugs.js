@@ -979,6 +979,156 @@ window.DRUGS = [
   },
   sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Tecentriq) · FDA label (DailyMed). All indications HSA-registered; IMpower/IMbrave/OAK trials cited as the registration basis. irAE management per CTCAE / ASCO-ESMO guidance",
   verified: "2026-06-30"
+},
+
+{
+  id: "ipilimumab",
+  name: "Ipilimumab",
+  aliases: ["Yervoy"],
+  class: "Checkpoint inhibitor",
+  subclass: "Anti–CTLA-4",
+  route: ["IV"],
+  atc: "L01FX04",
+  brands: ["Yervoy"],
+  tumours: ["Melanoma", "Renal", "Colorectal", "Hepatocellular", "Lung — NSCLC", "Mesothelioma"],
+  mechanism: "Anti–CTLA-4 monoclonal antibody — blocks CTLA-4 to potentiate T-cell activation. In SG always combined with nivolumab; markedly higher irAE rates than PD-1/PD-L1 monotherapy.",
+  dosing: "Always with nivolumab; ipilimumab dose regimen-specific — 1 or 3 mg/kg q3w ×4 induction, or 1 mg/kg q6w (lung/meso/oesophageal). Then nivolumab maintenance.",
+  cdl: { items: [
+    { cancer: "Melanoma — advanced (+ nivolumab)", status: "MAF", text: "unresectable/metastatic; ipi 3 + nivo 1 mg/kg q3w ×4 (CheckMate-067)" },
+    { cancer: "Renal cell — 1L (+ nivolumab)", status: "MAF", text: "intermediate/poor-risk; ipi 1 + nivo 3 mg/kg q3w ×4 (CheckMate-214)" },
+    { cancer: "Colorectal — MSI-H/dMMR (+ nivolumab)", status: "MSV/MSHL", text: "post fluoropyrimidine/oxaliplatin/irinotecan; ipi 1 + nivo 3 mg/kg q3w ×4 (CheckMate-142)" },
+    { cancer: "Hepatocellular — advanced (+ nivolumab)", status: "MSV/MSHL", text: "after ≥1 prior line, Child-Pugh adequate; ipi 3 + nivo 1 mg/kg q3w ×4 (CheckMate-040)" },
+    { cancer: "NSCLC — 1L (+ nivolumab + 2 cycles chemo)", status: "MSV/MSHL", text: "metastatic, no EGFR/ALK; stop at 2 yr (CheckMate-9LA)" },
+    { cancer: "Mesothelioma — unresectable pleural (+ nivolumab)", status: "MSV/MSHL", text: "1L; ipi 1 mg/kg q6w + nivo q2w; stop at 2 yr (CheckMate-743)" },
+    { cancer: "Oesophageal SCC — 1L (+ nivolumab)", status: "MSV/MSHL", text: "unresectable adv/recurrent/metastatic; stop at 2 yr (CheckMate-648)" }
+  ] },
+  toxicities: {
+    common: [
+      "Immune-related — colitis / diarrhoea (prominent with CTLA-4), hepatitis, pneumonitis",
+      "Endocrinopathies — hypophysitis (notably CTLA-4), thyroid, adrenal, T1DM",
+      "Dermatitis / rash, pruritus",
+      "Fatigue, nausea"
+    ],
+    serious: ["Severe colitis / bowel perforation", "Severe hepatitis", "Hypophysitis / adrenal crisis", "Myocarditis", "SJS/TEN", "Highest irAE burden with nivolumab combination"]
+  },
+  doseModLabel: "irAE management",
+  doseReductions: {
+    other: [
+      { label: "Higher irAE risk", text: "CTLA-4 (esp. + nivolumab) → more frequent, earlier, more severe irAEs (colitis, hypophysitis). Low threshold to withhold + corticosteroids." },
+      { label: "Withhold (grade 2)", text: "withhold + steroids; resume when ≤grade 1 and steroid ≤10 mg/day." },
+      { label: "Discontinue", text: "permanently for most grade ≥3/4 irAEs or any myocarditis." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Yervoy) · FDA label (DailyMed). All SG indications are with nivolumab; CheckMate trials cited. irAE management per CTCAE / ASCO-ESMO guidance",
+  verified: "2026-06-30"
+},
+
+{
+  id: "tremelimumab",
+  name: "Tremelimumab",
+  aliases: ["Imjudo"],
+  class: "Checkpoint inhibitor",
+  subclass: "Anti–CTLA-4",
+  route: ["IV"],
+  atc: "L01FX20",
+  brands: ["Imjudo"],
+  tumours: ["Hepatocellular"],
+  mechanism: "Anti–CTLA-4 monoclonal antibody — used as a single priming dose with durvalumab (STRIDE regimen) in HCC.",
+  dosing: "Single priming dose 300 mg, given once with durvalumab 1500 mg; then durvalumab q4w (STRIDE).",
+  cdl: { items: [
+    { cancer: "Hepatocellular — 1L (+ durvalumab)", status: "MAF", text: "unresectable, no prior systemic therapy; single priming dose tremelimumab + durvalumab; adequate Child-Pugh (HIMALAYA / STRIDE)" }
+  ] },
+  toxicities: {
+    common: [
+      "Immune-related — hepatitis, colitis / diarrhoea, pneumonitis",
+      "Endocrinopathies — thyroid, adrenal, hypophysitis",
+      "Rash, pruritus, fatigue"
+    ],
+    serious: ["Severe hepatitis (HCC context)", "Severe colitis", "Hypophysitis / adrenal crisis", "Myocarditis"]
+  },
+  doseModLabel: "irAE management",
+  doseReductions: {
+    other: [
+      { label: "Single priming dose", text: "only one tremelimumab dose in STRIDE — irAEs may still occur; manage by withholding durvalumab + corticosteroids per grade." },
+      { label: "Discontinue", text: "permanently discontinue the regimen for most grade ≥3/4 irAEs or myocarditis." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Imjudo) · FDA label (DailyMed). irAE management per CTCAE / ASCO-ESMO guidance",
+  verified: "2026-06-30"
+},
+
+{
+  id: "avelumab",
+  name: "Avelumab",
+  aliases: ["Bavencio"],
+  class: "Checkpoint inhibitor",
+  subclass: "Anti–PD-L1",
+  route: ["IV"],
+  atc: "L01FF04",
+  brands: ["Bavencio"],
+  tumours: ["Bladder", "Skin / Merkel", "Renal"],
+  mechanism: "Anti–PD-L1 monoclonal antibody. Higher infusion-reaction rate — premedicate for the first 4 infusions.",
+  dosing: "800 mg q2w (10 mg/kg, max 800 mg). Premedicate (antihistamine + paracetamol) before the first 4 infusions.",
+  cdl: { items: [
+    { cancer: "Urothelial — 1L maintenance", status: "MAF", text: "locally advanced/metastatic, no progression after 1L platinum (JAVELIN Bladder 100)" },
+    { cancer: "Merkel cell carcinoma", status: "MAF", text: "metastatic (JAVELIN Merkel 200)" },
+    { cancer: "Renal cell — 1L (+ axitinib)", status: "MAF", text: "untreated advanced (JAVELIN Renal 101)" }
+  ] },
+  toxicities: {
+    common: [
+      "Infusion-related reactions (premedicate first 4 doses)",
+      "Immune-related — pneumonitis, colitis, hepatitis",
+      "Endocrinopathies — thyroid, adrenal, T1DM",
+      "Rash, fatigue"
+    ],
+    serious: ["Severe infusion reaction", "Severe pneumonitis / colitis / hepatitis", "Myocarditis", "Adrenal crisis / DKA"]
+  },
+  doseModLabel: "irAE management",
+  doseReductions: {
+    other: [
+      { label: "Infusion reactions", text: "premedicate (antihistamine + paracetamol) for first 4 infusions; slow/interrupt for mild-moderate, discontinue for severe." },
+      { label: "Withhold (grade 2)", text: "irAEs — withhold + corticosteroids; resume when ≤grade 1." },
+      { label: "Discontinue", text: "permanently for most grade ≥3/4 irAEs or myocarditis." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Bavencio) · FDA label (DailyMed). JAVELIN trials cited. irAE management per CTCAE / ASCO-ESMO guidance",
+  verified: "2026-06-30"
+},
+
+{
+  id: "dostarlimab",
+  name: "Dostarlimab",
+  aliases: ["Jemperli"],
+  class: "Checkpoint inhibitor",
+  subclass: "Anti–PD-1",
+  route: ["IV"],
+  atc: "L01FF07",
+  brands: ["Jemperli"],
+  tumours: ["Endometrial"],
+  mechanism: "Anti–PD-1 monoclonal antibody — predominantly endometrial cancer, with greatest benefit in dMMR/MSI-H tumours.",
+  dosing: "500 mg q3w ×4, then 1000 mg q6w.",
+  cdl: { items: [
+    { cancer: "Endometrial — 1L dMMR/MSI-H (+ chemo)", status: "MAF", text: "untreated primary advanced/recurrent; + carboplatin/paclitaxel then dostarlimab mono; stop at 3 yr (RUBY)" },
+    { cancer: "Endometrial — 1L all-comers (+ chemo)", status: "MSV/MSHL", text: "untreated primary advanced/recurrent; + chemo then mono; stop at 3 yr (RUBY)" },
+    { cancer: "Endometrial — 2L dMMR/MSI-H (mono)", status: "MSV/MSHL", text: "recurrent/advanced, post-platinum, no prior PD-1/PD-L1 (GARNET)" }
+  ] },
+  toxicities: {
+    common: [
+      "Immune-related — pneumonitis, colitis, hepatitis",
+      "Endocrinopathies — thyroid, adrenal, T1DM",
+      "Rash, fatigue, nausea, anaemia"
+    ],
+    serious: ["Severe pneumonitis / colitis / hepatitis", "Myocarditis", "Adrenal crisis / DKA"]
+  },
+  doseModLabel: "irAE management",
+  doseReductions: {
+    other: [
+      { label: "Withhold (grade 2)", text: "irAEs — withhold + corticosteroids; resume when ≤grade 1 and steroid ≤10 mg/day." },
+      { label: "Discontinue", text: "permanently for most grade ≥3/4 irAEs or myocarditis." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Jemperli) · FDA label (DailyMed). RUBY/GARNET trials cited. irAE management per CTCAE / ASCO-ESMO guidance",
+  verified: "2026-06-30"
 }
 
 ];
