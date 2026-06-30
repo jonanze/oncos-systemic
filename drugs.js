@@ -874,6 +874,65 @@ window.DRUGS = [
   },
   sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Keytruda) · FDA label (DailyMed). All indications HSA-registered; KEYNOTE trials cited as the registration basis. irAE management per CTCAE / ASCO-ESMO guidance",
   verified: "2026-06-30"
+},
+
+{
+  id: "nivolumab",
+  name: "Nivolumab",
+  aliases: ["Opdivo"],
+  class: "Checkpoint inhibitor",
+  subclass: "Anti–PD-1",
+  route: ["IV"],
+  atc: "L01FF01",
+  brands: ["Opdivo"],
+  tumours: ["Melanoma", "Lung — NSCLC", "Head & Neck", "Renal", "Lymphoma", "Gastric", "Bladder", "Colorectal", "Hepatocellular", "Mesothelioma"],
+  mechanism: "Anti–PD-1 monoclonal antibody — blocks PD-1 binding to PD-L1/PD-L2, restoring T-cell antitumour activity. Frequently paired with ipilimumab.",
+  dosing: "240 mg q2w or 480 mg q4w (flat). With ipilimumab: regimen-specific (melanoma — nivo 1 + ipi 3 mg/kg q3w ×4; RCC — nivo 3 + ipi 1 mg/kg q3w ×4), then nivolumab maintenance.",
+  cdl: { items: [
+    { cancer: "Melanoma — advanced (mono)", status: "MAF", text: "unresectable/metastatic, no prior PD-1 or ipilimumab (CheckMate-066)" },
+    { cancer: "Melanoma — advanced (+ ipilimumab)", status: "MAF", text: "induction nivo+ipi → nivo maintenance (CheckMate-067)" },
+    { cancer: "Melanoma — adjuvant", status: "MAF", text: "resected, node+, max 12 mo (CheckMate-238)" },
+    { cancer: "NSCLC — 2L", status: "MAF", text: "metastatic, post-platinum, no prior PD-1/PD-L1 (CheckMate-017/057)" },
+    { cancer: "Head & neck SCC — 2L", status: "MAF", text: "R/M, progressed ≤6 mo of platinum, no prior PD-1/PD-L1 (CheckMate-141)" },
+    { cancer: "Renal cell — 1L (+ ipilimumab)", status: "MAF", text: "intermediate/poor-risk; induction → nivo maintenance (CheckMate-214)" },
+    { cancer: "Renal cell — advanced 2L", status: "MAF", text: "previously treated, no prior PD-1/PD-L1 (CheckMate-025)" },
+    { cancer: "Classical Hodgkin lymphoma — R/R", status: "MAF", text: "post-ASCT + brentuximab vedotin (CheckMate-205)" },
+    { cancer: "Gastric / GEJ / oesophageal adeno — 1L", status: "MAF", text: "+ chemo, HER2-neg, unresectable adv/metastatic; stop at 2 yr (CheckMate-649)" },
+    { cancer: "Gastric / GEJ — ≥3L", status: "MAF", text: "unresectable LA/recurrent, after ≥2 prior (ATTRACTION-2)" },
+    { cancer: "Oesophageal SCC — 1L", status: "MAF", text: "+ fluoropyrimidine/platinum, unresectable adv/recurrent/metastatic (CheckMate-648)" },
+    { cancer: "Oesophageal SCC — 2L", status: "MAF", text: "after fluoropyrimidine/platinum, no prior PD-1/PD-L1 (ATTRACTION-3)" },
+    { cancer: "Oesophageal / GEJ — adjuvant", status: "MAF", text: "resected, residual disease post-neoadjuvant chemoRT, max 12 mo (CheckMate-577)" },
+    { cancer: "Urothelial — 2L", status: "MSV/MSHL", text: "locally advanced/metastatic, post-platinum (CheckMate-275)" },
+    { cancer: "Urothelial — adjuvant (MIUC)", status: "MSV/MSHL", text: "high-risk muscle-invasive, post-resection (CheckMate-274)" },
+    { cancer: "Colorectal — MSI-H/dMMR (mono)", status: "MSV/MSHL", text: "unresectable/metastatic (CheckMate-142)" },
+    { cancer: "Colorectal — MSI-H/dMMR (+ ipilimumab)", status: "MSV/MSHL", text: "unresectable/metastatic (CheckMate-142)" },
+    { cancer: "Hepatocellular — advanced", status: "MSV/MSHL", text: "post prior systemic therapy" },
+    { cancer: "Hepatocellular — advanced (+ ipilimumab)", status: "MSV/MSHL", text: "unresectable (CheckMate-040)" },
+    { cancer: "NSCLC — resectable (neoadjuvant)", status: "MSV/MSHL", text: "+ platinum-doublet, neoadjuvant (CheckMate-816)" },
+    { cancer: "NSCLC — 1L (+ ipilimumab + 2 cycles chemo)", status: "MSV/MSHL", text: "untreated metastatic (CheckMate-9LA)" },
+    { cancer: "Renal cell — 1L (+ cabozantinib)", status: "MSV/MSHL", text: "untreated advanced (CheckMate-9ER)" },
+    { cancer: "Mesothelioma — unresectable (+ ipilimumab)", status: "MSV/MSHL", text: "1L pleural (CheckMate-743)" },
+    { cancer: "Gastric / GEJ — 1L (+ ipilimumab)", status: "MSV/MSHL", text: "untreated unresectable adv/recurrent/metastatic" }
+  ] },
+  toxicities: {
+    common: [
+      "Immune-related: pneumonitis, colitis / diarrhoea, hepatitis",
+      "Endocrinopathies — thyroid, adrenal insufficiency, hypophysitis, T1DM",
+      "Dermatitis / rash, pruritus, vitiligo",
+      "Nephritis · fatigue, arthralgia, infusion reactions"
+    ],
+    serious: ["Severe/fatal pneumonitis, colitis, hepatitis", "Myocarditis", "Adrenal crisis / DKA", "SJS/TEN", "Rare neuro/haematologic irAEs — markedly higher with ipilimumab combinations"]
+  },
+  doseModLabel: "irAE management",
+  doseReductions: {
+    other: [
+      { label: "Withhold (grade 2)", text: "moderate irAEs — withhold + corticosteroids (prednisolone 1–2 mg/kg/day, taper over ≥1 month); resume when ≤grade 1 and steroid ≤10 mg/day." },
+      { label: "Discontinue", text: "permanently for most grade ≥3/4 irAEs, recurrent grade ≥2, or any grade ≥3 myocarditis / neurologic / haematologic event." },
+      { label: "+ Ipilimumab combinations", text: "substantially higher irAE rates/severity — lower threshold to hold + steroid; per-organ guidance." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Opdivo) · FDA label (DailyMed). All indications HSA-registered; CheckMate trials cited as the registration basis. irAE management per CTCAE / ASCO-ESMO guidance",
+  verified: "2026-06-30"
 }
 
 ];
