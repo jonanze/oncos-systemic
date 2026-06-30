@@ -1380,6 +1380,154 @@ window.DRUGS = [
   },
   sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Polivy) · FDA label (DailyMed). POLARIX",
   verified: "2026-06-30"
+},
+
+{
+  id: "osimertinib",
+  name: "Osimertinib",
+  aliases: ["Tagrisso"],
+  class: "EGFR inhibitor",
+  subclass: "3rd-gen (T790M-active)",
+  route: ["PO"],
+  atc: "L01EB04",
+  brands: ["Tagrisso"],
+  tumours: ["Lung — NSCLC"],
+  mechanism: "3rd-generation irreversible EGFR TKI — active against sensitising mutations and T790M resistance; CNS-penetrant.",
+  dosing: "80 mg PO once daily (40 mg if dose-reduced).",
+  cdl: { items: [
+    { cancer: "NSCLC — 2L (EGFR T790M+)", status: "MAF", text: "LA/metastatic, progressed on/after an EGFR TKI (AURA3)" },
+    { cancer: "NSCLC — 1L (EGFR-mutant)", status: "MSV/MSHL", text: "newly diagnosed LA/metastatic EGFR-mut; incl. intolerance to another EGFR TKI (FLAURA)" },
+    { cancer: "NSCLC — adjuvant (EGFR ex19del/L858R)", status: "MSV/MSHL", text: "resected stage IB-IIIA; max 3 yr (ADAURA)" }
+  ] },
+  toxicities: {
+    common: ["Diarrhoea", "Rash / acneiform, dry skin, paronychia", "Stomatitis", "Decreased appetite", "Mild cytopenias"],
+    serious: ["Interstitial lung disease / pneumonitis", "QTc prolongation", "Cardiomyopathy / LVEF decline", "Erythema multiforme / SJS (rare)"]
+  },
+  doseReductions: {
+    other: [
+      { label: "ILD / pneumonitis", text: "permanently discontinue for any grade of confirmed ILD." },
+      { label: "QTc / cardiac", text: "hold for QTc >500 ms or symptomatic arrhythmia; monitor LVEF, hold/discontinue for significant decline." },
+      { label: "Other toxicity", text: "reduce 80 → 40 mg for grade ≥3; discontinue if intolerable." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Tagrisso) · FDA label (DailyMed). FLAURA, AURA3, ADAURA",
+  verified: "2026-06-30"
+},
+
+{
+  id: "afatinib",
+  name: "Afatinib",
+  aliases: ["Giotrif", "Gilotrif"],
+  class: "EGFR inhibitor",
+  subclass: "2nd-gen irreversible (pan-HER)",
+  route: ["PO"],
+  atc: "L01EB03",
+  brands: ["Giotrif"],
+  tumours: ["Lung — NSCLC"],
+  mechanism: "2nd-generation irreversible ErbB-family (EGFR/HER2/HER4) TKI — covers common and some uncommon EGFR mutations.",
+  dosing: "40 mg PO once daily (reduce 40 → 30 → 20 mg).",
+  cdl: { items: [
+    { cancer: "NSCLC — 1L (EGFR-mutant)", status: "MAF", text: "locally advanced or metastatic EGFR-mut NSCLC (LUX-Lung 3/6)" }
+  ] },
+  toxicities: {
+    common: ["Diarrhoea (prominent)", "Rash / acneiform", "Stomatitis", "Paronychia", "Dry skin"],
+    serious: ["Severe diarrhoea / dehydration", "ILD (rare)", "Hepatotoxicity", "Keratitis"]
+  },
+  doseReductions: {
+    other: [
+      { label: "Diarrhoea", text: "loperamide + fluids; hold for grade ≥2 until ≤grade 1, resume reduced (40 → 30 → 20 mg)." },
+      { label: "Skin / other", text: "reduce one level for grade ≥3; discontinue if intolerable at 20 mg." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Giotrif) · FDA label (DailyMed). LUX-Lung 3/6",
+  verified: "2026-06-30"
+},
+
+{
+  id: "erlotinib",
+  name: "Erlotinib",
+  aliases: ["Tarceva"],
+  class: "EGFR inhibitor",
+  subclass: "1st-gen reversible",
+  route: ["PO"],
+  atc: "L01EB02",
+  brands: ["Tarceva"],
+  tumours: ["Lung — NSCLC"],
+  mechanism: "1st-generation reversible EGFR TKI.",
+  indications: [
+    { indication: "NSCLC — EGFR-mutant (advanced)", hsa: "y", fda: "y", dose: "150 mg PO daily (1L or maintenance)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Rash / acneiform", "Diarrhoea", "Dry skin, paronychia", "Fatigue, anorexia"],
+    serious: ["ILD (rare)", "Hepatotoxicity", "GI perforation (rare)"]
+  },
+  doseReductions: {
+    other: [
+      { label: "Skin / diarrhoea", text: "reduce 150 → 100 → 50 mg for grade ≥3; supportive care." },
+      { label: "Food effect", text: "take on an empty stomach (≥1 h before / 2 h after food)." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · HSA register (Tarceva) · FDA label (DailyMed)",
+  verified: "2026-06-30"
+},
+
+{
+  id: "gefitinib",
+  name: "Gefitinib",
+  aliases: ["Iressa"],
+  class: "EGFR inhibitor",
+  subclass: "1st-gen reversible",
+  route: ["PO"],
+  atc: "L01EB01",
+  brands: ["Iressa"],
+  tumours: ["Lung — NSCLC"],
+  mechanism: "1st-generation reversible EGFR TKI.",
+  indications: [
+    { indication: "NSCLC — 1L EGFR-mutant (advanced)", hsa: "y", fda: "y", dose: "250 mg PO daily (IPASS)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Rash / acneiform", "Diarrhoea", "Dry skin", "Nausea, anorexia"],
+    serious: ["Interstitial lung disease (higher in East-Asian patients — monitor)", "Hepatotoxicity"]
+  },
+  doseReductions: {
+    other: [
+      { label: "ILD", text: "interrupt + investigate for acute dyspnoea/cough/fever; discontinue if confirmed." },
+      { label: "Toxicity", text: "single 250 mg strength — interrupt up to 14 days for grade ≥3, then resume; monitor LFTs." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · HSA register (Iressa) · FDA label (DailyMed). IPASS",
+  verified: "2026-06-30"
+},
+
+{
+  id: "dacomitinib",
+  name: "Dacomitinib",
+  aliases: ["Vizimpro"],
+  class: "EGFR inhibitor",
+  subclass: "2nd-gen irreversible (pan-HER)",
+  route: ["PO"],
+  atc: "L01EB07",
+  brands: ["Vizimpro"],
+  tumours: ["Lung — NSCLC"],
+  mechanism: "2nd-generation irreversible pan-HER TKI.",
+  indications: [
+    { indication: "NSCLC — 1L EGFR ex19del/L858R (advanced)", hsa: "y", fda: "y", dose: "45 mg PO daily (ARCHER-1050)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Diarrhoea", "Rash / acneiform", "Paronychia", "Stomatitis", "Dry skin (more toxic than other EGFR TKIs)"],
+    serious: ["Severe diarrhoea", "ILD (rare)"]
+  },
+  doseReductions: {
+    other: [
+      { label: "Toxicity", text: "reduce 45 → 30 → 15 mg for grade ≥3 diarrhoea / skin / mucositis; supportive care." },
+      { label: "ILD", text: "discontinue for confirmed ILD." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · HSA register (Vizimpro) · FDA label (DailyMed). ARCHER-1050",
+  verified: "2026-06-30"
 }
 
 ];
