@@ -2212,6 +2212,256 @@ window.DRUGS = [
   ] },
   sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Talzenna) · FDA label (DailyMed). EMBRACA",
   verified: "2026-06-30"
+},
+
+{
+  id: "lapatinib",
+  name: "Lapatinib",
+  aliases: ["Tyverb", "Tykerb"],
+  class: "HER2 TKI",
+  subclass: "HER2/EGFR (reversible)",
+  route: ["PO"],
+  atc: "L01EH01",
+  brands: ["Tyverb"],
+  tumours: ["Breast"],
+  mechanism: "Reversible HER2/EGFR dual TKI.",
+  dosing: "+ capecitabine: 1250 mg daily. + aromatase inhibitor: 1500 mg daily. Take 1 h before / after food.",
+  cdl: { items: [
+    { cancer: "Breast — HER2+/HR+ MBC (+ AI)", status: "MAF", text: "postmenopausal, metastatic (EGF30008)" },
+    { cancer: "Breast — HER2+ advanced (+ capecitabine)", status: "MAF", text: "progressed after anthracycline, taxane and trastuzumab (EGF100151)" }
+  ] },
+  toxicities: {
+    common: ["Diarrhoea", "Hand-foot skin reaction (with capecitabine)", "Rash", "Nausea", "Fatigue"],
+    serious: ["Hepatotoxicity", "LVEF decline", "Severe diarrhoea", "QTc prolongation", "ILD (rare)"]
+  },
+  doseReductions: { other: [
+    { label: "Diarrhoea", text: "loperamide; hold for grade ≥2, resume reduced." },
+    { label: "Cardiac / hepatic", text: "baseline + periodic LVEF + LFTs; hold/discontinue for symptomatic LVEF drop or severe hepatotoxicity." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Tyverb) · FDA label (DailyMed). EGF100151, EGF30008",
+  verified: "2026-06-30"
+},
+
+{
+  id: "neratinib",
+  name: "Neratinib",
+  aliases: ["Nerlynx"],
+  class: "HER2 TKI",
+  subclass: "irreversible pan-HER",
+  route: ["PO"],
+  atc: "L01EH02",
+  brands: ["Nerlynx"],
+  tumours: ["Breast"],
+  mechanism: "Irreversible pan-HER (HER1/2/4) TKI.",
+  dosing: "240 mg PO once daily with food. Mandatory antidiarrhoeal (loperamide) prophylaxis for the first 1-2 cycles.",
+  cdl: { items: [
+    { cancer: "Breast — HER2+ extended adjuvant", status: "MSV/MSHL", text: "early HER2+, after adjuvant trastuzumab; start ≤1 yr of completing trastuzumab (ExteNET)" },
+    { cancer: "Breast — HER2+ advanced (+ capecitabine)", status: "MSV/MSHL", text: "≥2 prior anti-HER2 regimens in metastatic (NALA)" }
+  ] },
+  toxicities: {
+    common: ["Diarrhoea (prominent — needs prophylaxis)", "Nausea, vomiting", "Abdominal pain", "Fatigue", "Rash, transaminitis"],
+    serious: ["Severe diarrhoea / dehydration", "Hepatotoxicity"]
+  },
+  doseReductions: { other: [
+    { label: "Diarrhoea prophylaxis", text: "loperamide prophylaxis cycles 1-2 (mandatory); hold for grade ≥3 until ≤grade 1, resume reduced (240 → 200 → 160 → 120 mg)." },
+    { label: "Hepatotoxicity", text: "monitor LFTs; hold/discontinue per severity." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Nerlynx) · FDA label (DailyMed). ExteNET, NALA",
+  verified: "2026-06-30"
+},
+
+{
+  id: "alpelisib",
+  name: "Alpelisib",
+  aliases: ["Piqray"],
+  class: "PI3K inhibitor",
+  subclass: "PI3Kα-selective",
+  route: ["PO"],
+  atc: "L01EM03",
+  brands: ["Piqray"],
+  tumours: ["Breast"],
+  mechanism: "PI3Kα-selective inhibitor for PIK3CA-mutant HR+ breast cancer.",
+  dosing: "300 mg PO once daily with food (+ fulvestrant). Reduce 300 → 250 → 200 mg.",
+  cdl: { items: [
+    { cancer: "Breast — HR+/HER2- advanced (PIK3CA-mut)", status: "MSV/MSHL", text: "+ fulvestrant, after progression on endocrine therapy (SOLAR-1)" }
+  ] },
+  toxicities: {
+    common: ["Hyperglycaemia (prominent — class effect)", "Rash", "Diarrhoea", "Nausea, decreased appetite", "Stomatitis, fatigue"],
+    serious: ["Severe hyperglycaemia / DKA", "Severe cutaneous reactions (SJS/TEN, DRESS)", "Pneumonitis"]
+  },
+  doseReductions: { other: [
+    { label: "Hyperglycaemia", text: "baseline + monitor fasting glucose / HbA1c; metformin first-line; hold/reduce for grade ≥3; optimise before starting." },
+    { label: "Rash", text: "antihistamine prophylaxis; hold/reduce for grade ≥2-3; discontinue for SJS/TEN/DRESS." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Piqray) · FDA label (DailyMed). SOLAR-1",
+  verified: "2026-06-30"
+},
+
+{
+  id: "everolimus",
+  name: "Everolimus",
+  aliases: ["Afinitor"],
+  class: "mTOR inhibitor",
+  subclass: "mTORC1",
+  route: ["PO"],
+  atc: "L01EG02",
+  brands: ["Afinitor"],
+  tumours: ["Breast", "Neuroendocrine", "Renal"],
+  mechanism: "mTORC1 inhibitor.",
+  dosing: "10 mg PO once daily (reduce to 5 mg, or 5 mg alternate days).",
+  cdl: { items: [
+    { cancer: "Neuroendocrine — GI / lung (non-functional)", status: "MAF", text: "unresectable/metastatic, well-differentiated, progressive (RADIANT-4)" },
+    { cancer: "Neuroendocrine — pancreatic", status: "MAF", text: "unresectable / LA / metastatic, progressive (RADIANT-3)" },
+    { cancer: "Breast — HR+/HER2- advanced (+ endocrine)", status: "MSV/MSHL", text: "postmenopausal, no visceral crisis, after a non-steroidal AI (BOLERO-2, + exemestane)" },
+    { cancer: "Renal cell — 2L", status: "MSV/MSHL", text: "previously treated advanced RCC (RECORD-1)" }
+  ] },
+  toxicities: {
+    common: ["Stomatitis / mouth ulcers (prominent)", "Rash", "Fatigue", "Diarrhoea", "Hyperglycaemia, hyperlipidaemia", "Cytopenias"],
+    serious: ["Non-infectious pneumonitis (class effect)", "Severe infections (immunosuppression)", "Angioedema (esp. with ACE inhibitors)", "Severe stomatitis"]
+  },
+  doseReductions: { other: [
+    { label: "Stomatitis", text: "dexamethasone mouthwash prophylaxis; hold for grade ≥3, resume reduced (10 → 5 mg)." },
+    { label: "Pneumonitis", text: "hold + corticosteroids for symptomatic disease; discontinue for severe." },
+    { label: "Metabolic", text: "monitor glucose / lipids; manage medically." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Afinitor) · FDA label (DailyMed). RADIANT-3/4, BOLERO-2, RECORD-1",
+  verified: "2026-06-30"
+},
+
+{
+  id: "erdafitinib",
+  name: "Erdafitinib",
+  aliases: ["Balversa"],
+  class: "FGFR inhibitor",
+  subclass: "pan-FGFR",
+  route: ["PO"],
+  atc: "L01EN01",
+  brands: ["Balversa"],
+  tumours: ["Bladder"],
+  mechanism: "Pan-FGFR (1-4) inhibitor for FGFR-altered urothelial carcinoma.",
+  dosing: "8 mg PO once daily, uptitrate to 9 mg by serum phosphate (reduce per toxicity).",
+  cdl: { items: [
+    { cancer: "Urothelial — advanced (FGFR3+)", status: "MSV/MSHL", text: "susceptible FGFR3 alteration, after ≥1 prior systemic therapy; not for IO-naive eligible patients (THOR)" }
+  ] },
+  toxicities: {
+    common: ["Hyperphosphataemia (on-target — guides titration)", "Stomatitis", "Dry mouth / skin", "Diarrhoea", "Nail changes (onycholysis)", "Dysgeusia"],
+    serious: ["Central serous retinopathy / retinal detachment (ophthalmic monitoring)", "Severe hyperphosphataemia / soft-tissue mineralisation"]
+  },
+  doseReductions: { other: [
+    { label: "Phosphate-guided titration", text: "check serum phosphate day 14-21; uptitrate 8 → 9 mg if phosphate <5.5 mg/dL; phosphate-binders + dose reduction for hyperphosphataemia." },
+    { label: "Ocular", text: "baseline + periodic eye exams; hold for central serous retinopathy." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Balversa) · FDA label (DailyMed). THOR / BLC2001",
+  verified: "2026-06-30"
+},
+
+{
+  id: "pemigatinib",
+  name: "Pemigatinib",
+  aliases: ["Pemazyre"],
+  class: "FGFR inhibitor",
+  subclass: "FGFR1-3 selective",
+  route: ["PO"],
+  atc: "L01EN02",
+  brands: ["Pemazyre"],
+  tumours: ["Biliary tract"],
+  mechanism: "Selective FGFR1-3 inhibitor for FGFR2-fusion cholangiocarcinoma.",
+  dosing: "13.5 mg PO once daily, 2 weeks on / 1 off (reduce per toxicity).",
+  cdl: { items: [
+    { cancer: "Cholangiocarcinoma — FGFR2 fusion", status: "MSV/MSHL", text: "LA/metastatic, after ≥1 prior systemic therapy (FIGHT-202)" }
+  ] },
+  toxicities: {
+    common: ["Hyperphosphataemia (on-target)", "Alopecia", "Diarrhoea", "Stomatitis", "Dry mouth / skin / eye", "Nail changes, dysgeusia"],
+    serious: ["Central serous retinopathy / RPE detachment", "Severe hyperphosphataemia"]
+  },
+  doseReductions: { other: [
+    { label: "Hyperphosphataemia", text: "low-phosphate diet + phosphate-binders; reduce/interrupt for persistent elevation." },
+    { label: "Ocular", text: "baseline + periodic eye exams; hold for serous retinopathy." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Pemazyre) · FDA label (DailyMed). FIGHT-202",
+  verified: "2026-06-30"
+},
+
+{
+  id: "imatinib",
+  name: "Imatinib",
+  aliases: ["Glivec", "Gleevec"],
+  class: "KIT/PDGFR inhibitor",
+  subclass: "BCR-ABL/KIT/PDGFR",
+  route: ["PO"],
+  atc: "L01EA01",
+  brands: ["Glivec"],
+  tumours: ["GIST"],
+  mechanism: "BCR-ABL / KIT / PDGFR TKI. Solid-tumour use = KIT+ GIST (and DFSP). CML / Ph+ ALL are haematological — out of this module's scope.",
+  indications: [
+    { indication: "GIST — KIT+ (advanced)", hsa: "y", fda: "y", dose: "400 mg daily (800 mg if KIT exon 9)" },
+    { indication: "GIST — adjuvant (high-risk, resected)", hsa: "y", fda: "y", dose: "400 mg daily × 3 yr" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Oedema (periorbital, peripheral)", "Nausea, diarrhoea", "Muscle cramps, myalgia", "Rash", "Fatigue, cytopenias"],
+    serious: ["Fluid retention / pleural-pericardial effusion", "Hepatotoxicity", "Severe cytopenias", "Tumour lysis (bulky disease)"]
+  },
+  doseReductions: { other: [
+    { label: "Fluid retention", text: "diuretics / supportive care; interrupt for severe effusions." },
+    { label: "Cytopenias / hepatic", text: "monitor FBC + LFTs; interrupt/reduce for grade ≥3." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · HSA register (Glivec) · FDA label (DailyMed). GIST: B2222, Z9001 / SSG-XVIII",
+  verified: "2026-06-30"
+},
+
+{
+  id: "ripretinib",
+  name: "Ripretinib",
+  aliases: ["Qinlock"],
+  class: "KIT/PDGFR inhibitor",
+  subclass: "switch-control",
+  route: ["PO"],
+  atc: "L01EX19",
+  brands: ["Qinlock"],
+  tumours: ["GIST"],
+  mechanism: "KIT / PDGFRA switch-control inhibitor — broad activity across resistance mutations; for ≥4th-line GIST.",
+  dosing: "150 mg PO once daily (reduce to 100 mg).",
+  cdl: { items: [
+    { cancer: "GIST — ≥4L", status: "MSV/MSHL", text: "advanced, after ≥3 prior kinase inhibitors incl. imatinib (INVICTUS)" }
+  ] },
+  toxicities: {
+    common: ["Alopecia", "Fatigue", "Nausea", "Hand-foot skin reaction (palmar-plantar)", "Myalgia, diarrhoea", "Hypertension"],
+    serious: ["Secondary cutaneous malignancies (SCC / melanoma — skin surveillance)", "Hypertension", "Cardiac dysfunction / LVEF decline"]
+  },
+  doseReductions: { other: [
+    { label: "Toxicity", text: "reduce 150 → 100 mg for grade ≥3 (HFSR, hypertension, LVEF); dermatologic surveillance for new lesions." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Qinlock) · FDA label (DailyMed). INVICTUS",
+  verified: "2026-06-30"
+},
+
+{
+  id: "vismodegib",
+  name: "Vismodegib",
+  aliases: ["Erivedge"],
+  class: "Hedgehog inhibitor",
+  subclass: "SMO",
+  route: ["PO"],
+  atc: "L01XJ01",
+  brands: ["Erivedge"],
+  tumours: ["Skin / BCC"],
+  mechanism: "Hedgehog-pathway (smoothened, SMO) inhibitor for advanced basal cell carcinoma.",
+  boxedWarning: "Embryo-fetal toxicity — can cause severe birth defects or embryo-fetal death. Verify pregnancy status; strict contraception; no blood/semen donation during and after treatment.",
+  dosing: "150 mg PO once daily until progression or unacceptable toxicity.",
+  cdl: { items: [
+    { cancer: "Basal cell carcinoma — advanced", status: "MSV/MSHL", text: "metastatic, or locally advanced recurrent post-surgery / not a surgery- or RT-candidate (ERIVANCE)" }
+  ] },
+  toxicities: {
+    common: ["Muscle spasms (prominent)", "Alopecia", "Dysgeusia / ageusia", "Weight loss", "Fatigue, nausea", "Decreased appetite"],
+    serious: ["Embryo-fetal toxicity", "Premature epiphyseal fusion (paediatric)", "Severe muscle spasms"]
+  },
+  doseReductions: { other: [
+    { label: "Muscle spasms", text: "supportive (hydration, calcium / magnesium); treatment interruptions for tolerability (no formal dose-reduction levels)." },
+    { label: "Contraception", text: "strict contraception during and after treatment; no blood/semen donation." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Erivedge) · FDA label (DailyMed). ERIVANCE",
+  verified: "2026-06-30"
 }
 
 ];
