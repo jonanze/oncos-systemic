@@ -1129,6 +1129,41 @@ window.DRUGS = [
   },
   sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Jemperli) · FDA label (DailyMed). RUBY/GARNET trials cited. irAE management per CTCAE / ASCO-ESMO guidance",
   verified: "2026-06-30"
+},
+
+{
+  id: "nivolumab-relatlimab",
+  name: "Nivolumab + relatlimab",
+  aliases: ["Opdualag", "relatlimab"],
+  class: "Checkpoint inhibitor",
+  subclass: "Anti–PD-1 + anti–LAG-3",
+  route: ["IV"],
+  atc: "L01FF09",
+  brands: ["Opdualag"],
+  tumours: ["Melanoma"],
+  mechanism: "Fixed-dose combination of nivolumab (anti–PD-1) and relatlimab (anti–LAG-3) — dual checkpoint blockade; LAG-3 is the third checkpoint with an approved inhibitor.",
+  dosing: "Fixed-dose: nivolumab 480 mg + relatlimab 160 mg IV q4w.",
+  cdl: { items: [
+    { cancer: "Melanoma — advanced", status: "Not listed", text: "unresectable/metastatic, 1L; nivolumab + relatlimab fixed-dose (RELATIVITY-047)" }
+  ] },
+  toxicities: {
+    common: [
+      "Immune-related — pneumonitis, colitis, hepatitis, adrenal insufficiency",
+      "Endocrinopathies — thyroid, adrenal, hypophysitis, T1DM",
+      "Rash, pruritus, fatigue, arthralgia",
+      "Myocarditis — monitor (dual checkpoint)"
+    ],
+    serious: ["Severe pneumonitis / colitis / hepatitis", "Myocarditis", "Adrenal crisis / DKA", "Rare neurologic irAEs"]
+  },
+  doseModLabel: "irAE management",
+  doseReductions: {
+    other: [
+      { label: "Withhold (grade 2)", text: "irAEs — withhold the combination + corticosteroids; resume when ≤grade 1 and steroid ≤10 mg/day." },
+      { label: "Discontinue", text: "permanently for most grade ≥3/4 irAEs or myocarditis. Given as a fixed-dose combination, not titrated separately." }
+    ]
+  },
+  sources: "HSA register / NDF (Opdualag) · FDA label (DailyMed) · RELATIVITY-047. NOT on the MOH Cancer Drug List → not subsidised (Not listed). irAE management per CTCAE / ASCO-ESMO guidance",
+  verified: "2026-06-30"
 }
 
 ];
