@@ -1528,6 +1528,144 @@ window.DRUGS = [
   },
   sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · HSA register (Vizimpro) · FDA label (DailyMed). ARCHER-1050",
   verified: "2026-06-30"
+},
+
+{
+  id: "alectinib",
+  name: "Alectinib",
+  aliases: ["Alecensa"],
+  class: "ALK inhibitor",
+  subclass: "2nd-gen (CNS-active)",
+  route: ["PO"],
+  atc: "L01ED03",
+  brands: ["Alecensa"],
+  tumours: ["Lung — NSCLC"],
+  mechanism: "2nd-generation ALK TKI — high CNS penetration; a preferred 1L option for ALK+ NSCLC.",
+  dosing: "600 mg PO BID with food (reduce 600 → 450 → 300 mg BID).",
+  cdl: { items: [
+    { cancer: "NSCLC — advanced (ALK+)", status: "MAF", text: "locally advanced or metastatic ALK+ NSCLC (ALEX)" },
+    { cancer: "NSCLC — adjuvant (ALK+)", status: "MSV/MSHL", text: "resected stage II-IIIB (T3N2); max 2 yr (ALINA)" }
+  ] },
+  toxicities: {
+    common: ["Myalgia, CPK elevation", "Oedema", "Constipation", "Anaemia", "Transaminitis", "Photosensitivity, bradycardia"],
+    serious: ["Hepatotoxicity", "ILD / pneumonitis", "Severe myalgia / rhabdomyolysis (rare)", "Bradycardia"]
+  },
+  doseReductions: { other: [
+    { label: "Toxicity", text: "reduce 600 → 450 → 300 mg BID for grade ≥3 (hepatic, CPK/myalgia); discontinue below 300 mg BID." },
+    { label: "ILD / hepatotoxicity", text: "hold + investigate; discontinue for confirmed ILD or severe hepatotoxicity." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Alecensa) · FDA label (DailyMed). ALEX, ALINA",
+  verified: "2026-06-30"
+},
+
+{
+  id: "brigatinib",
+  name: "Brigatinib",
+  aliases: ["Alunbrig"],
+  class: "ALK inhibitor",
+  subclass: "2nd-gen",
+  route: ["PO"],
+  atc: "L01ED04",
+  brands: ["Alunbrig"],
+  tumours: ["Lung — NSCLC"],
+  mechanism: "2nd-generation ALK TKI with broad resistance-mutation coverage and CNS activity.",
+  dosing: "90 mg PO daily ×7 days (lead-in), then 180 mg daily — the lead-in mitigates early pulmonary events.",
+  cdl: { items: [
+    { cancer: "NSCLC — advanced (ALK+)", status: "MAF", text: "locally advanced or metastatic ALK+ NSCLC (ALTA-1L)" }
+  ] },
+  toxicities: {
+    common: ["Hypertension", "GI (nausea, diarrhoea)", "Rash", "CPK / lipase / amylase elevation", "Cough, fatigue", "Visual disturbance"],
+    serious: ["Early pulmonary events (within first week — hence the 7-day lead-in)", "Pneumonitis", "Severe hypertension", "Bradycardia"]
+  },
+  doseReductions: { other: [
+    { label: "Early pulmonary events", text: "use the 7-day 90 mg lead-in; hold for new respiratory symptoms; discontinue for confirmed ILD." },
+    { label: "Toxicity", text: "reduce 180 → 120 → 90 mg for grade ≥3 (hypertension, CPK, hepatic)." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Alunbrig) · FDA label (DailyMed). ALTA-1L",
+  verified: "2026-06-30"
+},
+
+{
+  id: "lorlatinib",
+  name: "Lorlatinib",
+  aliases: ["Lorviqua", "Lorbrena"],
+  class: "ALK inhibitor",
+  subclass: "3rd-gen (ALK/ROS1, CNS)",
+  route: ["PO"],
+  atc: "L01ED05",
+  brands: ["Lorviqua"],
+  tumours: ["Lung — NSCLC"],
+  mechanism: "3rd-generation ALK/ROS1 TKI — covers most resistance mutations incl. G1202R; high CNS penetration.",
+  dosing: "100 mg PO once daily (reduce 100 → 75 → 50 mg).",
+  cdl: { items: [
+    { cancer: "NSCLC — advanced (ALK+)", status: "MAF", text: "locally advanced or metastatic ALK+ NSCLC (1L CROWN, or post-prior ALK TKI)" }
+  ] },
+  toxicities: {
+    common: ["Hyperlipidaemia — hypercholesterolaemia + hypertriglyceridaemia (prominent; needs statin)", "Oedema, weight gain", "CNS effects — cognitive / mood / speech (notable)", "Peripheral neuropathy", "Fatigue"],
+    serious: ["Severe CNS / psychiatric effects", "AV block", "Severe hyperlipidaemia / pancreatitis", "ILD (rare)"]
+  },
+  doseReductions: { other: [
+    { label: "Hyperlipidaemia", text: "start a statin; manage per lipids (rarely needs a dose change)." },
+    { label: "CNS effects", text: "hold for grade ≥2 CNS effects until ≤grade 1, resume reduced (100 → 75 → 50 mg)." },
+    { label: "Other toxicity", text: "reduce one level for grade ≥3." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Lorviqua) · FDA label (DailyMed). CROWN",
+  verified: "2026-06-30"
+},
+
+{
+  id: "ceritinib",
+  name: "Ceritinib",
+  aliases: ["Zykadia"],
+  class: "ALK inhibitor",
+  subclass: "2nd-gen",
+  route: ["PO"],
+  atc: "L01ED02",
+  brands: ["Zykadia"],
+  tumours: ["Lung — NSCLC"],
+  mechanism: "2nd-generation ALK TKI.",
+  indications: [
+    { indication: "NSCLC — advanced (ALK+)", hsa: "y", fda: "y", dose: "450 mg PO daily with food (ASCEND)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Diarrhoea, nausea, vomiting (prominent GI)", "Transaminitis", "Hyperglycaemia", "Fatigue", "Abdominal pain"],
+    serious: ["Hepatotoxicity", "QTc prolongation", "ILD / pneumonitis", "Hyperglycaemia", "Bradycardia / pancreatitis"]
+  },
+  doseReductions: { other: [
+    { label: "GI / hepatic", text: "take 450 mg with food; reduce by 150 mg increments for grade ≥3 GI or transaminitis." },
+    { label: "QTc / ILD", text: "hold for QTc >500 ms; discontinue for confirmed ILD." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · HSA register (Zykadia) · FDA label (DailyMed). ASCEND",
+  verified: "2026-06-30"
+},
+
+{
+  id: "crizotinib",
+  name: "Crizotinib",
+  aliases: ["Xalkori"],
+  class: "ALK inhibitor",
+  subclass: "1st-gen (ALK/ROS1/MET)",
+  route: ["PO"],
+  atc: "L01ED01",
+  brands: ["Xalkori"],
+  tumours: ["Lung — NSCLC", "Lymphoma"],
+  mechanism: "1st-generation ALK/ROS1/MET TKI. Now used mainly for ROS1+ NSCLC (ALK NSCLC largely superseded by 2nd/3rd-gen agents).",
+  dosing: "250 mg PO BID (reduce 200 mg BID → 250 mg daily).",
+  cdl: { items: [
+    { cancer: "NSCLC — advanced (ROS1+)", status: "MSV/MSHL", text: "locally advanced/metastatic ROS1+ NSCLC, no prior ROS1 inhibitor (PROFILE-1001)" },
+    { cancer: "Systemic ALCL (ALK+) — R/R (paediatric)", status: "MSV/MSHL", text: "≥1 yr / young adults, relapsed/refractory ALK+ sALCL" }
+  ] },
+  toxicities: {
+    common: ["Visual disturbances (prominent)", "Nausea / vomiting / diarrhoea", "Oedema", "Transaminitis", "Constipation, fatigue", "Bradycardia"],
+    serious: ["Hepatotoxicity", "ILD / pneumonitis", "QTc prolongation", "Severe visual loss (rare)", "Bradycardia"]
+  },
+  doseReductions: { other: [
+    { label: "Hepatic / QTc", text: "hold + reduce (250 BID → 200 BID → 250 daily) for grade ≥3 transaminitis or QTc >500 ms." },
+    { label: "ILD", text: "discontinue for confirmed ILD." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Xalkori) · FDA label (DailyMed). PROFILE-1001/1014",
+  verified: "2026-06-30"
 }
 
 ];
