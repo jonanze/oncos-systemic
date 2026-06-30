@@ -2038,6 +2038,180 @@ window.DRUGS = [
   ] },
   sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Fruzaqla) · FDA label (DailyMed). FRESCO-2",
   verified: "2026-06-30"
+},
+
+{
+  id: "abemaciclib",
+  name: "Abemaciclib",
+  aliases: ["Verzenio", "Verzenios"],
+  class: "CDK4/6 inhibitor",
+  subclass: "continuous dosing",
+  route: ["PO"],
+  atc: "L01EF03",
+  brands: ["Verzenio"],
+  tumours: ["Breast"],
+  mechanism: "CDK4/6 inhibitor (continuous dosing) — blocks Rb phosphorylation → G1 arrest in HR+ breast cancer.",
+  dosing: "150 mg PO BID (with endocrine therapy); 200 mg BID monotherapy. Reduce 150 → 100 → 50 mg BID.",
+  cdl: { items: [
+    { cancer: "Breast — adjuvant (HR+/HER2-, node+)", status: "MAF", text: "+ endocrine; high recurrence risk; max 2 yr (monarchE)" },
+    { cancer: "Breast — advanced 1L (HR+/HER2-)", status: "MAF", text: "+ aromatase inhibitor (± LHRHa if pre/peri) (MONARCH-3)" },
+    { cancer: "Breast — advanced 2L (HR+/HER2-)", status: "MAF", text: "+ fulvestrant, after prior endocrine therapy (MONARCH-2)" }
+  ] },
+  toxicities: {
+    common: ["Diarrhoea (prominent, early)", "Neutropenia (less than other CDK4/6)", "Fatigue, nausea", "Transaminitis", "Benign creatinine rise (tubular secretion)"],
+    serious: ["Venous thromboembolism", "Interstitial lung disease / pneumonitis", "Severe diarrhoea / dehydration", "Hepatotoxicity"]
+  },
+  doseReductions: { other: [
+    { label: "Diarrhoea", text: "loperamide at first loose stool + fluids; hold for grade ≥2 until ≤grade 1, resume reduced (150 → 100 → 50 mg BID)." },
+    { label: "Neutropenia / hepatic / VTE / ILD", text: "hold/reduce per grade; discontinue for confirmed ILD or recurrent VTE." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Verzenio) · FDA label (DailyMed). monarchE, MONARCH-2/3",
+  verified: "2026-06-30"
+},
+
+{
+  id: "palbociclib",
+  name: "Palbociclib",
+  aliases: ["Ibrance"],
+  class: "CDK4/6 inhibitor",
+  subclass: "3 weeks on / 1 off",
+  route: ["PO"],
+  atc: "L01EF01",
+  brands: ["Ibrance"],
+  tumours: ["Breast"],
+  mechanism: "CDK4/6 inhibitor (intermittent dosing) for HR+/HER2- breast cancer.",
+  dosing: "125 mg PO once daily, 3 weeks on / 1 off (reduce 125 → 100 → 75 mg).",
+  cdl: { items: [
+    { cancer: "Breast — advanced 1L (HR+/HER2-)", status: "MAF", text: "+ aromatase inhibitor (± LHRHa) (PALOMA-2)" },
+    { cancer: "Breast — advanced 2L (HR+/HER2-)", status: "MAF", text: "+ fulvestrant, after prior endocrine therapy (PALOMA-3)" }
+  ] },
+  toxicities: {
+    common: ["Neutropenia (prominent, dose-limiting)", "Fatigue", "Nausea", "Stomatitis", "Alopecia", "Anaemia"],
+    serious: ["Febrile neutropenia", "Pulmonary embolism", "ILD / pneumonitis (rare)"]
+  },
+  doseReductions: { other: [
+    { label: "Neutropenia", text: "FBC day 1 + day 15 of first 2 cycles; hold for ANC <1000 / grade ≥3, resume reduced (125 → 100 → 75 mg)." },
+    { label: "Other toxicity", text: "reduce one level for grade ≥3 non-haematologic." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Ibrance) · FDA label (DailyMed). PALOMA-2/3",
+  verified: "2026-06-30"
+},
+
+{
+  id: "ribociclib",
+  name: "Ribociclib",
+  aliases: ["Kisqali"],
+  class: "CDK4/6 inhibitor",
+  subclass: "3 weeks on / 1 off (QTc monitoring)",
+  route: ["PO"],
+  atc: "L01EF02",
+  brands: ["Kisqali"],
+  tumours: ["Breast"],
+  mechanism: "CDK4/6 inhibitor for HR+/HER2- breast cancer; requires ECG monitoring (QTc).",
+  dosing: "600 mg PO daily, 3 weeks on / 1 off (400 mg for adjuvant NATALEE). Reduce 600 → 400 → 200 mg.",
+  cdl: { items: [
+    { cancer: "Breast — adjuvant (HR+/HER2-, stage II-III)", status: "MAF", text: "+ aromatase inhibitor; high risk (extra criteria for IIA N0); max 3 yr (NATALEE)" },
+    { cancer: "Breast — advanced 1L (HR+/HER2-)", status: "MAF", text: "+ aromatase inhibitor (± LHRHa) (MONALEESA-2/7)" },
+    { cancer: "Breast — advanced 2L (HR+/HER2-)", status: "MAF", text: "+ fulvestrant, after prior endocrine therapy (MONALEESA-3)" }
+  ] },
+  toxicities: {
+    common: ["Neutropenia", "Nausea, fatigue", "Transaminitis", "Diarrhoea", "QTc prolongation"],
+    serious: ["QTc prolongation / torsades (ECG monitoring)", "Hepatotoxicity", "ILD / pneumonitis", "Severe skin reactions (SJS/TEN, rare)"]
+  },
+  doseReductions: { other: [
+    { label: "QTc", text: "baseline + day-14 ECG + electrolytes; avoid other QT-prolonging drugs; hold/reduce for QTc >480-500 ms." },
+    { label: "Neutropenia / hepatic", text: "monitor FBC + LFTs; reduce 600 → 400 → 200 mg for grade ≥3." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Kisqali) · FDA label (DailyMed). NATALEE, MONALEESA-2/3/7",
+  verified: "2026-06-30"
+},
+
+{
+  id: "olaparib",
+  name: "Olaparib",
+  aliases: ["Lynparza"],
+  class: "PARP inhibitor",
+  subclass: "PARP1/2",
+  route: ["PO"],
+  atc: "L01XK01",
+  brands: ["Lynparza"],
+  tumours: ["Ovarian", "Breast", "Prostate", "Pancreatic"],
+  mechanism: "PARP1/2 inhibitor — synthetic lethality in BRCA-mutant / HRD tumours (trapped PARP-DNA complexes).",
+  dosing: "300 mg PO BID (tablets); reduce 300 → 250 → 200 mg BID.",
+  cdl: { items: [
+    { cancer: "Ovarian — 1L maintenance (BRCA+)", status: "MAF", text: "advanced high-grade epithelial, CR/PR to 1L platinum; max 24 mo (SOLO-1)" },
+    { cancer: "Ovarian — relapsed maintenance (BRCA+)", status: "MAF", text: "platinum-sensitive relapsed, CR/PR to platinum, no prior PARP (SOLO-2)" },
+    { cancer: "Ovarian — relapsed maintenance (all-comers)", status: "MSV/MSHL", text: "platinum-sensitive relapsed, CR/PR to platinum, no prior PARP" },
+    { cancer: "Breast — advanced (gBRCA, HER2-)", status: "MAF", text: "LA/metastatic, prior chemotherapy (OlympiAD)" },
+    { cancer: "Breast — adjuvant (gBRCA, HER2-)", status: "MAF", text: "high-risk early, post neo/adjuvant chemo; max 1 yr (OlympiA)" },
+    { cancer: "Prostate — mCRPC (BRCA1/2/ATM)", status: "MAF", text: "HRR-mutated, progressed on abiraterone / 2nd-gen anti-androgen; continue ADT (PROfound)" },
+    { cancer: "Pancreatic — maintenance (gBRCA)", status: "MAF", text: "metastatic, no progression after ≥16 wk 1L platinum (POLO)" }
+  ] },
+  toxicities: {
+    common: ["Nausea", "Fatigue", "Anaemia (prominent)", "Neutropenia, thrombocytopenia", "Decreased appetite, dysgeusia"],
+    serious: ["MDS / AML (rare class effect — monitor FBC)", "Pneumonitis", "Severe cytopenias"]
+  },
+  doseReductions: { other: [
+    { label: "Anaemia / cytopenias", text: "monthly FBC; interrupt for grade ≥3, support/transfuse; reduce 300 → 250 → 200 mg BID; investigate prolonged cytopenia for MDS/AML." },
+    { label: "Pneumonitis", text: "interrupt + investigate; discontinue if confirmed." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Lynparza) · FDA label (DailyMed). SOLO-1/2, OlympiAD/A, PROfound, POLO",
+  verified: "2026-06-30"
+},
+
+{
+  id: "niraparib",
+  name: "Niraparib",
+  aliases: ["Zejula"],
+  class: "PARP inhibitor",
+  subclass: "PARP1/2 (once daily)",
+  route: ["PO"],
+  atc: "L01XK02",
+  brands: ["Zejula"],
+  tumours: ["Ovarian"],
+  mechanism: "PARP1/2 inhibitor — once-daily; used as ovarian maintenance.",
+  dosing: "200 mg PO daily (300 mg if ≥77 kg and platelets ≥150k). Reduce 300 → 200 → 100 mg.",
+  cdl: { items: [
+    { cancer: "Ovarian — 1L maintenance (BRCA+ / HRD+)", status: "MAF", text: "advanced high-grade, CR/PR to 1L platinum; max 36 mo (PRIMA)" },
+    { cancer: "Ovarian — 1L maintenance (all-comers)", status: "MSV/MSHL", text: "advanced high-grade, CR/PR to 1L platinum; max 36 mo (PRIMA)" },
+    { cancer: "Ovarian — relapsed maintenance (BRCA+)", status: "MSV/MSHL", text: "platinum-sensitive relapsed, CR/PR to platinum, no prior PARP (NOVA)" }
+  ] },
+  toxicities: {
+    common: ["Thrombocytopenia (prominent, dose-related)", "Anaemia, neutropenia", "Hypertension", "Fatigue, nausea", "Insomnia, constipation"],
+    serious: ["Severe thrombocytopenia", "MDS / AML (rare — monitor FBC)", "Hypertensive crisis", "PRES"]
+  },
+  doseReductions: { other: [
+    { label: "Thrombocytopenia", text: "weekly FBC first month; individualised starting dose (200 mg if <77 kg or plt <150k); interrupt/reduce 300 → 200 → 100 mg for grade ≥3." },
+    { label: "Hypertension", text: "monitor and treat BP." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Zejula) · FDA label (DailyMed). PRIMA, NOVA",
+  verified: "2026-06-30"
+},
+
+{
+  id: "talazoparib",
+  name: "Talazoparib",
+  aliases: ["Talzenna"],
+  class: "PARP inhibitor",
+  subclass: "potent PARP-trapper",
+  route: ["PO"],
+  atc: "L01XK04",
+  brands: ["Talzenna"],
+  tumours: ["Breast"],
+  mechanism: "Potent PARP-trapping inhibitor.",
+  dosing: "1 mg PO once daily (reduce 1 → 0.75 → 0.5 mg).",
+  cdl: { items: [
+    { cancer: "Breast — advanced (gBRCA, HER2-)", status: "MSV/MSHL", text: "LA/metastatic, prior chemotherapy (EMBRACA)" }
+  ] },
+  toxicities: {
+    common: ["Anaemia (prominent)", "Neutropenia, thrombocytopenia", "Fatigue", "Nausea", "Alopecia, decreased appetite"],
+    serious: ["Severe myelosuppression", "MDS / AML (rare — monitor FBC)"]
+  },
+  doseReductions: { other: [
+    { label: "Myelosuppression", text: "monthly FBC; interrupt for grade ≥3, reduce 1 → 0.75 → 0.5 mg; investigate prolonged cytopenia for MDS/AML." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Talzenna) · FDA label (DailyMed). EMBRACA",
+  verified: "2026-06-30"
 }
 
 ];
