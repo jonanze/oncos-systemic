@@ -308,6 +308,8 @@
     const inds = (d.indications && d.indications.length) ? `<div class="sec">
       <h3>Indications · approval · dose</h3>${indTable(d.indications)}</div>` : '';
 
+    const dosing = d.dosing ? `<div class="sec"><h3>Dosing</h3><div class="kv">${esc(d.dosing)}</div></div>` : '';
+
     const badgeCls = s => (s === 'MAF' || s === 'SDL') ? 'b-maf' : (s && s.toLowerCase().includes('not listed')) ? 'b-nl' : 'b-no';
     const cdl = d.cdl ? `<div class="sec"><h3>CDL status</h3>
       ${(d.cdl.class || d.cdl.limit || d.cdl.wording) ? `<div class="cdl">${d.cdl.class ? `<span class="cls">${esc(d.cdl.class)}</span>` : ''}${d.cdl.limit ? `<span class="word">${esc(d.cdl.limit)}</span>` : ''}${d.cdl.wording
@@ -338,7 +340,7 @@
         </div>
         <span class="caret">▶</span>
       </div>
-      <div class="body">${boxed}${inds}${cdl}${twocol}${foot}</div>
+      <div class="body">${boxed}${inds}${dosing}${cdl}${twocol}${foot}</div>
     </div>`;
   }
 

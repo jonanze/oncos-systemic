@@ -811,6 +811,69 @@ window.DRUGS = [
   },
   sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Imfinzi) · FDA label (DailyMed). irAE management per CTCAE / ASCO-ESMO guidance",
   verified: "2026-06-30"
+},
+
+{
+  id: "pembrolizumab",
+  name: "Pembrolizumab",
+  aliases: ["Keytruda"],
+  class: "Checkpoint inhibitor",
+  subclass: "Anti–PD-1",
+  route: ["IV"],
+  atc: "L01FF02",
+  brands: ["Keytruda"],
+  tumours: ["Lung — NSCLC", "Head & Neck", "Melanoma", "Bladder", "Gastric", "Colorectal", "Breast", "Lymphoma", "Renal", "Cervical", "Endometrial", "Hepatocellular"],
+  mechanism: "Anti–PD-1 monoclonal antibody — blocks PD-1 binding to PD-L1/PD-L2, restoring T-cell antitumour activity. The widest indication set of any ICI.",
+  dosing: "200 mg IV q3w or 400 mg q6w (flat). Most indications up to 2 years; adjuvant ~1 year.",
+  cdl: { items: [
+    { cancer: "NSCLC — 1L mono (PD-L1 TPS ≥50%)", status: "MAF", text: "metastatic, no EGFR/ALK (KEYNOTE-024)" },
+    { cancer: "NSCLC non-squamous — 1L", status: "MAF", text: "+ platinum-doublet, metastatic, no EGFR/ALK (KEYNOTE-189)" },
+    { cancer: "NSCLC squamous — 1L", status: "MAF", text: "+ platinum-doublet, metastatic (KEYNOTE-407)" },
+    { cancer: "NSCLC — 2L (PD-L1 TPS ≥1%)", status: "MAF", text: "metastatic, post-platinum progression, no prior PD-1/PD-L1 (KEYNOTE-010)" },
+    { cancer: "Head & neck SCC — 1L mono (CPS ≥1)", status: "MAF", text: "untreated recurrent/metastatic (KEYNOTE-048)" },
+    { cancer: "Head & neck SCC — 1L combo (CPS ≥1)", status: "MAF", text: "+ platinum chemo, untreated R/M (KEYNOTE-048)" },
+    { cancer: "Melanoma — advanced", status: "MAF", text: "unresectable/metastatic, no prior PD-1 or ipilimumab (KEYNOTE-006)" },
+    { cancer: "Melanoma — adjuvant", status: "MAF", text: "resected, node+; start ≤12 wk of resection; max 12 mo (KEYNOTE-054)" },
+    { cancer: "Urothelial — 2L", status: "MAF", text: "locally advanced/metastatic, post-platinum, no prior PD-1/PD-L1 (KEYNOTE-045)" },
+    { cancer: "Colorectal — 1L (MSI-H / dMMR)", status: "MAF", text: "untreated metastatic (KEYNOTE-177)" },
+    { cancer: "TNBC — 1L (PD-L1 CPS ≥10)", status: "MAF", text: "+ chemo, locally recurrent unresectable/metastatic, no prior chemo for mets (KEYNOTE-355)" },
+    { cancer: "Oesophageal / GEJ — 1L", status: "MAF", text: "+ fluoropyrimidine/platinum, LA/metastatic, HER2-neg GEJ (KEYNOTE-590)" },
+    { cancer: "Classical Hodgkin lymphoma — R/R", status: "MAF", text: "post-ASCT or ≥2 prior therapies, no prior PD-1/PD-L1 (KEYNOTE-204)" },
+    { cancer: "NSCLC — resectable (perioperative)", status: "MSV/MSHL", text: "stage II–IIIB, neoadjuvant + adjuvant (KEYNOTE-671)" },
+    { cancer: "Gastric / GEJ — 1L (HER2+)", status: "MSV/MSHL", text: "+ trastuzumab + fluoropyrimidine/platinum (KEYNOTE-811)" },
+    { cancer: "Urothelial — 1L (cisplatin-ineligible)", status: "MSV/MSHL", text: "locally advanced/metastatic" },
+    { cancer: "Urothelial — 1L (platinum-ineligible, PD-L1)", status: "MSV/MSHL", text: "locally advanced/metastatic" },
+    { cancer: "Cervical — 1L (CPS ≥1)", status: "MSV/MSHL", text: "+ chemo ± bevacizumab, persistent/recurrent/metastatic (KEYNOTE-826)" },
+    { cancer: "Hepatocellular — 2L", status: "MSV/MSHL", text: "advanced unresectable, post-sorafenib (KEYNOTE-240)" },
+    { cancer: "Primary mediastinal B-cell lymphoma — R/R", status: "MSV/MSHL", text: "refractory or ≥2 prior lines" },
+    { cancer: "Merkel cell carcinoma", status: "MSV/MSHL", text: "metastatic" },
+    { cancer: "Tumour-agnostic (MSI-H / dMMR)", status: "MSV/MSHL", text: "unresectable/metastatic solid tumours, post-prior therapy (KEYNOTE-158)" },
+    { cancer: "TNBC — neoadjuvant/adjuvant", status: "MSV/MSHL", text: "high-risk early TNBC, + chemo neoadjuvant then adjuvant (KEYNOTE-522)" },
+    { cancer: "Renal cell — adjuvant", status: "MSV/MSHL", text: "increased recurrence risk post-nephrectomy (KEYNOTE-564)" },
+    { cancer: "Renal cell — 1L (+ axitinib)", status: "MSV/MSHL", text: "advanced (KEYNOTE-426)" },
+    { cancer: "Renal cell — 1L (+ lenvatinib)", status: "MSV/MSHL", text: "advanced (CLEAR / KEYNOTE-581)" },
+    { cancer: "Endometrial — advanced (+ lenvatinib)", status: "MSV/MSHL", text: "after prior systemic therapy, non-MSI-H (KEYNOTE-775)" }
+  ] },
+  toxicities: {
+    common: [
+      "Immune-related: pneumonitis, colitis / diarrhoea, hepatitis",
+      "Endocrinopathies — hypothyroidism (common), hyperthyroidism, adrenal insufficiency, hypophysitis, T1DM",
+      "Dermatitis / rash, pruritus, vitiligo",
+      "Nephritis",
+      "Fatigue, arthralgia, infusion reactions"
+    ],
+    serious: ["Severe/fatal pneumonitis, colitis, hepatitis", "Myocarditis", "Adrenal crisis / DKA", "SJS/TEN", "Rare neuro (Guillain-Barré, myasthenia, encephalitis), haematologic irAEs"]
+  },
+  doseModLabel: "irAE management",
+  doseReductions: {
+    other: [
+      { label: "Withhold (grade 2)", text: "moderate irAEs — withhold + corticosteroids (prednisolone 1–2 mg/kg/day, taper over ≥1 month); resume when ≤grade 1 and steroid ≤10 mg/day." },
+      { label: "Discontinue", text: "permanently for most grade ≥3/4 irAEs, recurrent grade ≥2, or any grade ≥3 myocarditis / neurologic / haematologic event." },
+      { label: "Endocrinopathies", text: "may continue with hormone replacement (thyroid, adrenal, T1DM)." }
+    ]
+  },
+  sources: "MOH Cancer Drug List (1 Jun 2026) · HSA register (Keytruda) · FDA label (DailyMed). All indications HSA-registered; KEYNOTE trials cited as the registration basis. irAE management per CTCAE / ASCO-ESMO guidance",
+  verified: "2026-06-30"
 }
 
 ];
