@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Regenerate the service worker (content-hash cache) and publish to GitHub Pages.
-# Repo: https://github.com/jonanze/oncos-systemic
-# Live: https://jonanze.github.io/oncos-systemic/
+# Repo: https://github.com/jonanze/oncos-drugs
+# Live: https://jonanze.github.io/oncos-drugs/
 # Run host-side (Claude Code), not in a sandbox. gh CLI at ~/.local/bin.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -17,5 +17,5 @@ else
   git -c user.name="Jonan" -c user.email="jonantanzhien@gmail.com" \
     commit -q -m "Update OncOS — Systemic Therapy ($(date +%F))"
   git push -q origin main
-  echo "Pushed -> https://jonanze.github.io/oncos-systemic/ (Pages rebuild ~1 min)"
+  echo "Pushed -> https://jonanze.github.io/oncos-drugs/ (Pages rebuild ~1 min)"
 fi

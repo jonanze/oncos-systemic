@@ -54,8 +54,8 @@ tumour value that no rule matches, extend that map so it lands in a system.
 ## Publishing
 
 `bash deploy.sh` regenerates the icons + content-hash service worker and pushes
-to GitHub Pages (repo `jonanze/oncos-systemic`, live at
-`https://jonanze.github.io/oncos-systemic/`). Run host-side. The wordmark links
+to GitHub Pages (repo `jonanze/oncos-drugs`, live at
+`https://jonanze.github.io/oncos-drugs/`). Run host-side. The wordmark links
 back to the OncOS hub; the hub carries a card to this module.
 
 ## Ideas for later
