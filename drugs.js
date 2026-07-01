@@ -3203,6 +3203,36 @@ window.DRUGS = [
   ] },
   sources: "HSA register (Orserdu, SIN17096P; approved 2024-09-25, A. Menarini Singapore) · not on MOH Cancer Drug List · FDA label (DailyMed). EMERALD",
   verified: "2026-07-01"
+},
+
+{
+  id: "mirvetuximab",
+  name: "Mirvetuximab soravtansine",
+  aliases: ["Elahere"],
+  class: "Antibody-drug conjugate",
+  subclass: "anti-FRα (DM4 payload)",
+  route: ["IV"],
+  atc: "L01FX26",
+  brands: ["Elahere"],
+  tumours: ["Ovarian"],
+  mechanism: "Folate-receptor-α (FRα)-directed antibody-drug conjugate delivering DM4, a maytansinoid anti-tubulin payload.",
+  boxedWarning: "Ocular toxicity — severe visual impairment, keratopathy and dry eye. Perform ophthalmic exams at baseline, every other cycle and as clinically indicated; use prophylactic lubricating and topical steroid eye drops; withhold/reduce/discontinue for ocular events.",
+  dosing: "6 mg/kg (adjusted ideal body weight) IV every 3 weeks, with prophylactic ophthalmic steroid + lubricating eye drops.",
+  cdl: { items: [
+    { cancer: "Ovarian — FRα+ platinum-resistant", status: "Not listed", text: "FRα-positive platinum-resistant epithelial ovarian / fallopian tube / primary peritoneal, after 1-3 prior regimens (MIRASOL, SORAYA); HSA-registered (Elahere SIN17405P), not on the CDL" }
+  ] },
+  toxicities: {
+    common: ["Visual impairment / blurred vision", "Keratopathy / dry eye", "Nausea", "Diarrhoea", "Fatigue", "Peripheral neuropathy", "Abdominal pain"],
+    serious: ["Ocular toxicity (keratopathy, vision loss)", "Pneumonitis / ILD", "Peripheral neuropathy"]
+  },
+  doseModLabel: "Dose reductions",
+  doseReductions: { other: [
+    { label: "Ocular", text: "baseline + alternate-cycle eye exams; prophylactic topical steroids + lubricants; withhold for grade ≥2 keratopathy/vision change, resume reduced (5 → 4 mg/kg), discontinue for grade 4." },
+    { label: "Pneumonitis", text: "withhold for grade 2, corticosteroids; discontinue for grade ≥3." },
+    { label: "Neuropathy", text: "withhold/reduce for grade ≥2 until ≤grade 1." }
+  ] },
+  sources: "NDF / HSA register (Elahere, SIN17405P; subsidy: not listed) · FDA label (DailyMed). SORAYA, MIRASOL",
+  verified: "2026-07-01"
 }
 
 ];
