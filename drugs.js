@@ -3547,6 +3547,420 @@ window.DRUGS = [
   ] },
   sources: "NDF / HSA register (Vyloy) · not on MOH Cancer Drug List · FDA label (DailyMed). SPOTLIGHT, GLOW",
   verified: "2026-07-01"
+},
+
+{
+  id: "cabazitaxel",
+  name: "Cabazitaxel",
+  aliases: ["Jevtana"],
+  class: "Taxane",
+  subclass: "microtubule inhibitor",
+  route: ["IV"],
+  atc: "L01CD04",
+  brands: ["Jevtana"],
+  tumours: ["Prostate"],
+  mechanism: "Semisynthetic taxane active in docetaxel-resistant disease; stabilises microtubules.",
+  boxedWarning: "Neutropenia (including neutropenic deaths) and severe hypersensitivity reactions. Monitor blood counts; do not give if neutrophils ≤1.5×10⁹/L; premedicate before each dose.",
+  indications: [
+    { indication: "Prostate — metastatic castration-resistant (post-docetaxel)", hsa: "y", dose: "25 mg/m² IV q3w (20 mg/m² option) + prednisolone; G-CSF support" }
+  ],
+  cdl: { items: [
+    { cancer: "Prostate — mCRPC (post-docetaxel)", status: "MSV/MSHL", text: "after a docetaxel-containing regimen (TROPIC, CARD)" }
+  ] },
+  toxicities: {
+    common: ["Neutropenia", "Diarrhoea", "Fatigue", "Nausea", "Anaemia", "Peripheral neuropathy"],
+    serious: ["Febrile neutropenia / neutropenic sepsis", "Severe hypersensitivity", "Severe diarrhoea / dehydration", "Renal failure (secondary)"]
+  },
+  doseModLabel: "Dose reductions",
+  doseReductions: { other: [
+    { label: "Haematologic", text: "premedicate; G-CSF prophylaxis; reduce 25 → 20 (→15) mg/m² for febrile neutropenia or prolonged grade ≥3 neutropenia." },
+    { label: "Diarrhoea", text: "reduce/hold for grade ≥3; aggressive rehydration." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL) · NDF / HSA register (Jevtana) · FDA label (DailyMed). TROPIC, CARD",
+  verified: "2026-07-01"
+},
+
+{
+  id: "temozolomide",
+  name: "Temozolomide",
+  aliases: ["Temodal", "Temodar"],
+  class: "Alkylating agent",
+  subclass: "oral triazene",
+  route: ["PO", "IV"],
+  atc: "L01AX03",
+  brands: ["Temodal"],
+  tumours: ["Brain"],
+  mechanism: "Oral alkylating agent (methylates DNA at O6-guanine); activity greatest in MGMT-methylated tumours.",
+  indications: [
+    { indication: "Glioblastoma — newly diagnosed", hsa: "y", dose: "75 mg/m²/day with radiotherapy, then 150-200 mg/m² D1-5 q28d ×6" },
+    { indication: "Anaplastic astrocytoma / glioma — recurrent", hsa: "y", dose: "150-200 mg/m² D1-5 q28d" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Nausea / vomiting", "Fatigue", "Constipation", "Myelosuppression (thrombocytopenia, lymphopenia)", "Headache"],
+    serious: ["Severe myelosuppression", "Pneumocystis pneumonia (during concurrent RT — PJP prophylaxis)", "Secondary myelodysplasia (rare)", "Hepatotoxicity"]
+  },
+  doseModLabel: "Dose modification",
+  doseReductions: { other: [
+    { label: "Haematologic", text: "weekly FBC during chemoradiation; reduce/delay adjuvant cycles for grade ≥3 cytopenias." },
+    { label: "PJP prophylaxis", text: "co-trimoxazole during concurrent radiotherapy phase (lymphopenia risk)." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register (Temodal) · FDA label (DailyMed). Stupp EORTC-NCIC",
+  verified: "2026-07-01"
+},
+
+{
+  id: "dacarbazine",
+  name: "Dacarbazine",
+  aliases: ["DTIC"],
+  class: "Alkylating agent",
+  subclass: "triazene",
+  route: ["IV"],
+  atc: "L01AX04",
+  brands: ["DTIC-Dome"],
+  tumours: ["Melanoma", "Lymphoma", "Sarcoma"],
+  mechanism: "Alkylating agent (methylates DNA); the M in ABVD and a melanoma backbone.",
+  indications: [
+    { indication: "Melanoma — metastatic", hsa: "y", dose: "250 mg/m² D1-5 q3w, or 850-1000 mg/m² q3w" },
+    { indication: "Hodgkin lymphoma", hsa: "y", dose: "375 mg/m² D1,15 (ABVD)" },
+    { indication: "Soft-tissue sarcoma", hsa: "y", dose: "regimen-dependent (e.g. + doxorubicin)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Severe nausea / vomiting", "Myelosuppression", "Flu-like syndrome", "Injection-site pain / phlebitis", "Anorexia"],
+    serious: ["Severe myelosuppression", "Hepatotoxicity / hepatic vein thrombosis (rare)", "Photosensitivity", "Anaphylaxis (rare)"]
+  },
+  doseModLabel: "Dose modification",
+  doseReductions: { other: [
+    { label: "Emesis", text: "strongly emetogenic — full antiemetic prophylaxis." },
+    { label: "Haematologic", text: "delay/reduce for grade ≥3 cytopenias; monitor FBC." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register · FDA label (DailyMed)",
+  verified: "2026-07-01"
+},
+
+{
+  id: "mitomycin",
+  name: "Mitomycin",
+  aliases: ["Mitomycin-C"],
+  class: "Cytotoxic antibiotic",
+  subclass: "alkylating antibiotic",
+  route: ["IV", "Intravesical"],
+  atc: "L01DC03",
+  brands: ["Mitomycin-C"],
+  tumours: ["Anal", "Bladder", "Upper GI"],
+  mechanism: "Alkylating antitumour antibiotic (DNA cross-linker); a radiosensitiser in anal cancer.",
+  indications: [
+    { indication: "Anal — squamous cell (chemoradiation)", hsa: "y", dose: "10-12 mg/m² IV D1 (±D29) + 5-FU + radiotherapy (Nigro)" },
+    { indication: "Bladder — non-muscle-invasive", hsa: "y", dose: "40 mg intravesical (adjuvant / post-TURBT instillation)" },
+    { indication: "Upper GI / other adenocarcinoma", hsa: "y", dose: "regimen-dependent" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Myelosuppression (delayed, cumulative)", "Nausea", "Mucositis", "Anorexia", "Injection-site reactions"],
+    serious: ["Haemolytic uraemic syndrome (dose-related)", "Pulmonary toxicity / interstitial pneumonitis", "Severe local necrosis on extravasation", "Cumulative marrow suppression"]
+  },
+  doseModLabel: "Dose modification",
+  doseReductions: { other: [
+    { label: "Cumulative toxicity", text: "delayed nadir (~4-6 weeks); monitor FBC + renal function; watch for HUS (schistocytes, ↑creatinine)." },
+    { label: "Extravasation", text: "vesicant — strict IV care." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register · FDA label (DailyMed). Nigro (anal)",
+  verified: "2026-07-01"
+},
+
+{
+  id: "bleomycin",
+  name: "Bleomycin",
+  aliases: ["Blenoxane"],
+  class: "Cytotoxic antibiotic",
+  subclass: "antitumour antibiotic",
+  route: ["IV", "IM", "SC"],
+  atc: "L01DC01",
+  brands: ["Bleomycin"],
+  tumours: ["Lymphoma", "Germ cell", "Head & neck"],
+  mechanism: "Antitumour antibiotic causing DNA strand breaks; minimal myelosuppression but cumulative pulmonary toxicity.",
+  boxedWarning: "Pulmonary fibrosis (idiosyncratic and dose-related, may be fatal) and severe idiosyncratic reactions (hypotension, fever, chills) especially in lymphoma patients. Monitor pulmonary function; limit cumulative dose.",
+  indications: [
+    { indication: "Hodgkin lymphoma", hsa: "y", dose: "10 units/m² D1,15 (ABVD)" },
+    { indication: "Germ-cell (testicular) tumours", hsa: "y", dose: "30 units weekly (BEP)" },
+    { indication: "Head & neck / cervical squamous cell", hsa: "y", dose: "regimen-dependent" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Fever / chills", "Mucositis", "Skin changes (hyperpigmentation, flagellate erythema)", "Alopecia", "Raynaud phenomenon"],
+    serious: ["Pulmonary fibrosis / pneumonitis", "Idiosyncratic reaction (hypotension) in lymphoma", "Cumulative pulmonary toxicity (limit ~400 units total)"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Pulmonary", text: "baseline + serial lung function (DLCO); discontinue for falling DLCO or pneumonitis; caution with high FiO₂ (peri-operative)." },
+    { label: "Test dose", text: "consider a test dose in lymphoma (idiosyncratic reaction risk); keep cumulative dose ≤400 units." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register · FDA label (DailyMed)",
+  verified: "2026-07-01"
+},
+
+{
+  id: "topotecan",
+  name: "Topotecan",
+  aliases: ["Hycamtin"],
+  class: "Topoisomerase I inhibitor",
+  subclass: "camptothecin",
+  route: ["IV", "PO"],
+  atc: "L01CE01",
+  brands: ["Hycamtin"],
+  tumours: ["Lung", "Cervical", "Ovarian"],
+  mechanism: "Topoisomerase-I inhibitor causing DNA strand breaks.",
+  boxedWarning: "Bone-marrow suppression — can cause severe, life-threatening myelosuppression. Give only with adequate baseline neutrophil counts; monitor blood counts frequently.",
+  indications: [
+    { indication: "Small-cell lung — relapsed", hsa: "y", dose: "1.5 mg/m² IV D1-5 q3w (or oral 2.3 mg/m² D1-5)" },
+    { indication: "Cervical — advanced / recurrent", hsa: "y", dose: "0.75 mg/m² IV D1-3 q3w + cisplatin" },
+    { indication: "Ovarian — relapsed", hsa: "y", dose: "1.5 mg/m² IV D1-5 q3w" }
+  ],
+  cdl: { items: [
+    { cancer: "SCLC / cervical / ovarian", status: "MSV/MSHL", text: "relapsed / advanced disease per HSA-registered indications" }
+  ] },
+  toxicities: {
+    common: ["Neutropenia (dose-limiting)", "Thrombocytopenia / anaemia", "Nausea / vomiting", "Diarrhoea", "Fatigue", "Alopecia"],
+    serious: ["Severe myelosuppression / febrile neutropenia", "Neutropenic colitis (rare)", "Interstitial lung disease (rare)"]
+  },
+  doseModLabel: "Dose reductions",
+  doseReductions: { other: [
+    { label: "Haematologic", text: "monitor FBC; reduce to 1.25 → 1.0 mg/m² (or add G-CSF) for grade 4 neutropenia / febrile neutropenia; renal dose adjustment for reduced CrCl." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL) · NDF / HSA register (Hycamtin) · FDA label (DailyMed)",
+  verified: "2026-07-01"
+},
+
+{
+  id: "eribulin",
+  name: "Eribulin",
+  aliases: ["Halaven"],
+  class: "Microtubule inhibitor",
+  subclass: "halichondrin analogue",
+  route: ["IV"],
+  atc: "L01XX41",
+  brands: ["Halaven"],
+  tumours: ["Breast", "Sarcoma"],
+  mechanism: "Non-taxane microtubule dynamics inhibitor.",
+  dosing: "1.4 mg/m² IV on days 1 and 8, every 21 days.",
+  cdl: { items: [
+    { cancer: "Breast — advanced (≥2 prior regimens)", status: "MAF", text: "metastatic, after ≥2 chemotherapy regimens incl. an anthracycline + taxane (EMBRACE)" },
+    { cancer: "Liposarcoma — advanced", status: "MAF", text: "unresectable/metastatic, after prior anthracycline" }
+  ] },
+  toxicities: {
+    common: ["Neutropenia", "Fatigue", "Alopecia", "Peripheral neuropathy", "Nausea", "Constipation"],
+    serious: ["Febrile neutropenia", "Peripheral neuropathy (cumulative)", "QTc prolongation"]
+  },
+  doseModLabel: "Dose reductions",
+  doseReductions: { other: [
+    { label: "Haematologic / neuropathy", text: "reduce 1.4 → 1.1 → 0.7 mg/m² for febrile/grade 4 neutropenia, grade 3 thrombocytopenia, or grade ≥3 neuropathy; do not re-escalate." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MAF) · NDF / HSA register (Halaven) · FDA label (DailyMed). EMBRACE, Study 309",
+  verified: "2026-07-01"
+},
+
+{
+  id: "trifluridine-tipiracil",
+  name: "Trifluridine + tipiracil",
+  aliases: ["Lonsurf", "FTD/TPI", "TAS-102"],
+  class: "Antimetabolite",
+  subclass: "oral fluoropyrimidine + TP inhibitor",
+  route: ["PO"],
+  atc: "L01BC59",
+  brands: ["Lonsurf"],
+  tumours: ["Colorectal", "Gastric"],
+  mechanism: "Trifluridine (cytotoxic nucleoside incorporated into DNA) + tipiracil (thymidine-phosphorylase inhibitor that maintains trifluridine levels).",
+  indications: [
+    { indication: "Colorectal — refractory metastatic", hsa: "y", dose: "35 mg/m² PO twice daily, D1-5 & D8-12 q28d (± bevacizumab)" },
+    { indication: "Gastric / GOJ — refractory advanced", hsa: "y", dose: "35 mg/m² PO twice daily, D1-5 & D8-12 q28d" }
+  ],
+  cdl: { items: [
+    { cancer: "Colorectal / gastric — refractory", status: "MSV/MSHL", text: "after prior standard therapies (RECOURSE, TAGS, SUNLIGHT)" }
+  ] },
+  toxicities: {
+    common: ["Neutropenia", "Anaemia", "Fatigue", "Nausea", "Diarrhoea", "Decreased appetite"],
+    serious: ["Severe myelosuppression / febrile neutropenia", "Serious infections"]
+  },
+  doseModLabel: "Dose reductions",
+  doseReductions: { other: [
+    { label: "Haematologic", text: "FBC before each cycle + day 15; delay/reduce by 5 mg/m²/dose steps for febrile neutropenia or grade 4 cytopenias." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL) · NDF / HSA register (Lonsurf) · FDA label (DailyMed). RECOURSE, TAGS, SUNLIGHT",
+  verified: "2026-07-01"
+},
+
+{
+  id: "streptozocin",
+  name: "Streptozocin",
+  aliases: ["Zanosar"],
+  class: "Alkylating agent",
+  subclass: "nitrosourea",
+  route: ["IV"],
+  atc: "L01AD04",
+  brands: ["Zanosar"],
+  tumours: ["Neuroendocrine"],
+  mechanism: "Nitrosourea with tropism for pancreatic islet cells; alkylates DNA.",
+  boxedWarning: "Renal toxicity — dose-related and potentially fatal; monitor renal function before, during and after each course. Can also cause severe (occasionally fatal) glucose intolerance and haematological toxicity.",
+  indications: [
+    { indication: "Pancreatic neuroendocrine tumour — advanced", hsa: "y", dose: "500 mg/m² D1-5 q6w, or 1000 mg/m² weekly (± 5-FU / doxorubicin)" }
+  ],
+  cdl: { items: [
+    { cancer: "Pancreatic NET — advanced", status: "MSV/MSHL", text: "islet-cell / functioning pancreatic NET (± 5-FU or doxorubicin)" }
+  ] },
+  toxicities: {
+    common: ["Nausea / vomiting (severe)", "Renal tubular dysfunction", "Injection-site reactions", "Hypoglycaemia / glucose intolerance"],
+    serious: ["Nephrotoxicity (dose-limiting)", "Severe glucose dysregulation", "Myelosuppression", "Hepatotoxicity"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Renal", text: "monitor creatinine + proteinuria before each course; hydrate well; withhold/reduce for rising creatinine or proteinuria." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL) · NDF / HSA register (Zanosar) · FDA label (DailyMed)",
+  verified: "2026-07-01"
+},
+
+{
+  id: "tegafur-s1",
+  name: "Tegafur + gimeracil + oteracil (S-1)",
+  aliases: ["Teysuno", "S-1"],
+  class: "Antimetabolite",
+  subclass: "oral fluoropyrimidine",
+  route: ["PO"],
+  atc: "L01BC53",
+  brands: ["Teysuno"],
+  tumours: ["Gastric"],
+  mechanism: "Oral fluoropyrimidine: tegafur (5-FU prodrug) + gimeracil (DPD inhibitor, sustains 5-FU) + oteracil (reduces GI toxicity).",
+  indications: [
+    { indication: "Gastric — advanced", hsa: "y", dose: "25 mg/m² (tegafur) PO twice daily, D1-21 q28d + cisplatin (dose by BSA)" }
+  ],
+  cdl: { items: [
+    { cancer: "Gastric — advanced", status: "MSV/MSHL", text: "+ cisplatin for advanced gastric cancer (FLAGS)" }
+  ] },
+  toxicities: {
+    common: ["Diarrhoea", "Nausea / vomiting", "Neutropenia / anaemia", "Fatigue", "Stomatitis", "Hand-foot syndrome (less than capecitabine)"],
+    serious: ["Severe myelosuppression", "Severe diarrhoea / dehydration", "DPD-deficiency toxicity"]
+  },
+  doseModLabel: "Dose modification",
+  doseReductions: { other: [
+    { label: "Toxicity", text: "reduce by BSA-defined dose steps for grade ≥3 haematologic or GI toxicity; avoid in DPD deficiency; avoid concurrent other fluoropyrimidines / brivudine." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL) · NDF / HSA register (Teysuno) · FDA label / EU SmPC. FLAGS",
+  verified: "2026-07-01"
+},
+
+{
+  id: "carmustine",
+  name: "Carmustine",
+  aliases: ["BCNU", "BiCNU", "Gliadel"],
+  class: "Alkylating agent",
+  subclass: "nitrosourea",
+  route: ["IV", "Implant"],
+  atc: "L01AD01",
+  brands: ["BiCNU", "Gliadel"],
+  tumours: ["Brain", "Lymphoma"],
+  mechanism: "Lipophilic nitrosourea crossing the blood-brain barrier; alkylates and carbamoylates DNA.",
+  indications: [
+    { indication: "Glioma / brain tumours", hsa: "y", dose: "150-200 mg/m² IV q6w; or wafer implant (Gliadel) at resection" },
+    { indication: "Lymphoma (conditioning / salvage)", hsa: "y", dose: "regimen-dependent (e.g. BEAM)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Delayed myelosuppression (nadir ~4-6 weeks)", "Nausea / vomiting", "Injection-site burning", "Flushing"],
+    serious: ["Delayed / cumulative bone-marrow suppression", "Pulmonary fibrosis (dose-related, may be delayed years)", "Hepatotoxicity", "Renal impairment"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Cumulative toxicity", text: "delayed nadir — do not re-dose more often than q6w; track cumulative dose for pulmonary risk; baseline + serial lung function." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register (BiCNU) · FDA label (DailyMed)",
+  verified: "2026-07-01"
+},
+
+{
+  id: "lomustine",
+  name: "Lomustine",
+  aliases: ["CCNU", "CeeNU", "Gleostine"],
+  class: "Alkylating agent",
+  subclass: "oral nitrosourea",
+  route: ["PO"],
+  atc: "L01AD02",
+  brands: ["CeeNU"],
+  tumours: ["Brain", "Lymphoma"],
+  mechanism: "Oral lipophilic nitrosourea; alkylates DNA, crosses the blood-brain barrier.",
+  indications: [
+    { indication: "Glioma / brain tumours", hsa: "y", dose: "110-130 mg/m² PO once every 6 weeks (single dose; PCV regimen)" },
+    { indication: "Hodgkin lymphoma — relapsed", hsa: "y", dose: "regimen-dependent" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Delayed myelosuppression (nadir ~4-6 weeks)", "Nausea / vomiting", "Anorexia", "Alopecia"],
+    serious: ["Delayed / cumulative bone-marrow suppression (esp. thrombocytopenia)", "Pulmonary fibrosis", "Hepatotoxicity", "Secondary malignancy (long-term)"]
+  },
+  doseModLabel: "Dose modification",
+  doseReductions: { other: [
+    { label: "Haematologic", text: "single dose no more often than every 6 weeks (delayed nadir); reduce next dose by degree of nadir cytopenia; dispense one course at a time (fatal overdose risk if taken daily)." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register (CeeNU) · FDA label (DailyMed)",
+  verified: "2026-07-01"
+},
+
+{
+  id: "procarbazine",
+  name: "Procarbazine",
+  aliases: ["Natulan", "Matulane"],
+  class: "Alkylating agent",
+  subclass: "hydrazine derivative",
+  route: ["PO"],
+  atc: "L01XB01",
+  brands: ["Natulan"],
+  tumours: ["Lymphoma", "Brain"],
+  mechanism: "Oral alkylating agent (also a weak MAO inhibitor); part of BEACOPP/MOPP (Hodgkin) and PCV (glioma).",
+  indications: [
+    { indication: "Hodgkin lymphoma", hsa: "y", dose: "100 mg/m²/day (BEACOPP / escalated regimens)" },
+    { indication: "Glioma — anaplastic / oligodendroglioma", hsa: "y", dose: "60 mg/m²/day D8-21 (PCV)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Myelosuppression", "Nausea / vomiting", "Fatigue", "Rash", "Neuropathy / paraesthesia"],
+    serious: ["Severe myelosuppression", "Hypertensive crisis with tyramine-rich foods / sympathomimetics (MAOI effect)", "Disulfiram-like reaction with alcohol", "Secondary leukaemia / infertility"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Interactions", text: "counsel on tyramine-restricted diet + avoid alcohol (disulfiram-like) and sympathomimetics / other MAOIs / SSRIs." },
+    { label: "Haematologic", text: "monitor FBC; hold/reduce for grade ≥3 cytopenias." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register (Natulan) · FDA label (DailyMed)",
+  verified: "2026-07-01"
+},
+
+{
+  id: "bendamustine",
+  name: "Bendamustine",
+  aliases: ["Treanda", "Levact", "Bendeka"],
+  class: "Alkylating agent",
+  subclass: "nitrogen mustard / purine-analogue hybrid",
+  route: ["IV"],
+  atc: "L01AA09",
+  brands: ["Levact"],
+  tumours: ["Lymphoma"],
+  mechanism: "Bifunctional alkylator with purine-analogue-like features; used in indolent NHL and CLL.",
+  indications: [
+    { indication: "Indolent non-Hodgkin lymphoma — rituximab-refractory", hsa: "y", dose: "120 mg/m² IV D1-2 q21d (mono); or 90 mg/m² D1-2 with rituximab" },
+    { indication: "Chronic lymphocytic leukaemia", hsa: "y", dose: "100 mg/m² IV D1-2 q28d" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Myelosuppression", "Nausea / vomiting", "Fatigue", "Infusion reactions", "Rash", "Infections"],
+    serious: ["Severe / prolonged myelosuppression", "Serious infections (incl. opportunistic; PJP/HBV)", "Severe skin reactions (SJS/TEN, DRESS)", "Tumour lysis syndrome", "Infusion reactions"]
+  },
+  doseModLabel: "Dose modification",
+  doseReductions: { other: [
+    { label: "Haematologic", text: "FBC each cycle; delay/reduce (e.g. to 90 → 60 mg/m²) for grade ≥3 cytopenias." },
+    { label: "Infection / TLS", text: "consider PJP + antiviral prophylaxis; TLS prophylaxis in high burden; monitor for skin reactions." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register (Levact) · FDA label (DailyMed). StiL NHL1, BRIGHT",
+  verified: "2026-07-01"
 }
 
 ];
