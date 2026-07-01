@@ -3233,6 +3233,320 @@ window.DRUGS = [
   ] },
   sources: "NDF / HSA register (Elahere, SIN17405P; subsidy: not listed) · FDA label (DailyMed). SORAYA, MIRASOL",
   verified: "2026-07-01"
+},
+
+{
+  id: "trastuzumab",
+  name: "Trastuzumab",
+  aliases: ["Herceptin"],
+  class: "HER2 antibody",
+  subclass: "anti-HER2 monoclonal",
+  route: ["IV", "SC"],
+  atc: "L01FD01",
+  brands: ["Herceptin"],
+  tumours: ["Breast", "Gastric"],
+  mechanism: "Monoclonal antibody against HER2 — blocks HER2 signalling and mediates antibody-dependent cytotoxicity.",
+  boxedWarning: "Cardiomyopathy (LVEF decline, heart failure), serious infusion reactions and pulmonary toxicity, and embryo-fetal toxicity (oligohydramnios). Assess LVEF before and during treatment; withhold for significant decline.",
+  indications: [
+    { indication: "Breast — HER2+ early (neoadjuvant / adjuvant)", hsa: "y", dose: "IV 8 mg/kg load → 6 mg/kg q3w (or weekly); or SC 600 mg q3w; total 1 yr" },
+    { indication: "Breast — HER2+ metastatic", hsa: "y", dose: "IV 8 → 6 mg/kg q3w (± pertuzumab + taxane)" },
+    { indication: "Gastric — HER2+ advanced", hsa: "y", dose: "IV 8 → 6 mg/kg q3w + fluoropyrimidine/platinum" }
+  ],
+  cdl: { items: [
+    { cancer: "All HSA-registered indications", status: "MSV/MSHL", text: "for cancer treatment in line with HSA-registered indications" }
+  ] },
+  toxicities: {
+    common: ["Infusion reactions", "Fatigue", "Diarrhoea", "Rash", "Arthralgia / myalgia"],
+    serious: ["Cardiomyopathy / LVEF decline", "Serious infusion reactions", "Pulmonary toxicity", "Embryo-fetal toxicity"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Cardiac", text: "baseline + 3-monthly LVEF; withhold ≥4 weeks for significant LVEF drop, resume if recovered, discontinue if persistent." },
+    { label: "Infusion", text: "premedicate / slow the rate for reactions; no dose reduction of the antibody itself." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL) · NDF / HSA register (Herceptin) · FDA label (DailyMed). HERA, NSABP B-31, ToGA",
+  verified: "2026-07-01"
+},
+
+{
+  id: "pertuzumab",
+  name: "Pertuzumab",
+  aliases: ["Perjeta"],
+  class: "HER2 antibody",
+  subclass: "anti-HER2 dimerisation inhibitor",
+  route: ["IV"],
+  atc: "L01FD02",
+  brands: ["Perjeta"],
+  tumours: ["Breast"],
+  mechanism: "Monoclonal antibody blocking HER2 heterodimerisation (esp. HER2:HER3); complementary to trastuzumab — always given with it.",
+  boxedWarning: "Left ventricular dysfunction (decreased LVEF) and embryo-fetal toxicity. Assess LVEF before and during treatment; verify pregnancy status and advise contraception.",
+  indications: [
+    { indication: "Breast — HER2+ metastatic", hsa: "y", dose: "IV 840 mg load → 420 mg q3w, + trastuzumab + docetaxel" },
+    { indication: "Breast — HER2+ early (neoadjuvant / adjuvant)", hsa: "y", dose: "IV 840 → 420 mg q3w, + trastuzumab + chemotherapy" }
+  ],
+  cdl: { items: [
+    { cancer: "Breast — HER2+", status: "Not listed", text: "HSA-registered (Perjeta); not on the CDL (also available as fixed-dose SC Phesgo with trastuzumab)" }
+  ] },
+  toxicities: {
+    common: ["Diarrhoea", "Rash", "Alopecia (with chemo)", "Fatigue", "Nausea", "Mucositis"],
+    serious: ["LVEF decline / heart failure", "Serious infusion / hypersensitivity reactions", "Embryo-fetal toxicity"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Cardiac", text: "baseline + periodic LVEF; withhold with trastuzumab for significant decline, reassess in ~3 weeks." },
+    { label: "Diarrhoea", text: "antidiarrhoeals + fluids; common in combination — manage supportively." }
+  ] },
+  sources: "NDF / HSA register (Perjeta) · not on MOH Cancer Drug List · FDA label (DailyMed). CLEOPATRA, APHINITY, NeoSphere",
+  verified: "2026-07-01"
+},
+
+{
+  id: "bevacizumab",
+  name: "Bevacizumab",
+  aliases: ["Avastin", "Mvasi", "Zirabev"],
+  class: "Anti-VEGF antibody",
+  subclass: "anti-VEGF-A monoclonal",
+  route: ["IV"],
+  atc: "L01FG01",
+  brands: ["Avastin"],
+  tumours: ["Colorectal", "Lung", "Ovarian", "Cervical", "Renal", "Brain", "Liver"],
+  mechanism: "Monoclonal antibody binding VEGF-A — inhibits tumour angiogenesis.",
+  boxedWarning: "Gastrointestinal perforations, surgery and wound-healing complications, and serious (sometimes fatal) haemorrhage. Withhold before elective surgery; discontinue for GI perforation, fistula, or serious bleeding.",
+  indications: [
+    { indication: "Colorectal — metastatic", hsa: "y", dose: "5 mg/kg q2w or 7.5 mg/kg q3w + chemotherapy" },
+    { indication: "Non-small cell lung — non-squamous advanced", hsa: "y", dose: "15 mg/kg q3w + platinum doublet" },
+    { indication: "Ovarian / cervical — advanced", hsa: "y", dose: "15 mg/kg q3w + chemotherapy, then maintenance" },
+    { indication: "Renal cell — advanced", hsa: "y", dose: "10 mg/kg q2w + interferon-α" },
+    { indication: "Glioblastoma — recurrent", hsa: "y", dose: "10 mg/kg q2w" },
+    { indication: "Hepatocellular — unresectable", hsa: "y", dose: "15 mg/kg q3w + atezolizumab" }
+  ],
+  cdl: { items: [
+    { cancer: "All HSA-registered indications", status: "MSV/MSHL", text: "for cancer treatment in line with HSA-registered indications (subsidised biosimilars may differ)" }
+  ] },
+  toxicities: {
+    common: ["Hypertension", "Proteinuria", "Epistaxis / bleeding", "Fatigue", "Headache", "Impaired wound healing"],
+    serious: ["GI perforation / fistula", "Serious haemorrhage", "Arterial / venous thromboembolism", "Nephrotic syndrome", "Posterior reversible encephalopathy (PRES)"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Surgery", text: "withhold ≥28 days before elective surgery and until the wound is healed; do not start for ≥28 days post-op." },
+    { label: "Hypertension / proteinuria", text: "monitor BP + urine protein; withhold for uncontrolled hypertension or nephrotic syndrome." },
+    { label: "Discontinue", text: "for GI perforation, fistula, serious haemorrhage, or arterial thromboembolism." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL) · NDF / HSA register (Avastin) · FDA label (DailyMed). AVF2107, E4599, GOG-240, IMbrave150",
+  verified: "2026-07-01"
+},
+
+{
+  id: "ramucirumab",
+  name: "Ramucirumab",
+  aliases: ["Cyramza"],
+  class: "Anti-VEGFR2 antibody",
+  subclass: "anti-VEGFR2 monoclonal",
+  route: ["IV"],
+  atc: "L01FG02",
+  brands: ["Cyramza"],
+  tumours: ["Gastric", "Colorectal", "Lung", "Liver"],
+  mechanism: "Monoclonal antibody against VEGFR2 — blocks VEGF-driven angiogenesis.",
+  boxedWarning: "Serious, sometimes fatal haemorrhage; gastrointestinal perforation; and impaired wound healing. Withhold before surgery; permanently discontinue for severe bleeding or GI perforation.",
+  dosing: "8 mg/kg IV q2w (gastric, colorectal, HCC) or 10 mg/kg IV q3w (NSCLC), with chemotherapy where indicated.",
+  cdl: { items: [
+    { cancer: "Gastric / GOJ — advanced", status: "MSV/MSHL", text: "mono, or + chemotherapy, after prior fluoropyrimidine/platinum (RAINBOW, REGARD)" },
+    { cancer: "Colorectal — metastatic", status: "MSV/MSHL", text: "+ FOLFIRI, after progression on 1L therapy (RAISE)" },
+    { cancer: "Hepatocellular — advanced", status: "MSV/MSHL", text: "after prior systemic therapy, AFP ≥400 ng/mL, adequate liver function (REACH-2)" }
+  ] },
+  toxicities: {
+    common: ["Hypertension", "Fatigue", "Diarrhoea", "Proteinuria", "Epistaxis", "Headache"],
+    serious: ["Serious haemorrhage", "GI perforation", "Impaired wound healing", "Arterial thromboembolism", "PRES"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Surgery / bleeding", text: "withhold before surgery until the wound heals; discontinue for severe bleeding or GI perforation." },
+    { label: "Hypertension / proteinuria", text: "monitor BP + urine protein; withhold/reduce per grade; discontinue for nephrotic syndrome." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL ×several) · NDF / HSA register (Cyramza) · FDA label (DailyMed). RAINBOW, REGARD, RAISE, REACH-2",
+  verified: "2026-07-01"
+},
+
+{
+  id: "cetuximab",
+  name: "Cetuximab",
+  aliases: ["Erbitux"],
+  class: "EGFR antibody",
+  subclass: "anti-EGFR monoclonal (IgG1)",
+  route: ["IV"],
+  atc: "L01FE01",
+  brands: ["Erbitux"],
+  tumours: ["Colorectal", "Head & neck"],
+  mechanism: "Monoclonal antibody against EGFR — blocks ligand binding; active only in RAS wild-type colorectal cancer.",
+  boxedWarning: "Serious infusion reactions (including fatal) and cardiopulmonary arrest / sudden death. Monitor during and after infusion; premedicate with an antihistamine.",
+  indications: [
+    { indication: "Colorectal — RAS wild-type metastatic", hsa: "y", dose: "400 mg/m² load → 250 mg/m² weekly, or 500 mg/m² q2w, + chemotherapy" },
+    { indication: "Head & neck — squamous cell (locally advanced / recurrent-metastatic)", hsa: "y", dose: "400 → 250 mg/m² weekly, + radiotherapy or platinum-based chemo" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Acneiform rash (prominent)", "Paronychia", "Hypomagnesaemia", "Diarrhoea", "Fatigue", "Mucositis"],
+    serious: ["Serious infusion reactions", "Cardiopulmonary arrest (with radiotherapy in H&N)", "Severe dermatologic toxicity", "Severe hypomagnesaemia"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Rash", text: "topical/systemic antibiotics + emollients; withhold/reduce for grade ≥3 dermatologic toxicity." },
+    { label: "Electrolytes", text: "monitor magnesium (and calcium/potassium) during and for ≥8 weeks after; replace as needed." },
+    { label: "RAS testing", text: "confirm RAS wild-type before use — no benefit and possible harm in RAS-mutant disease." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register (Erbitux) · FDA label (DailyMed). CRYSTAL, EXTREME, Bonner",
+  verified: "2026-07-01"
+},
+
+{
+  id: "panitumumab",
+  name: "Panitumumab",
+  aliases: ["Vectibix"],
+  class: "EGFR antibody",
+  subclass: "anti-EGFR monoclonal (fully human IgG2)",
+  route: ["IV"],
+  atc: "L01FE02",
+  brands: ["Vectibix"],
+  tumours: ["Colorectal"],
+  mechanism: "Fully human monoclonal antibody against EGFR — active only in RAS wild-type colorectal cancer. Lower infusion-reaction risk than cetuximab (no boxed warning).",
+  indications: [
+    { indication: "Colorectal — RAS wild-type metastatic", hsa: "y", dose: "6 mg/kg IV every 2 weeks, ± chemotherapy (FOLFOX / FOLFIRI)" }
+  ],
+  cdl: { class: "SDL", wording: "For cancer treatment" },
+  toxicities: {
+    common: ["Acneiform rash (prominent)", "Paronychia", "Hypomagnesaemia", "Diarrhoea", "Fatigue", "Pruritus"],
+    serious: ["Severe dermatologic toxicity", "Severe hypomagnesaemia", "Infusion reactions", "Keratitis (rare)"]
+  },
+  doseModLabel: "Monitoring & dose modification",
+  doseReductions: { other: [
+    { label: "Rash", text: "emollients + antibiotics; withhold/reduce for grade ≥3 dermatologic toxicity." },
+    { label: "Electrolytes / RAS", text: "monitor magnesium during and ≥8 weeks after; confirm RAS wild-type before use." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, SDL) · NDF / HSA register (Vectibix) · FDA label (DailyMed). PRIME, PEAK",
+  verified: "2026-07-01"
+},
+
+{
+  id: "amivantamab",
+  name: "Amivantamab",
+  aliases: ["Rybrevant"],
+  class: "EGFR-MET bispecific antibody",
+  subclass: "bispecific monoclonal",
+  route: ["IV"],
+  atc: "L01FX18",
+  brands: ["Rybrevant"],
+  tumours: ["Lung"],
+  mechanism: "Bispecific antibody targeting EGFR and MET — for EGFR exon 20 insertion (and other EGFR-driven) NSCLC.",
+  indications: [
+    { indication: "Non-small cell lung — EGFR exon 20 insertion", hsa: "y", dose: "IV weekly ×4 (split first dose over 2 days) then every 2 weeks; weight-banded dosing" }
+  ],
+  cdl: { items: [
+    { cancer: "Non-small cell lung — EGFR exon20ins", status: "Not listed", text: "HSA-registered (Rybrevant); not on the CDL (PAPILLON, CHRYSALIS)" }
+  ] },
+  toxicities: {
+    common: ["Infusion-related reactions (prominent, first dose)", "Rash / acneiform dermatitis", "Paronychia", "Hypoalbuminaemia", "Stomatitis", "Peripheral oedema"],
+    serious: ["Infusion reactions", "Interstitial lung disease / pneumonitis", "Severe dermatologic toxicity", "Venous thromboembolism"]
+  },
+  doseModLabel: "Dose modification",
+  doseReductions: { other: [
+    { label: "Infusion reactions", text: "split the first dose over 2 days, premedicate (antihistamine, antipyretic, glucocorticoid); interrupt/slow for reactions." },
+    { label: "Skin / ILD", text: "prophylactic skin care; withhold for grade ≥3 rash; permanently discontinue for ILD/pneumonitis." }
+  ] },
+  sources: "NDF / HSA register (Rybrevant) · not on MOH Cancer Drug List · FDA label (DailyMed). PAPILLON, CHRYSALIS",
+  verified: "2026-07-01"
+},
+
+{
+  id: "rituximab",
+  name: "Rituximab",
+  aliases: ["MabThera", "Rituxan", "Truxima", "Rixathon"],
+  class: "Anti-CD20 antibody",
+  subclass: "anti-CD20 monoclonal",
+  route: ["IV", "SC"],
+  atc: "L01FA01",
+  brands: ["MabThera"],
+  tumours: ["Lymphoma"],
+  mechanism: "Monoclonal antibody against CD20 on B cells — depletes normal and malignant B cells (ADCC, CDC, apoptosis).",
+  boxedWarning: "Fatal infusion reactions; severe mucocutaneous reactions (SJS/TEN); hepatitis B virus reactivation (fulminant hepatitis); and progressive multifocal leukoencephalopathy (PML). Screen HBV before treatment; monitor.",
+  indications: [
+    { indication: "Diffuse large B-cell lymphoma (CD20+)", hsa: "y", dose: "375 mg/m² IV per cycle + CHOP (R-CHOP); SC 1400 mg after first IV dose" },
+    { indication: "Follicular lymphoma", hsa: "y", dose: "375 mg/m² IV + chemo (R-CVP/R-bendamustine), then maintenance q8-12w" },
+    { indication: "Chronic lymphocytic leukaemia", hsa: "y", dose: "375 mg/m² cycle 1 → 500 mg/m² subsequent + chemotherapy" }
+  ],
+  cdl: { items: [
+    { cancer: "Lymphoma (DLBCL, follicular) — SC", status: "MSV/MSHL", text: "R-CHOP (DLBCL), R-CVP + maintenance (follicular)" },
+    { cancer: "Other HSA-registered indications", status: "MSV/MSHL", text: "for cancer treatment in line with HSA-registered indications" }
+  ] },
+  toxicities: {
+    common: ["Infusion reactions", "Fever / chills", "Infections", "Neutropenia", "Fatigue"],
+    serious: ["Fatal infusion reactions", "HBV reactivation", "PML", "Severe mucocutaneous reactions", "Tumour lysis syndrome", "Prolonged B-cell / immunoglobulin depletion"]
+  },
+  doseModLabel: "Monitoring & supportive care",
+  doseReductions: { other: [
+    { label: "HBV", text: "screen HBsAg + anti-HBc before starting; antiviral prophylaxis + monitoring in carriers; discontinue for reactivation." },
+    { label: "Infusion / TLS", text: "premedicate; slow first infusion; TLS prophylaxis (hydration, allopurinol/rasburicase) in bulky disease." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL) · NDF / HSA register (MabThera) · FDA label (DailyMed). GELA LNH-98.5, PRIMA",
+  verified: "2026-07-01"
+},
+
+{
+  id: "obinutuzumab",
+  name: "Obinutuzumab",
+  aliases: ["Gazyva", "Gazyvaro"],
+  class: "Anti-CD20 antibody",
+  subclass: "glycoengineered anti-CD20 (type II)",
+  route: ["IV"],
+  atc: "L01FA03",
+  brands: ["Gazyva"],
+  tumours: ["Lymphoma"],
+  mechanism: "Glycoengineered type II anti-CD20 monoclonal — enhanced ADCC and direct cell death vs rituximab.",
+  boxedWarning: "Hepatitis B virus reactivation (fulminant hepatitis, sometimes fatal) and progressive multifocal leukoencephalopathy (PML). Screen HBV before treatment.",
+  dosing: "1000 mg IV per dose, with loading doses on days 1, 8, 15 of cycle 1, then day 1 of subsequent cycles + maintenance (with chemotherapy).",
+  cdl: { items: [
+    { cancer: "Follicular lymphoma — rituximab-refractory (+ bendamustine)", status: "MAF", text: "no response to / progression within 6 months of a rituximab regimen; obinutuzumab-naive; stop maintenance at 2 yr (GADOLIN)" },
+    { cancer: "Follicular lymphoma — 1L (+ chemotherapy)", status: "MSV/MSHL", text: "previously untreated stage II-bulky/III/IV; maintenance up to 2 yr (GALLIUM)" }
+  ] },
+  toxicities: {
+    common: ["Infusion reactions (prominent, first dose)", "Neutropenia", "Thrombocytopenia", "Infections", "Cough"],
+    serious: ["HBV reactivation", "PML", "Severe infusion reactions", "Tumour lysis syndrome", "Prolonged cytopenias / immunosuppression"]
+  },
+  doseModLabel: "Monitoring & supportive care",
+  doseReductions: { other: [
+    { label: "HBV", text: "screen HBsAg + anti-HBc before starting; antiviral prophylaxis + monitoring in carriers." },
+    { label: "Infusion / TLS", text: "premedicate (steroid, antihistamine, antipyretic); split first dose over days 1-2; TLS prophylaxis in high tumour burden." }
+  ] },
+  sources: "MOH Cancer Drug List (1 Jun 2026, MAF + MSV/MSHL) · NDF / HSA register (Gazyva) · FDA label (DailyMed). GADOLIN, GALLIUM",
+  verified: "2026-07-01"
+},
+
+{
+  id: "zolbetuximab",
+  name: "Zolbetuximab",
+  aliases: ["Vyloy"],
+  class: "Anti-claudin-18.2 antibody",
+  subclass: "anti-CLDN18.2 monoclonal",
+  route: ["IV"],
+  atc: "L01FX32",
+  brands: ["Vyloy"],
+  tumours: ["Gastric"],
+  mechanism: "Monoclonal antibody against claudin-18.2 (CLDN18.2) — mediates ADCC/CDC against CLDN18.2-expressing gastric tumours.",
+  dosing: "Loading 800 mg/m² IV, then 600 mg/m² q3w (or 400 mg/m² q2w), with fluoropyrimidine + platinum chemotherapy.",
+  cdl: { items: [
+    { cancer: "Gastric / GOJ — CLDN18.2+, HER2- advanced", status: "Not listed", text: "+ fluoropyrimidine/platinum chemotherapy, 1L (SPOTLIGHT, GLOW); HSA-registered (Vyloy), not on the CDL" }
+  ] },
+  toxicities: {
+    common: ["Nausea / vomiting (prominent — infusion-related)", "Decreased appetite", "Diarrhoea", "Abdominal pain", "Fatigue"],
+    serious: ["Severe nausea/vomiting", "Infusion / hypersensitivity reactions"]
+  },
+  doseModLabel: "Dose modification",
+  doseReductions: { other: [
+    { label: "Nausea / vomiting", text: "antiemetic prophylaxis; slow or interrupt the infusion for symptoms; resume at a reduced rate." },
+    { label: "Biomarker", text: "confirm CLDN18.2 positivity (IHC) and HER2-negative status before use." }
+  ] },
+  sources: "NDF / HSA register (Vyloy) · not on MOH Cancer Drug List · FDA label (DailyMed). SPOTLIGHT, GLOW",
+  verified: "2026-07-01"
 }
 
 ];
