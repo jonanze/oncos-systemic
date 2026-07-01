@@ -3171,6 +3171,35 @@ window.DRUGS = [
   ] },
   sources: "MOH Cancer Drug List (1 Jun 2026, MSV/MSHL) · HSA register (Pluvicto) · FDA label (DailyMed). VISION",
   verified: "2026-07-01"
+},
+
+{
+  id: "elacestrant",
+  name: "Elacestrant",
+  aliases: ["Orserdu"],
+  class: "SERD",
+  subclass: "oral selective oestrogen-receptor degrader",
+  route: ["PO"],
+  atc: "L02BA04",
+  brands: ["Orserdu"],
+  tumours: ["Breast"],
+  mechanism: "Oral selective oestrogen-receptor degrader — binds and degrades ER, with activity retained in ESR1-mutant tumours (a common driver of endocrine resistance).",
+  dosing: "345 mg PO once daily with food.",
+  cdl: { items: [
+    { cancer: "Breast — ER+/HER2- advanced (ESR1-mut)", status: "Not listed", text: "after progression on ≥1 line of endocrine therapy incl. a CDK4/6 inhibitor (EMERALD); HSA-registered (Orserdu, 2024), not on the CDL" }
+  ] },
+  toxicities: {
+    common: ["Nausea", "Fatigue", "Hot flushes", "Arthralgia", "Diarrhoea / vomiting", "Raised cholesterol / triglycerides", "Dyspepsia"],
+    serious: ["Dyslipidaemia", "Hepatic impairment caution"]
+  },
+  doseModLabel: "Dose modification",
+  doseReductions: { other: [
+    { label: "Toxicity", text: "withhold for grade ≥2 toxicity; resume reduced to 258 mg once daily if needed." },
+    { label: "Hepatic impairment", text: "moderate impairment (Child-Pugh B): reduce to 258 mg once daily; avoid in severe impairment." },
+    { label: "Lipids", text: "monitor cholesterol / triglycerides periodically." }
+  ] },
+  sources: "HSA register (Orserdu, SIN17096P; approved 2024-09-25, A. Menarini Singapore) · not on MOH Cancer Drug List · FDA label (DailyMed). EMERALD",
+  verified: "2026-07-01"
 }
 
 ];
